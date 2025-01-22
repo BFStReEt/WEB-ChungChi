@@ -102,4 +102,9 @@ class RoleController extends Controller
             ], 422);
         }
     }
+
+    public function delete(Request $request, string $id){
+        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
+
+    }
 }
