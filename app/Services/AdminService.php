@@ -36,12 +36,12 @@ class AdminService implements AdminServiceInterface
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'phone' => 'nullable|string',
             'status' => 'nullable|integer',
-            'role_id' => 'nullable|array',
+            'role_id' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'Dữ liệu không hợp lệ',
+                'status' => 'false',
                 'errors' => $validator->errors()
             ], 422);
         }

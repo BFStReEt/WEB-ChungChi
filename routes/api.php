@@ -16,10 +16,12 @@ Route::prefix('admin')->group(function () {
 
         //Admin
         Route::post('/manage', [AdminController::class, 'manage']);
+        Route::post('/register', [AdminController::class, 'create']);
         Route::post('/delete/{id}', [AdminController::class, 'delete']);
         Route::post('/profile', [AdminController::class, 'update']);
         Route::post('/logout', [AdminController::class, 'logout']);
         Route::get('/information', [AdminController::class, 'getInformation']);
+
 
         //Role
         Route::post('/roles', [RoleController::class, 'create']);

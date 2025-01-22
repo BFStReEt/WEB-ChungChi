@@ -60,7 +60,13 @@ class RoleController extends Controller
 
             return response()->json([
                 'status' => true,
-                'role' => $roles,
+                'roles' => $roles->map(function ($role) {
+                    return [
+                        'id' => $role->id,
+                        'title' => $role->title,
+                        'name' => $role->name,
+                    ];
+                }),
             ]);
 
         }catch (\Exception $e) {
@@ -133,12 +139,12 @@ class RoleController extends Controller
                 'message' => 'Role not found'
             ], 404);
         }
+        dd($request->all());
 
         $validator = Validator::make($request->all(), [
-            'title' => 'string|required',
-            'name' => 'string|required',
+            'title' => 'string|required|max:255',
+            'name' => 'string|required|max:255',
         ]);
-
         if ($validator->fails()) {
             return response()->json([
                 'status' => false,
@@ -161,4 +167,6 @@ class RoleController extends Controller
             'message' => "success"
         ]);
     }
+
+
 }
