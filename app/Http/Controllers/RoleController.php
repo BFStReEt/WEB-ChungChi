@@ -106,5 +106,23 @@ class RoleController extends Controller
     public function delete(Request $request, string $id){
         abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
 
+        $roles = Role::find($id);
+
+        if (!$roles) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Role không tồn tại'
+            ], 404);
+        }
+        $roles->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'success'
+        ]);
+    }
+
+    public function update(Request $request, string $id){
+        
     }
 }
