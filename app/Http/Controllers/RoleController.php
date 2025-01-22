@@ -71,27 +71,35 @@ class RoleController extends Controller
     }
 
     public function getRoles(Request $request)
-{
-    try {
-        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
+    {
+        try {
+            abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
 
-        $search = $request->input('search');
-        dd($search);
-        $roles = Role::when($search, function ($query, $search) {
-            return $query->where('title', 'like', '%' . $search . '%')
-                         ->orWhere('name', 'like', '%' . $search . '%');
-        })->get();
+            $search = $request->input('data');
+            $roles = Role::when($search, function ($query, $search) {
+                return $query->where('title', 'like', '%' . $search . '%')
+                            ->orWhere('name', 'like', '%' . $search . '%');
+            })->get();
 
-        return response()->json([
-            'status' => true,
-            'roles' => $roles,
-        ]);
+            $count = $roles->count();
 
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => false,
-            'message' => $e->getMessage()
-        ], 422);
+            return response()->json([
+                'status' => true,
+                'count' => $count,
+                'roles' => $roles->map(function ($role) {
+                    return [
+                        'id' => $role->id,
+                        'title' => $role->title,
+                        'name' => $role->name,
+                    ];
+                }),
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 422);
+        }
     }
-}
 }

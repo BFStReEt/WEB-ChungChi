@@ -24,7 +24,8 @@ Route::prefix('admin')->group(function () {
         //Role
         Route::post('/roles', [RoleController::class, 'create']);
         Route::get('/roles', [RoleController::class, 'getAllRole']);
-        Route::get('/roles/find', [RoleController::class, 'getRoles']);
+        Route::post('/roles/search', [RoleController::class, 'getRoles']);
+        Route::put('/roles/edit?{}',[RoleController::class, 'edit']);
     });
 });
 
