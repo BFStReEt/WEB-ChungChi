@@ -58,8 +58,7 @@ class AdminService implements AdminServiceInterface
         $userAdmin->username = $request->username;
         $userAdmin->password = Hash::make($request->password);
         $userAdmin->email = $request->email;
-        $userAdmin->display_name = $request->display_name;
-
+        $userAdmin->display_name = !empty($request->display_name) ? $request->display_name : 'Khách';
         $filePath = '';
         if (!empty($request->avatar) && is_array($request->avatar)) {
             $avatarFile = $request->avatar[0] ?? null;
