@@ -24,7 +24,7 @@ class AdminService implements AdminServiceInterface
         $this->permissionPolicy = $permissionPolicy;
     }
 
-    public function store($request)
+    public function create($request)
     {
         abort_if(!$this->permissionPolicy->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.add'), 403, "No permission");
 

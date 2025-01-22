@@ -82,24 +82,31 @@ class RoleController extends Controller
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
 
-            $search = $request->input('data');
-            $roles = Role::when($search, function ($query, $search) {
-                return $query->where('title', 'like', '%' . $search . '%')
-                            ->orWhere('name', 'like', '%' . $search . '%');
-            })->get();
+            $search = $request->input('data'); 
+
+            $query = Role::query();
+
+            if ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('name', 'like', '%' . $search . '%');
+            }
+
+            $roles = $query->select('id', 'title', 'name')->get();
 
             $count = $roles->count();
 
+            $perPage = $request->input('per_page', 5); 
+            $roles = $query->select('id', 'title', 'name')->paginate($perPage);
+
             return response()->json([
                 'status' => true,
-                'count' => $count,
-                'roles' => $roles->map(function ($role) {
-                    return [
-                        'id' => $role->id,
-                        'title' => $role->title,
-                        'name' => $role->name,
-                    ];
-                }),
+                'count' => $roles->total(), 
+                'roles' => $roles->items(), 
+                'pagination' => [
+                    'current_page' => $roles->currentPage(),
+                    'per_page' => $roles->perPage(),
+                    'total_pages' => $roles->lastPage(),
+                ],
             ]);
 
         } catch (\Exception $e) {

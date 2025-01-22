@@ -18,7 +18,7 @@ class AdminController extends Controller
         $this->adminService = $adminService;
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
         try {
             // $now = now()->timestamp;
@@ -29,8 +29,8 @@ class AdminController extends Controller
             //     'action' => 'add a admin',
             //     'cat' => 'admin',
             // ]);
-            $store = $this->adminService->store($request);
-            return $store;
+            $create = $this->adminService->create($request);
+            return $create;
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
