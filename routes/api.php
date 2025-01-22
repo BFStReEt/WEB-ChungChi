@@ -23,7 +23,8 @@ Route::prefix('admin')->group(function () {
 
         //Role
         Route::post('/roles', [RoleController::class, 'create']);
-        Route::get('/roles/{id}', [RoleController::class, 'getRole']);
+        Route::get('/roles', [RoleController::class, 'getAllRole']);
+        Route::get('/roles/find', [RoleController::class, 'getRoles']);
     });
 });
 

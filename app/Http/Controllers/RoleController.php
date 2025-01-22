@@ -52,13 +52,15 @@ class RoleController extends Controller
         }
     }
 
-    public function getRole(Request $request,string $id){
+    public function getAllRole(Request $request){
         try{
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
+            $roles = Role::all();
 
-            $role = Role::find($id);
-            $permission = DB::table('role_permission');
-
+            return response()->json([
+                'status' => true,
+                'role' => $roles,
+            ]);
 
         }catch (\Exception $e) {
             return response()->json([
@@ -67,4 +69,29 @@ class RoleController extends Controller
             ], 422);
         }
     }
+
+    public function getRoles(Request $request)
+{
+    try {
+        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
+
+        $search = $request->input('search');
+        dd($search);
+        $roles = Role::when($search, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                         ->orWhere('name', 'like', '%' . $search . '%');
+        })->get();
+
+        return response()->json([
+            'status' => true,
+            'roles' => $roles,
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => false,
+            'message' => $e->getMessage()
+        ], 422);
+    }
+}
 }
