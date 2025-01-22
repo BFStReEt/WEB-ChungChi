@@ -26,7 +26,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/roles', [RoleController::class, 'getAllRole']);
         Route::post('/roles/search', [RoleController::class, 'getRoles']);
         Route::delete('/roles/{id}',[RoleController::class, 'delete']);
-        Route::put('/roles/{id}',[RoleController::class, 'update']);
+        Route::post('/roles/{id}',[RoleController::class, 'update']);
     });
 });
 

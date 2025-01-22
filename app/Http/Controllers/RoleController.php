@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Services\PermissionService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class RoleController extends Controller
 {
@@ -136,6 +137,28 @@ class RoleController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'string|required',
             'name' => 'string|required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => $validator->errors()           
+            ], 422);
+        }
+
+        if ($request->has('title')) {
+            $roles->title = $request->title;
+        }
+
+        if ($request->has('name')) {
+            $roles->name = $request->name;
+        }
+
+        $roles->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => "success"
         ]);
     }
 }
