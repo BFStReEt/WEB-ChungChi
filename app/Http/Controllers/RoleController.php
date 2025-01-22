@@ -123,6 +123,19 @@ class RoleController extends Controller
     }
 
     public function update(Request $request, string $id){
-        
+        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
+
+        $roles = Role::find($id);
+        if (!$roles) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Role not found'
+            ], 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'string|required',
+            'name' => 'string|required',
+        ]);
     }
 }

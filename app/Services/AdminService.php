@@ -328,7 +328,7 @@ class AdminService implements AdminServiceInterface
         if (!$admin) {
             return response()->json([
                 'status' => false,
-                'message' => 'Admin không tồn tại'
+                'message' => 'Admin not found'
             ], 404);
         }
 
@@ -336,7 +336,7 @@ class AdminService implements AdminServiceInterface
 
         return response()->json([
             'status' => true,
-            'message' => 'Xóa thành công'
+            'message' => 'Success'
         ]);
     }
 
