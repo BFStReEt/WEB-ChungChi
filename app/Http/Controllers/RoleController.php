@@ -24,11 +24,11 @@ class RoleController extends Controller
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.add'), 403, "No permission");
 
-            $ExistIDngRole = Role::where('name', $request->input('name'))
+            $ExistRole = Role::where('name', $request->input('name'))
             ->orWhere('title', $request->input('title'))
             ->first();
 
-        if ($ExistIDngRole) {
+        if ($ExistRole) {
             return response()->json([
                 'status' => false,
                 'message' => 'Role or title exists'
