@@ -24,14 +24,14 @@ class RoleController extends Controller
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.add'), 403, "No permission");
 
-            $existingRole = Role::where('name', $request->input('name'))
+            $ExistIDngRole = Role::where('name', $request->input('name'))
             ->orWhere('title', $request->input('title'))
             ->first();
 
-        if ($existingRole) {
+        if ($ExistIDngRole) {
             return response()->json([
                 'status' => false,
-                'message' => 'Role or title already exists'
+                'message' => 'Role or title exists'
             ], 422);
         }
             $role = Role::create([
@@ -43,7 +43,7 @@ class RoleController extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => 'Create Role success'
+                'message' => 'Success'
             ]);
         } catch (\Exception $e) {
             return response()->json([
@@ -117,74 +117,64 @@ class RoleController extends Controller
         }
     }
 
-    public function destroy($id)
+    public function delete(Request $request, string $id){
+        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
+
+        $roles = Role::find($id);
+
+        if (!$roles) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Role không tồn tại'
+            ], 404);
+        }
+        $roles->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'success'
+        ]);
+    }
+
+    public function deleteRoles(Request $request)
     {
         try {
-            // Kiểm tra quyền truy cập
-            abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.delete'), 403, "No permission");
+            abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
 
-            // Tìm và xóa bản ghi
-            $role = Role::findOrFail($id);
-            $role->delete();
+            $id = $request->input('id'); 
+
+            if (empty($id)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'No id deletion.'
+                ], 400);
+            }
+
+            $ExistID = Role::whereIn('id', $id)->pluck('id')->toArray();
+
+            $nonExistID = array_diff($id, $ExistID);
+
+            if (!empty($nonExistID)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'id not exist: ' . implode(', ', $nonExistID),
+                ], 404);
+            }
+
+            Role::destroy($ExistID);
 
             return response()->json([
                 'status' => true,
-                'message' => 'Role deleted successfully.',
+                'message' => 'Success',
             ]);
 
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
-                'message' => $e->getMesssage()
+                'message' => $e->getMessage()
             ], 500);
         }
     }
-
-    public function destroyRoles(Request $request)
-{
-    try {
-        // Kiểm tra quyền truy cập
-        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.delete'), 403, "No permission");
-
-        // Lấy mảng ID từ request
-        $ids = $request->input('ids');
-
-        // Kiểm tra nếu mảng ID không tồn tại hoặc rỗng
-        if (empty($ids)) {
-            return response()->json([
-                'status' => false,
-                'message' => 'No IDs provided for deletion.'
-            ], 400);
-        }
-
-        // Lấy các ID tồn tại trong CSDL
-        $existingIds = Role::whereIn('id', $ids)->pluck('id')->toArray();
-
-        // Kiểm tra xem có ID nào không tồn tại không
-        $nonExistingIds = array_diff($ids, $existingIds);
-
-        if (!empty($nonExistingIds)) {
-            return response()->json([
-                'status' => false,
-                'message' => 'The following IDs do not exist: ' . implode(', ', $nonExistingIds),
-            ], 404);
-        }
-
-        // Xóa các bản ghi dựa trên mảng ID hợp lệ
-        Role::destroy($existingIds);
-
-        return response()->json([
-            'status' => true,
-            'message' => 'Roles deleted successfully.',
-        ]);
-
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => false,
-            'message' => $e->getMessage()
-        ], 500);
-    }
-}
 
     public function update(Request $request, string $id){
         abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");

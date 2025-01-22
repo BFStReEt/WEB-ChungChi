@@ -26,9 +26,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/roles', [RoleController::class, 'getAllRole']);
         Route::get('/roles', [RoleController::class, 'getRoles']);
-
-        Route::delete('/roles/{id}',[RoleController::class, 'destroy']);
-        Route::delete('/roles',[RoleController::class, 'destroyRoles']);
+        
+        Route::delete('/roles/delete',[RoleController::class, 'deleteRoles']);
+        Route::delete('/roles/{id}',[RoleController::class, 'delete']);
 
         Route::post('/roles/{id}',[RoleController::class, 'update']);
     });
