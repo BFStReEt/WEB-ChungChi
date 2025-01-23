@@ -4,8 +4,123 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df6384c048682213dc41a796775c21ae",
+    "content-hash": "0883d10e453e06eeab616a1e9f871c34",
     "packages": [
+        {
+            "name": "alireaza/laravel-form-data",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alireaza/laravel-form-data.git",
+                "reference": "bfc0806487cc6d71e9e67c79fb55551b12366900"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alireaza/laravel-form-data/zipball/bfc0806487cc6d71e9e67c79fb55551b12366900",
+                "reference": "bfc0806487cc6d71e9e67c79fb55551b12366900",
+                "shasum": ""
+            },
+            "require": {
+                "alireaza/php-form-data": "1.1.0",
+                "laravel/framework": "^9.0 || ^10.0 || ^11.0",
+                "php": "^8.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AliReaza\\Laravel\\Request\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Ali Ghorbani Delijani",
+                    "email": "alireazamagh@gmail.com",
+                    "homepage": "https://www.alireaza.com"
+                }
+            ],
+            "description": "This is Form Data request handler for Laravel.",
+            "homepage": "https://gitlab.com/alireaza/laravel-form-data",
+            "keywords": [
+                "alireaza",
+                "data",
+                "form",
+                "form-data",
+                "request"
+            ],
+            "support": {
+                "issues": "https://github.com/alireaza/laravel-form-data/issues",
+                "source": "https://github.com/alireaza/laravel-form-data/tree/v1.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.linkedin.com/in/alireaza",
+                    "type": "LinkedIn"
+                }
+            ],
+            "time": "2024-08-14T03:55:24+00:00"
+        },
+        {
+            "name": "alireaza/php-form-data",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alireaza/php-form-data.git",
+                "reference": "2c7bba683b4e6d18ddbdb16988cc261bbfb5c6af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alireaza/php-form-data/zipball/2c7bba683b4e6d18ddbdb16988cc261bbfb5c6af",
+                "reference": "2c7bba683b4e6d18ddbdb16988cc261bbfb5c6af",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.16"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AliReaza\\Component\\HttpFoundation\\Request\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Ali Ghorbani Delijani",
+                    "email": "alireazamagh@gmail.com",
+                    "homepage": "https://www.alireaza.com"
+                }
+            ],
+            "description": "This is Form Data request handler for all methods.",
+            "homepage": "https://gitlab.com/alireaza/php-form-data",
+            "keywords": [
+                "alireaza",
+                "data",
+                "form",
+                "form-data",
+                "request"
+            ],
+            "support": {
+                "issues": "https://github.com/alireaza/php-form-data/issues",
+                "source": "https://github.com/alireaza/php-form-data/tree/v1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.linkedin.com/in/alireaza",
+                    "type": "LinkedIn"
+                }
+            ],
+            "time": "2024-08-14T03:52:12+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",

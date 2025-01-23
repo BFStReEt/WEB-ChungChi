@@ -12,7 +12,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
 
     //Route::middleware('admin.auth')->group(function () {
-        
+
         //Admin
         Route::post('/manage', [AdminController::class, 'manage']);
         Route::post('/create', [AdminController::class, 'create']);
@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/roles/{id}',[RoleController::class, 'delete']);
 
         Route::get('/roles/{id}/edit', [RoleController::class, 'edit']);
-        Route::post('/roles/{id}',[RoleController::class, 'update']);
+        Route::put('/roles/{id}',[RoleController::class, 'update']);
     });
 //});
 

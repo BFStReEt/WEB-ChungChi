@@ -161,7 +161,6 @@ class RoleController extends Controller
     }
 
     public function update(Request $request, string $id){
-      
         abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
 
         $roles = Role::find($id);
@@ -172,7 +171,7 @@ class RoleController extends Controller
             ], 404);
         }
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->except('id'), [
             'title' => 'string|required|max:255',
             'name' => 'string|required|max:255',
         ]);
