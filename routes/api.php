@@ -26,7 +26,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/roles', [RoleController::class, 'getAllRole']);
         Route::get('/roles', [RoleController::class, 'getRoles']);
-        
+
         Route::delete('/roles/delete',[RoleController::class, 'deleteRoles']);
         Route::delete('/roles/{id}',[RoleController::class, 'delete']);
 

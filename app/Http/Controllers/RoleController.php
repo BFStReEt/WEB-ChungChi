@@ -81,34 +81,24 @@ class RoleController extends Controller
     {
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
-
-            $search = $request->input('data'); 
-
+    
+            $search = $request->input('data');
+    
             $query = Role::query();
-
+    
             if ($search) {
                 $query->where('title', 'like', '%' . $search . '%')
-                    ->orWhere('name', 'like', '%' . $search . '%');
+                      ->orWhere('name', 'like', '%' . $search . '%');
             }
-
+    
             $roles = $query->select('id', 'title', 'name')->get();
-
-            $count = $roles->count();
-
-            $perPage = $request->input('per_page', 5); 
-            $roles = $query->select('id', 'title', 'name')->paginate($perPage);
-
+    
             return response()->json([
                 'status' => true,
-                'count' => $roles->total(), 
-                'roles' => $roles->items(), 
-                'pagination' => [
-                    'current_page' => $roles->currentPage(),
-                    'per_page' => $roles->perPage(),
-                    'total_pages' => $roles->lastPage(),
-                ],
+                'count' => $roles->count(), 
+                'roles' => $roles, 
             ]);
-
+    
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
@@ -177,6 +167,7 @@ class RoleController extends Controller
     }
 
     public function update(Request $request, string $id){
+      
         abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
 
         $roles = Role::find($id);
