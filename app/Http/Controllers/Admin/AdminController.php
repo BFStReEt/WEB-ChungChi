@@ -87,6 +87,28 @@ class AdminController extends Controller
         }
     }
 
+    public function information()
+    {
+        try {
+            // $now = date('d-m-Y H:i:s');
+            // $stringTime = strtotime($now);
+            // DB::table('adminlogs')->insert([
+            //     'admin_id' => Auth::guard('admin')->user()->id,
+            //     'time' =>  $stringTime,
+            //     'ip' => $request ? $request->ip() : null,
+            //     'action' => 'get Information a admin',
+            //     'cat' => 'admin',
+            // ]);
+            $information = $this->adminService->information();
+            return $information;
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 422);
+        }
+    }
+
     public function update(Request $request)
     {
         try {

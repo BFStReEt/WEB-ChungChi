@@ -20,6 +20,7 @@ use App\Http\Controllers\PermissionController;
         Route::post('/create', [AdminController::class, 'create']);
         Route::delete('/{id}', [AdminController::class, 'delete']);
         Route::post('/profile', [AdminController::class, 'update']);
+        Route::get('/profile/information', [AdminController::class, 'information']);
         Route::get('/{id}', [AdminController::class, 'edit']);
 
         //Role

@@ -15,16 +15,6 @@ use Gate;
 
 class AdminService implements AdminServiceInterface
 {
-    protected $user;
-    protected $permissionPolicy;
-
-    public function __construct(AdminPolicy $permissionPolicy)
-    {
-        $this->user = auth('admin')->user();
-
-        $this->permissionPolicy = $permissionPolicy;
-    }
-
     public function create($request)
     {
         abort_if(!$this->permissionPolicy->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.add'), 403, "No permission");
@@ -230,6 +220,22 @@ class AdminService implements AdminServiceInterface
                 'mess' => 'No permission',
             ]);
         }
+    }
+
+    public function information(){
+        $id = Auth::guard('admin')->user()->id;
+        $user = Admin::where('id',$id)->first();
+        return response()->json([
+            'status'=>true,
+            'admin_detail' => [
+                'username' => $user->username,
+                'email' => $user->email,
+                'display_name' => $user->display_name,
+                'avatar' => $user->avatar,
+                'phone' => $user->phone,
+            ],
+        ]);
+
     }
 
     public function update($request)
