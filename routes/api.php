@@ -6,12 +6,14 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
 
 //Admin
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+    Route::post('/logout', [AdminController::class, 'logout']);
 
-    //Route::middleware('admin.auth')->group(function () {
+    Route::middleware('admin.auth')->group(function () {
 
         //Admin
         Route::post('/manage', [AdminController::class, 'manage']);
@@ -25,8 +27,11 @@ Route::prefix('admin')->group(function () {
         //Role
         Route::resource('roles', RoleController::class);
         Route::delete('/roles/delete/multiple', [RoleController::class, 'deleteRoles']);
+
+        //Permission
+        Route::resource('permission',PermissionController::class);
     });
-//});
+});
 
 //Category
 Route::get('/categories/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);

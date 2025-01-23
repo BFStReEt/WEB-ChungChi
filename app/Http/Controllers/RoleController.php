@@ -125,7 +125,7 @@ class RoleController extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => 'Success',
+                'message' => 'success',
             ]);
 
         } catch (\Exception $e) {
