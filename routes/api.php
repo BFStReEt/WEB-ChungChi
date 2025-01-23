@@ -11,7 +11,8 @@ use App\Http\Controllers\RoleController;
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
 
-    Route::middleware('admin.auth')->group(function () {
+    //Route::middleware('admin.auth')->group(function () {
+        
         //Admin
         Route::post('/manage', [AdminController::class, 'manage']);
         Route::post('/create', [AdminController::class, 'create']);
@@ -24,7 +25,6 @@ Route::prefix('admin')->group(function () {
         //Role
         Route::post('/roles', [RoleController::class, 'create']);
 
-        Route::get('/roles', [RoleController::class, 'getAllRole']);
         Route::get('/roles', [RoleController::class, 'getRoles']);
 
         Route::delete('/roles/delete',[RoleController::class, 'deleteRoles']);
@@ -33,7 +33,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/roles/{id}/edit', [RoleController::class, 'edit']);
         Route::post('/roles/{id}',[RoleController::class, 'update']);
     });
-});
+//});
 
 //Category
 Route::get('/categories/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
