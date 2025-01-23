@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/roles/delete',[RoleController::class, 'deleteRoles']);
         Route::delete('/roles/{id}',[RoleController::class, 'delete']);
 
+        Route::get('/roles/{id}/edit', [RoleController::class, 'edit']);
         Route::post('/roles/{id}',[RoleController::class, 'update']);
     });
 });

@@ -166,6 +166,26 @@ class RoleController extends Controller
         }
     }
 
+    public function edit(string $id)
+    {
+        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
+
+        $role = Role::find($id);
+        if (!$role) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Role not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => true,
+            'id' => $role->id,
+            'name' => $role->name,
+            'title' => $role->title,
+        ]);
+    }
+
     public function update(Request $request, string $id){
       
         abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
