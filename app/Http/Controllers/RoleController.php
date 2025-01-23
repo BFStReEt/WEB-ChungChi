@@ -19,7 +19,7 @@ class RoleController extends Controller
         $this->permissionService = $permissionService;
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.add'), 403, "No permission");
@@ -53,7 +53,7 @@ class RoleController extends Controller
         }
     }
 
-    public function getRoles(Request $request)
+    public function index(Request $request)
     {
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
@@ -83,7 +83,7 @@ class RoleController extends Controller
         }
     }
 
-    public function delete(Request $request, string $id){
+    public function destroy(Request $request, string $id){
         abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
 
         $roles = Role::find($id);
@@ -107,27 +107,21 @@ class RoleController extends Controller
         try {
             abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
 
-            $id = $request->input('id'); 
+            $validator = Validator::make($request->all(), [
+                'id' => 'required|array', 
+                'id.*' => 'required|integer|exists:roles,id', 
+            ]);
 
-            if (empty($id)) {
+            if ($validator->fails()) {
                 return response()->json([
                     'status' => false,
-                    'message' => 'No id deletion.'
-                ], 400);
+                    'message' => $validator->errors()
+                ], 422);
             }
 
-            $ExistID = Role::whereIn('id', $id)->pluck('id')->toArray();
+            $ids = $request->input('id');
 
-            $nonExistID = array_diff($id, $ExistID);
-
-            if (!empty($nonExistID)) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'id not exist: ' . implode(', ', $nonExistID),
-                ], 404);
-            }
-
-            Role::destroy($ExistID);
+            Role::destroy($ids);
 
             return response()->json([
                 'status' => true,

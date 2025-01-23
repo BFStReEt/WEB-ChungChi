@@ -23,15 +23,8 @@ Route::prefix('admin')->group(function () {
 
 
         //Role
-        Route::post('/roles', [RoleController::class, 'create']);
-
-        Route::get('/roles', [RoleController::class, 'getRoles']);
-
-        Route::delete('/roles/delete',[RoleController::class, 'deleteRoles']);
-        Route::delete('/roles/{id}',[RoleController::class, 'delete']);
-
-        Route::get('/roles/{id}/edit', [RoleController::class, 'edit']);
-        Route::put('/roles/{id}',[RoleController::class, 'update']);
+        Route::resource('roles', RoleController::class);
+        Route::delete('/roles/delete/multiple', [RoleController::class, 'deleteRoles']);
     });
 //});
 
