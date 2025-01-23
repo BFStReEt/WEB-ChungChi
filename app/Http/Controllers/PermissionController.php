@@ -25,7 +25,6 @@ class PermissionController extends Controller
     
             return response()->json([
                 'status' => true,
-                'count' => $roles->count(), 
                 'roles' => $roles, 
             ]);
     

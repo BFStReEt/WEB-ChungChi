@@ -11,6 +11,7 @@ use App\Policies\AdminPolicy;
 use Laravel\Passport\TokenRepository;
 use Laravel\Passport\RefreshTokenRepository;
 use Illuminate\Support\Facades\DB;
+use Gate;
 
 class AdminService implements AdminServiceInterface
 {
@@ -209,27 +210,26 @@ class AdminService implements AdminServiceInterface
         ], 401);
     }
 
-    public function getInformation($request)
+    public function edit($id)
     {
-        $user = auth('admin')->user();
-
-        if (!$user) {
+        if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.edit')){
+            $user = Admin::with('roles')->where('id',$id)->first();
             return response()->json([
-                'status' => false,
-                'message' => 'Unauthorized'
-            ], 404);
+                'status' => true,
+                'admin_detail' => [
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'display_name' => $user->display_name,
+                    'avatar' => $user->avatar,
+                    'phone' => $user->phone,
+                ],
+            ]);
+        }else {
+            return response()->json([
+                'status'=>false,
+                'mess' => 'No permission',
+            ]);
         }
-
-        return response()->json([
-            'status' => true,
-            'admin_detail' => [
-                'username' => $user->username,
-                'email' => $user->email,
-                'display_name' => $user->display_name,
-                'avatar' => $user->avatar,
-                'phone' => $user->phone,
-            ],
-        ]);
     }
 
     public function update($request)

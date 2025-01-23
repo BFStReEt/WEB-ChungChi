@@ -65,7 +65,7 @@ class AdminController extends Controller
         }
     }
 
-    public function getInformation(Request $request)
+    public function edit($id)
     {
         try {
             // $now = date('d-m-Y H:i:s');
@@ -77,8 +77,8 @@ class AdminController extends Controller
             //     'action' => 'get Information a admin',
             //     'cat' => 'admin',
             // ]);
-            $getInformation = $this->adminService->getInformation($request);
-            return $getInformation;
+            $edit = $this->adminService->edit($id);
+            return $edit;
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,

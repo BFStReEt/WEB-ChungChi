@@ -9,20 +9,18 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 
 //Admin
-Route::prefix('admin')->group(function () {
-    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
-    Route::post('/logout', [AdminController::class, 'logout']);
+    Route::match(['get','post'],'admin/login',[AdminController::class,'login'])->name('admin-login');
+    Route::post('/admin/logout',[App\Http\Controllers\Admin\AdminController::class,'logout']);
 
-    Route::middleware('admin.auth')->group(function () {
+    //Admin-access-login
+    Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
         //Admin
         Route::post('/manage', [AdminController::class, 'manage']);
         Route::post('/create', [AdminController::class, 'create']);
         Route::delete('/{id}', [AdminController::class, 'delete']);
         Route::post('/profile', [AdminController::class, 'update']);
-        Route::post('/logout', [AdminController::class, 'logout']);
-        Route::get('/information', [AdminController::class, 'getInformation']);
-
+        Route::get('/{id}', [AdminController::class, 'edit']);
 
         //Role
         Route::resource('roles', RoleController::class);
@@ -31,7 +29,7 @@ Route::prefix('admin')->group(function () {
         //Permission
         Route::resource('permission',PermissionController::class);
     });
-});
+
 
 //Category
 Route::get('/categories/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
