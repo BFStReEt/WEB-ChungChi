@@ -24,6 +24,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
     // Permission
     Route::resource('permission', PermissionController::class);
+
+    Route::get('/permissions/show', [PermissionController::class, 'showPermission']);
 });
 
 // Category

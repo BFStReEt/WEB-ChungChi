@@ -32,7 +32,7 @@ class PermissionController extends Controller
                 });
                 return response()->json([
                     'status'=>true,
-                    //'permissions'=>$permissions
+                    'permissions'=>$permissions
                 ]);
             } else {
                 return response()->json([
@@ -80,12 +80,11 @@ class PermissionController extends Controller
             'status'=>true,
             'permissions'=>$permissions
         ]);
-
     }
 
     public function create(){
-        //
     }
+    
     public function store(Request $request){
         try{
             $now = date('d-m-Y H:i:s');
@@ -101,7 +100,6 @@ class PermissionController extends Controller
                 Permission::create([
                     'name'=>$request->input('permissionName'),
                     'slug'=>$request->input('parentCate').'.'.$request->input('childCate').'.'.$request->input('permissionName'),
-
 
                 ]);
                 return response()->json([
