@@ -5,16 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FilesController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\PermissionController;
 
 //Admin
 Route::match(['get', 'post'], 'login', [AdminController::class, 'login'])->name('login');
 Route::post('logout', [AdminController::class, 'logout']);
-
-Route::middleware('admin')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 // Admin-access-login
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
@@ -24,7 +20,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
     // Role
     Route::resource('roles', RoleController::class);
-    Route::delete('/roles/delete/multiple', [RoleController::class, 'deleteRoles']);
+    Route::delete('/roles/delete/multiple', [RoleController::class, 'delete']);
 
     // Permission
     Route::resource('permission', PermissionController::class);

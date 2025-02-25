@@ -10,13 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Gate;
 
 class RoleController extends Controller {
-    /**
-    * Display a listing of the resource.
-    */
-
     public function index( Request $request ) {
         try {
-
             $now = date( 'd-m-Y H:i:s' );
             $stringTime = strtotime( $now );
             DB::table( 'adminlogs' )->insert( [
@@ -53,21 +48,11 @@ class RoleController extends Controller {
         }
     }
 
-    /**
-    * Show the form for creating a new resource.
-    */
-
     public function create() {
-        //
     }
-
-    /**
-    * Store a newly created resource in storage.
-    */
 
     public function store( Request $request ) {
         try {
-
             $now = date( 'd-m-Y H:i:s' );
             $stringTime = strtotime( $now );
             DB::table( 'adminlogs' )->insert( [
@@ -77,6 +62,7 @@ class RoleController extends Controller {
                 'action'=>'add a role',
                 'cat'=>'role',
             ] );
+            
             if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.add' ) ) {
                 $role = Role::create( [
                     'name'=>$request->input( 'name' ),
@@ -102,17 +88,8 @@ class RoleController extends Controller {
         }
     }
 
-    /**
-    * Display the specified resource.
-    */
-
     public function show( string $id ) {
-        //
     }
-
-    /**
-    * Show the form for editing the specified resource.
-    */
 
     public function edit( Request $request, string $id ) {
         try {
@@ -149,10 +126,6 @@ class RoleController extends Controller {
             ], 422 );
         }
     }
-
-    /**
-    * Update the specified resource in storage.
-    */
 
     public function update( Request $request, string $id ) {
         try {
@@ -192,47 +165,58 @@ class RoleController extends Controller {
         }
     }
 
-    /**
-    * Remove the specified resource from storage.
-    */
+    public function delete(Request $request)
+    {
+        if (!Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.delete')) {
+            return response()->json([
+                'status' => false,
+                'message' => 'no permission',
+            ], 403);
+        }
 
-    public function deleteAll( Request $request ) {
-        $arr = $request->data;
-        //return $arr;
         try {
-            // if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del' ) ) {
-            if ( $arr ) {
-                foreach ( $arr as $item ) {
-                    $role = Role::find( $item );
-                    $role->delete();
-                }
-            } else {
-                return response()->json( [
-                    'status'=>false,
-                ], 422 );
+            $request->validate([
+                'ids' => 'required|array',
+                'ids*' => 'exists:roles,id',
+            ]);
+
+            $ids = $request->input('ids');
+
+            if (is_array($ids)) {
+                $ids = implode(",", $ids);
             }
-            return response()->json( [
-                'status'=>true,
-            ], 200 );
-            // } else {
-            //     return response()->json( [
-            //         'status'=>false,
-            //         'mess' => 'no permission',
-            // ] );
-            // }
-        } catch ( \Exception $e ) {
-            $errorMessage = $e->getMessage();
-            $response = [
-                'status' => 'false',
-                'error' => $errorMessage
-            ];
-            return response()->json( $response, 500 );
+
+            $idsArray = explode(",", $ids);
+
+            foreach ($idsArray as $id) {
+                Role::whereIn('id', $idsArray)->delete();
+            }
+
+            $admin = Auth::guard('admin')->user();
+            $nows = now()->timestamp;
+            $now = date('d-m-Y, g:i:s A', $nows);
+            DB::table('adminlogs')->insert([
+                'admin_id' => $admin->id,
+                'time' => $now,
+                'ip' => $request->ip() ?? null,
+                'action' => 'delete business group',
+                'cat' => $admin->display_name,
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'message' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Lỗi khi xóa dữ liệu'
+            ], 500);
         }
     }
 
     public function destroy( Request $request, string $id ) {
         try {
-
             $now = date( 'd-m-Y H:i:s' );
             $stringTime = strtotime( $now );
             DB::table( 'adminlogs' )->insert( [
@@ -242,12 +226,12 @@ class RoleController extends Controller {
                 'action'=>'delete a role',
                 'cat'=>'role',
             ] );
-            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del' ) ) {
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.delete' ) ) {
                 $role = Role::find( $id );
                 $role->delete();
                 return response()->json( [
                     'status'=>true,
-                    'message'=>'Delete Role success'
+                    'message'=>'delete Role success'
                 ] );
             } else {
                 return response()->json( [

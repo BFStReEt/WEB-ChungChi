@@ -32,7 +32,7 @@ class PermissionController extends Controller
                 });
                 return response()->json([
                     'status'=>true,
-                    'permissions'=>$permissions
+                    //'permissions'=>$permissions
                 ]);
             } else {
                 return response()->json([
