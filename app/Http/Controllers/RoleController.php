@@ -1,196 +1,265 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Role;
-use App\Services\PermissionService;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Gate;
 
-class RoleController extends Controller
-{
-    protected $user;
-    protected $permissionService;
+class RoleController extends Controller {
+    /**
+    * Display a listing of the resource.
+    */
 
-    public function __construct(PermissionService $permissionService)
-    {
-        $this->user = auth('admin')->user();
-        $this->permissionService = $permissionService;
-    }
-
-    public function store(Request $request)
-    {
+    public function index( Request $request ) {
         try {
-            abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.add'), 403, "No permission");
 
-            $ExistRole = Role::where('name', $request->input('name'))
-            ->orWhere('title', $request->input('title'))
-            ->first();
-
-        if ($ExistRole) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Role or title exists'
-            ], 422);
-        }
-            $role = Role::create([
-                'name' => $request->input('name'),
-                'title' => $request->input('title')
-            ]);
-
-            $role->permissions()->attach($request->input('permission_id'));
-
-            return response()->json([
-                'status' => true,
-                'message' => 'Success'
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => false,
-                'message' => $e->getMessage()
-            ], 422);
-        }
-    }
-
-    public function index(Request $request)
-    {
-        try {
-            abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.get'), 403, "No permission");
-    
-            $search = $request->input('data');
-    
-            $query = Role::query();
-    
-            if ($search) {
-                $query->where('title', 'like', '%' . $search . '%')
-                      ->orWhere('name', 'like', '%' . $search . '%');
+            $now = date( 'd-m-Y H:i:s' );
+            $stringTime = strtotime( $now );
+            DB::table( 'adminlogs' )->insert( [
+                'admin_id' => Auth::guard( 'admin' )->user()->id,
+                'time' =>  $stringTime,
+                'ip'=> $request->ip(),
+                'action'=>'show all role',
+                'cat'=>'role',
+            ] );
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.manage' ) ) {
+                if ( $request->data == 'undefined' || $request->data == '' ) {
+                    $roles = Role::orderBy( 'id', 'desc' )->get();
+                } else {
+                    $roles = Role::where( 'title', 'like', '%' . $request->data . '%' )
+                    ->orWhere( 'name', 'like', '%' . $request->data . '%' )
+                    ->orderBy( 'id', 'desc' )
+                    ->get();
+                }
+                return response()->json( [
+                    'status'=>true,
+                    'roles'=>$roles
+                ] );
+            } else {
+                return response()->json( [
+                    'status'=>false,
+                    'mess' => 'no permission',
+                ] );
             }
-    
-            $roles = $query->select('id', 'title', 'name')->get();
-    
-            return response()->json([
-                'status' => true,
-                'count' => $roles->count(), 
-                'roles' => $roles, 
-            ]);
-    
-        } catch (\Exception $e) {
-            return response()->json([
+        } catch( \Exception $e ) {
+            return response()->json( [
                 'status' => false,
                 'message' => $e->getMessage()
-            ], 422);
+            ], 422 );
         }
     }
 
-    public function destroy(Request $request, string $id){
-        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
+    /**
+    * Show the form for creating a new resource.
+    */
 
-        $roles = Role::find($id);
-
-        if (!$roles) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Role không tồn tại'
-            ], 404);
-        }
-        $roles->delete();
-
-        return response()->json([
-            'status' => true,
-            'message' => 'success'
-        ]);
+    public function create() {
+        //
     }
 
-    public function deleteRoles(Request $request)
-    {
+    /**
+    * Store a newly created resource in storage.
+    */
+
+    public function store( Request $request ) {
         try {
-            abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del'), 403, "No permission");
 
-            $validator = Validator::make($request->all(), [
-                'id' => 'required|array', 
-                'id.*' => 'required|integer|exists:roles,id', 
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json([
-                    'status' => false,
-                    'message' => $validator->errors()
-                ], 422);
+            $now = date( 'd-m-Y H:i:s' );
+            $stringTime = strtotime( $now );
+            DB::table( 'adminlogs' )->insert( [
+                'admin_id' => Auth::guard( 'admin' )->user()->id,
+                'time' =>  $stringTime,
+                'ip'=> $request->ip(),
+                'action'=>'add a role',
+                'cat'=>'role',
+            ] );
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.add' ) ) {
+                $role = Role::create( [
+                    'name'=>$request->input( 'name' ),
+                    'title'=>$request->input( 'title' ),
+                    'description'=>$request->input( 'description' )
+                ] );
+                $role->permissions()->attach( $request->input( 'permission_id' ) );
+                return response()->json( [
+                    'status'=>true,
+                    'message'=>'create Role success'
+                ] );
+            } else {
+                return response()->json( [
+                    'status'=>false,
+                    'mess' => 'no permission',
+                ] );
             }
-
-            $ids = $request->input('id');
-
-            Role::destroy($ids);
-
-            return response()->json([
-                'status' => true,
-                'message' => 'success',
-            ]);
-
-        } catch (\Exception $e) {
-            return response()->json([
+        } catch( \Exception $e ) {
+            return response()->json( [
                 'status' => false,
                 'message' => $e->getMessage()
-            ], 500);
+            ], 422 );
         }
     }
 
-    public function edit(string $id)
-    {
-        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
+    /**
+    * Display the specified resource.
+    */
 
-        $role = Role::find($id);
-        if (!$role) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Role not found'
-            ], 404);
-        }
-
-        return response()->json([
-            'status' => true,
-            "role" => $role
-        ]);
+    public function show( string $id ) {
+        //
     }
 
-    public function update(Request $request, string $id){
-        abort_if(!$this->permissionService->hasPermission($this->user, 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update'), 403, "No permission");
+    /**
+    * Show the form for editing the specified resource.
+    */
 
-        $roles = Role::find($id);
-        if (!$roles) {
-            return response()->json([
+    public function edit( Request $request, string $id ) {
+        try {
+
+            $now = date( 'd-m-Y H:i:s' );
+            $stringTime = strtotime( $now );
+            DB::table( 'adminlogs' )->insert( [
+                'admin_id' => Auth::guard( 'admin' )->user()->id,
+                'time' =>  $stringTime,
+                'ip'=> $request->ip(),
+                'action'=>'edit a role',
+                'cat'=>'role',
+            ] );
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.edit' ) ) {
+                $role = Role::find( $id );
+                $permission = DB::table( 'role_permission' )
+                ->where( 'role_id', $role->id )->pluck( 'permission_id' );
+
+                return response()->json( [
+                    'status'=>true,
+                    'role'=>$role,
+                    'permissions'=>$permission
+                ] );
+            } else {
+                return response()->json( [
+                    'status'=>false,
+                    'mess' => 'no permission',
+                ] );
+            }
+        } catch( \Exception $e ) {
+            return response()->json( [
                 'status' => false,
-                'message' => 'Role not found'
-            ], 404);
+                'message' => $e->getMessage()
+            ], 422 );
         }
-
-        $validator = Validator::make($request->except('id'), [
-            'title' => 'string|required|max:255',
-            'name' => 'string|required|max:255',
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => $validator->errors()           
-            ], 422);
-        }
-
-        if ($request->has('title')) {
-            $roles->title = $request->title;
-        }
-
-        if ($request->has('name')) {
-            $roles->name = $request->name;
-        }
-
-        $roles->save();
-
-        return response()->json([
-            'status' => true,
-            'message' => "success"
-        ]);
     }
 
+    /**
+    * Update the specified resource in storage.
+    */
 
+    public function update( Request $request, string $id ) {
+        try {
+            $now = date( 'd-m-Y H:i:s' );
+            $stringTime = strtotime( $now );
+            DB::table( 'adminlogs' )->insert( [
+                'admin_id' => Auth::guard( 'admin' )->user()->id,
+                'time' =>  $stringTime,
+                'ip'=> $request->ip(),
+                'action'=>'update a role',
+                'cat'=>'role',
+            ] );
+
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.update' ) ) {
+                $role = Role::find( $id );
+                $role->update( [
+                    'name'=>$request->input( 'name' ),
+                    'title'=>$request->input( 'title' ),
+                    'description'=>$request->input( 'description' )
+                ] );
+                $role->permissions()->sync( $request->input( 'permission_id', [] ) );
+                return response()->json( [
+                    'status'=>true,
+                    'message'=>'update Role success'
+                ] );
+            } else {
+                return response()->json( [
+                    'status'=>false,
+                    'mess' => 'no permission',
+                ] );
+            }
+        } catch( \Exception $e ) {
+            return response()->json( [
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 422 );
+        }
+    }
+
+    /**
+    * Remove the specified resource from storage.
+    */
+
+    public function deleteAll( Request $request ) {
+        $arr = $request->data;
+        //return $arr;
+        try {
+            // if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del' ) ) {
+            if ( $arr ) {
+                foreach ( $arr as $item ) {
+                    $role = Role::find( $item );
+                    $role->delete();
+                }
+            } else {
+                return response()->json( [
+                    'status'=>false,
+                ], 422 );
+            }
+            return response()->json( [
+                'status'=>true,
+            ], 200 );
+            // } else {
+            //     return response()->json( [
+            //         'status'=>false,
+            //         'mess' => 'no permission',
+            // ] );
+            // }
+        } catch ( \Exception $e ) {
+            $errorMessage = $e->getMessage();
+            $response = [
+                'status' => 'false',
+                'error' => $errorMessage
+            ];
+            return response()->json( $response, 500 );
+        }
+    }
+
+    public function destroy( Request $request, string $id ) {
+        try {
+
+            $now = date( 'd-m-Y H:i:s' );
+            $stringTime = strtotime( $now );
+            DB::table( 'adminlogs' )->insert( [
+                'admin_id' => Auth::guard( 'admin' )->user()->id,
+                'time' =>  $stringTime,
+                'ip'=> $request->ip(),
+                'action'=>'delete a role',
+                'cat'=>'role',
+            ] );
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del' ) ) {
+                $role = Role::find( $id );
+                $role->delete();
+                return response()->json( [
+                    'status'=>true,
+                    'message'=>'Delete Role success'
+                ] );
+            } else {
+                return response()->json( [
+                    'status'=>false,
+                    'mess' => 'no permission',
+                ] );
+            }
+        } catch( \Exception $e ) {
+            return response()->json( [
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 422 );
+        }
+    }
 }

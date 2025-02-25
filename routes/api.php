@@ -9,34 +9,35 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 
 //Admin
-    Route::match(['get','post'],'admin/login',[AdminController::class,'login'])->name('admin-login');
-    Route::post('/admin/logout',[App\Http\Controllers\Admin\AdminController::class,'logout']);
+Route::match(['get', 'post'], 'login', [AdminController::class, 'login'])->name('login');
+Route::post('logout', [AdminController::class, 'logout']);
 
-    //Admin-access-login
-    Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+Route::middleware('admin')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-        //Admin
-        Route::post('/manage', [AdminController::class, 'manage']);
-        Route::post('/create', [AdminController::class, 'create']);
-        Route::delete('/{id}', [AdminController::class, 'delete']);
-        Route::post('/profile', [AdminController::class, 'update']);
-        Route::get('/profile/information', [AdminController::class, 'information']);
-        Route::get('/{id}', [AdminController::class, 'edit']);
+// Admin-access-login
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    // Admin
+    Route::resource('/information', AdminController::class);
+    Route::get('/admin-information', [AdminController::class, 'information']);
 
-        //Role
-        Route::resource('roles', RoleController::class);
-        Route::delete('/roles/delete/multiple', [RoleController::class, 'deleteRoles']);
+    // Role
+    Route::resource('roles', RoleController::class);
+    Route::delete('/roles/delete/multiple', [RoleController::class, 'deleteRoles']);
 
-        //Permission
-        Route::resource('permission',PermissionController::class);
-    });
+    // Permission
+    Route::resource('permission', PermissionController::class);
+});
 
+// Category
+Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
+    Route::get('/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
+});
 
-//Category
-Route::get('/categories/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
-
-//File
-Route::post('/file/import/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [FilesController::class, 'import']);
-Route::post('/file/delete/{id}', [FilesController::class, 'delete']);
-Route::get('/file/download/{id}', [FilesController::class, 'download']);
-
+// File
+Route::group(['middleware' => 'auth:sanctum', 'prefix' => 'file'], function () {
+    Route::post('/import/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [FilesController::class, 'import']);
+    Route::post('/delete/{id}', [FilesController::class, 'delete']);
+    Route::get('/download/{id}', [FilesController::class, 'download']);
+});

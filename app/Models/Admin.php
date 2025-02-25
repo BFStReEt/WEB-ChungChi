@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Foundation\Auth\Access\Authorizable;
+use App\Models\Role;
 
-class Admin extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable, Authorizable;
+class Admin extends Authenticatable {
+    use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'admin';
     protected $primaryKey = 'id';
 
@@ -32,20 +31,19 @@ class Admin extends Authenticatable
         'created_at',
         'updated_at'
     ];
-    public function department()
-    {
-        return $this->belongsTo(Department::class, 'depart_id', 'id');
+
+    public function department() {
+        // return $this->hasOne( Department::class, 'id', 'depart_id' );
+        return $this->belongsTo( Department::class, 'depart_id', 'id' );
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'admin_role');
+    public function roles() {
+        return $this->belongsToMany( Role::class, 'admin_role' );
     }
 
-    public function hasPermission($permission)
-    {
-        foreach ($this->roles as $role) {
-            if ($role->permissions->where('slug', $permission)->count() > 0) {
+    public function hasPermission( $permission ) {
+        foreach ( $this->roles as $role ) {
+            if ( $role->permissions->where( 'slug', $permission )->count() > 0 ) {
                 return true;
             }
         }
