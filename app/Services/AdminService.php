@@ -23,8 +23,7 @@ class AdminService implements AdminServiceInterface
         if ($val->fails()) {
             return response()->json($val->errors(), 202);
         }
-        $now = date('d-m-Y H:i:s');
-        $stringTime = strtotime($now);
+        $nows = now()->timestamp;
         $admin = Admin::where('username', $request->username)->first();
 
         if (isset($admin) != 1) {
@@ -39,7 +38,7 @@ class AdminService implements AdminServiceInterface
         if (Hash::check($request->password, $check->password)) {
             $success = $admin->createToken('Admin')->accessToken;
 
-            $admin->lastlogin = $stringTime;
+            $admin->lastlogin = $nows;
             $admin->save();
 
             return response()->json([
@@ -71,55 +70,73 @@ class AdminService implements AdminServiceInterface
         ] );
     }
 
-    public function index( $request ){
+    public function index($request) {
         $adminUser = Auth::guard('admin')->user();
-        if ( !$adminUser ) {
-            return response()->json( [
+        if (!$adminUser) {
+            return response()->json([
                 'status' => false,
                 'mess' => 'User not authenticated',
-            ], 401 );
+            ], 401);
         }
 
-        if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.manage' ) ) {
-            $query = Admin::with( 'roles' )->orderBy( 'id', 'asc' );
+        if (Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.manage')) {
+            $query = Admin::with('roles')->orderBy('id', 'asc');
             $roleId = $request->role_id;
-            $listAdminId = DB::table( 'admin_role' )->where( 'role_id', $roleId )
-            ->join( 'admin', 'admin.id', '=', 'admin_role.admin_id' )
-            ->select( 'admin.*' )->pluck( 'id' );
+            $listAdminId = DB::table('admin_role')->where('role_id', $roleId)
+                ->join('admin', 'admin.id', '=', 'admin_role.admin_id')
+                ->select('admin.*')->pluck('id');
 
-            if ( isset( $roleId ) ) {
-                $listAdminId = DB::table( 'admin_role' )->where( 'role_id', $roleId )
-                ->join( 'admin', 'admin.id', '=', 'admin_role.admin_id' )
-                ->select( 'admin.*' )->pluck( 'id' );
-                if ( count( $listAdminId ) != 0 ) {
-                    $query = Admin::with( 'roles' )->whereIn( 'id', $listAdminId );
+            if (isset($roleId)) {
+                $listAdminId = DB::table('admin_role')->where('role_id', $roleId)
+                    ->join('admin', 'admin.id', '=', 'admin_role.admin_id')
+                    ->select('admin.*')->pluck('id');
+                if (count($listAdminId) != 0) {
+                    $query = Admin::with('roles')->whereIn('id', $listAdminId);
                 } else {
-                    return response()->json( [
+                    return response()->json([
                         'status' => true,
                         'adminList' => [],
-                    ] );
+                    ]);
                 }
             }
 
-        if ( $request->data == 'undefined' || $request->data == '' ) {
-            $list = $query;
-        } else {
-            $list = $query->where( 'username', 'like', '%' . $request->data . '%' )
-            ->orWhere( 'email', 'like', '%' . $request->data . '%' );
-        }
-        $adminList = $list->paginate( 5 );
-        return response()->json( [
-            'status' => true,
-            'adminList' => $adminList,
-        ]);
-        }else {
-            return response()->json( [
-                'status' => false,
-                'mess' => 'no permission',
-            ] );
+            if ($request->data == 'undefined' || $request->data == '') {
+                $list = $query;
+            } else {
+                $list = $query->where('username', 'like', '%' . $request->data . '%')
+                    ->orWhere('email', 'like', '%' . $request->data . '%');
+            }
+
+             $users = $query->orderBy( 'id', 'asc' )->paginate( 5 );
+
+            $formattedUsers = $users->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'display_name' => $user->display_name,
+                    'avatar' => $user->avatar,
+                    'phone' => $user->phone,
+                    'last_login' => date('d-m-Y, h:i:s A', $user->lastlogin),
+                     'roles' => $user->roles->map(function($role){
+                        return $role->name;
+                    })->implode(', '),
+                ];
+            });
+
+            return response()->json([
+                'status' => true,
+                'data' => $formattedUsers,
+                'pagination' => [
+                    'current_page' => $users->currentPage(),
+                    'total_pages' => $users->lastPage(),
+                    'per_page' => $users->perPage(),
+                    'total' => $users->total(),
+                ],
+            ]);
         }
     }
-
+    
     public function store( $request ){
         if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.add' ) ) {
             $validator = Validator::make( $request->all(), [

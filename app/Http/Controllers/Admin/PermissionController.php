@@ -13,11 +13,10 @@ class PermissionController extends Controller
 {
     public function index(Request $request){
         try{
-            $now = date('d-m-Y H:i:s');
-            $stringTime = strtotime($now);
+            $nows = now()->timestamp;
             DB::table('adminlogs')->insert([
                 'admin_id' => Auth::guard('admin')->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'show all permission',
                 'cat'=>'permission',
@@ -47,7 +46,6 @@ class PermissionController extends Controller
                 'message' => $e->getMessage()
             ], 422);
         }
-        
     }
 
     public function showPermission(){
@@ -60,7 +58,6 @@ class PermissionController extends Controller
         });
         $groupPermission=[];
         foreach($permissions as $key=> $permission){
-
             $childPermission=[];
             foreach($permission as $key1=> $per){
                 $childPermission[]=[
@@ -87,11 +84,10 @@ class PermissionController extends Controller
     
     public function store(Request $request){
         try{
-            $now = date('d-m-Y H:i:s');
-            $stringTime = strtotime($now);
+            $nows = now()->timestamp;
             DB::table('adminlogs')->insert([
                 'admin_id' => Auth::guard('admin')->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'add a permission',
                 'cat'=>'permission',
@@ -126,24 +122,20 @@ class PermissionController extends Controller
 
     public function edit(Request $request,string $id){
         try{
-            $now = date('d-m-Y H:i:s');
-            $stringTime = strtotime($now);
+            $nows = now()->timestamp;
             DB::table('adminlogs')->insert([
                 'admin_id' => Auth::guard('admin')->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'edit a permission',
                 'cat'=>'permission',
             ]);
 
-            // $permissions=Permission::all()->groupBy(function($permission){
-            //     return explode('.', $permission->slug)[0];
-            // });
+            
             if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quyền hạn.edit')){
                 $permission=Permission::find($id);
                 return response()->json([
                     'status'=>true,
-                    // 'permissions'=>$permissions,
                     'permission'=>$permission,
 
                 ]);
@@ -168,11 +160,10 @@ class PermissionController extends Controller
 
     public function update(Request $request, string $id){
         try{
-            $now = date('d-m-Y H:i:s');
-            $stringTime = strtotime($now);
+            $nows = now()->timestamp;
             DB::table('adminlogs')->insert([
                 'admin_id' => Auth::guard('admin')->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'update a permission',
                 'cat'=>'permission',
@@ -206,11 +197,10 @@ class PermissionController extends Controller
 
     public function destroy(Request $request,string $id){
         try{
-            $now = date('d-m-Y H:i:s');
-            $stringTime = strtotime($now);
+            $nows = now()->timestamp;
             DB::table('adminlogs')->insert([
                 'admin_id' => Auth::guard('admin')->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'update a permission',
                 'cat'=>'permission',

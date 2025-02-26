@@ -18,9 +18,16 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::resource('/information', AdminController::class);
     Route::get('/admin-information', [AdminController::class, 'information']);
 
+    Route::patch('/profile',[AdminController::class,'UpdateProfile']);
+
+    Route::get('/select-name-admin',[App\Http\Controllers\Admin\AdminController::class,'showSelectAdmin']);
+    Route::get('/admin-log',[App\Http\Controllers\Admin\AdminController::class,'log']);
+
+    Route::delete('/delete-all-admin',[App\Http\Controllers\Admin\AdminController::class,'delete']);
+
     // Role
     Route::resource('roles', RoleController::class);
-    Route::delete('/roles/delete/multiple', [RoleController::class, 'delete']);
+    Route::delete('/roles-delete', [RoleController::class, 'delete']);
 
     // Permission
     Route::resource('permission', PermissionController::class);
@@ -30,7 +37,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
 // Category
 Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
-    Route::get('/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
+    //Route::get('/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
+    Route::get('/',[CategoryController::class,'show']);
 });
 
 // File

@@ -18,13 +18,6 @@ class AdminController extends Controller {
     public function __construct( AdminService $adminService ) {
         $this->adminService = $adminService;
     }
-    /**
-    * Display a listing of the resource.
-    */
-
-    public function dashboard() {
-        return 111;
-    }
 
     public function login( Request $request ) {
         try {
@@ -72,18 +65,14 @@ class AdminController extends Controller {
 
     public function index( Request $request ) {
         try {
-
-            // return Auth::guard( 'admin' )->user();
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip' => $request->ip() ?? null,
                 'action' => 'show all admin',
                 'cat' => 'admin',
             ] );
-            // return  DB::table( 'adminlogs' )->get();
 
             $index = $this->adminService->index( $request );
             return $index;
@@ -95,25 +84,15 @@ class AdminController extends Controller {
         }
     }
 
-    /**
-    * Show the form for creating a new resource.
-    */
-
     public function create() {
     }
 
-    /**
-    * Store a newly created resource in storage.
-    */
-
     public function store( Request $request ) {
         try {
-
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip' => $request->ip() ?? null,
                 'action' => 'add a admin',
                 'cat' => 'admin',
@@ -128,25 +107,14 @@ class AdminController extends Controller {
         }
     }
 
-    /**
-    * Display the specified resource.
-    */
-
-    public function show( string $id ) {
-        //
-    }
-
-    /**
-    * Show the form for editing the specified resource.
-    */
+    public function show( string $id ) {}
 
     public function edit( Request $request, int $id ) {
         try {
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip' => $request->ip() ?? null,
                 'action' => 'edit a admin',
                 'cat' => 'admin',
@@ -162,17 +130,12 @@ class AdminController extends Controller {
         }
     }
 
-    /**
-    * Update the specified resource in storage.
-    */
-
     public function update( Request $request, int $id ) {
         try {
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip' => $request->ip() ?? null,
                 'action' => 'update a admin',
                 'cat' => 'admin',
@@ -187,24 +150,25 @@ class AdminController extends Controller {
         }
     }
 
-    /**
-    * Remove the specified resource from storage.
-    */
-
     public function destroy( Request $request, int $id ) {
         try {
-
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
-            DB::table( 'adminlogs' )->insert( [
-                'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
-                'ip' => $request ? $request->ip() : null,
-                'action' => 'delete a admin',
-                'cat' => 'admin',
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.del' ) ) {
+                $now = date( 'd-m-Y H:i:s' );
+                $nows = now()->timestamp;
+                DB::table( 'adminlogs' )->insert( [
+                    'admin_id' => Auth::guard( 'admin' )->user()->id,
+                    'time' =>  $nows,
+                    'ip' => $request ? $request->ip() : null,
+                    'action' => 'delete a admin',
+                    'cat' => 'admin',
+                ] );
+                $destroy = $this->adminService->destroy( $id );
+                return $destroy;
+            }
+            return response()->json( [
+                'status' => false,
+                'mess' => 'no permission',
             ] );
-            $destroy = $this->adminService->destroy( $id );
-            return $destroy;
         } catch ( \Exception $e ) {
             return response()->json( [
                 'status' => false,
@@ -213,37 +177,52 @@ class AdminController extends Controller {
         }
     }
 
-    public function deleteAll( Request $request ) {
-        $arr = $request->data;
-        //return $arr;
+    public function delete(Request $request)
+    {
+        if (!Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.del')) {
+            return response()->json([
+                'status' => false,
+                'message' => 'no permission',
+            ], 403);
+        }
         try {
-            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.del' ) ) {
-                if ( $arr ) {
-                    foreach ( $arr as $item ) {
+            $request->validate([
+                'ids' => 'required|array',
+                'ids*' => 'exists:admin,id',
+            ]);
 
-                        Admin::where( 'id', $item )->delete();
-                    }
-                } else {
-                    return response()->json( [
-                        'status' => false,
-                    ], 422 );
-                }
-                return response()->json( [
-                    'status' => true,
-                ], 200 );
-            } else {
-                return response()->json( [
-                    'status' => false,
-                    'mess' => 'no permission',
-                ] );
+            $ids = $request->input('ids');
+
+            if (is_array($ids)) {
+                $ids = implode(",", $ids);
             }
-        } catch ( \Exception $e ) {
-            $errorMessage = $e->getMessage();
-            $response = [
-                'status' => 'false',
-                'error' => $errorMessage
-            ];
-            return response()->json( $response, 500 );
+
+            $idsArray = explode(",", $ids);
+
+            foreach ($idsArray as $id) {
+                Admin::whereIn('id', $idsArray)->delete();
+            }
+
+            $admin = Auth::guard('admin')->user();
+
+            $nows = now()->timestamp;
+            DB::table('adminlogs')->insert([
+                'admin_id' => $admin->id,
+                'time' => $now,
+                'ip' => $request->ip() ?? null,
+                'action' => 'delete admin',
+                'cat' => $admin->display_name,
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'message' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Lỗi khi xóa dữ liệu'
+            ], 500);
         }
     }
 
@@ -295,5 +274,39 @@ class AdminController extends Controller {
                 'message' => $e->getMessage()
             ], 422 );
         }
+    }
+
+    public function UpdateProfile(Request $request){
+        $userAdmin = Auth::guard('admin')->user();
+        if ( !isset( $userAdmin ) ) {
+            return response()->json( [
+                'message' => 'name',
+                'status' => 'false'
+            ], 202 );
+        }
+
+        $userAdmin->email = $request[ 'email' ] ? $request[ 'email' ] : $userAdmin->email;
+        $userAdmin->display_name = $request[ 'display_name' ] ? $request[ 'display_name' ] : $userAdmin->display_name;
+        $userAdmin->phone = $request[ 'phone' ] ? $request[ 'phone' ] : $userAdmin->phone;
+        $userAdmin->status = $request[ 'status' ] ? $request[ 'status' ] : $userAdmin->status;
+            
+        $filePath = '';
+        $disPath = public_path();
+        if ($request->hasFile('avatar') && $userAdmin->avatar != $request->avatar) {
+            $file = $request->file('avatar');
+            $name = uniqid() . '.' . $file->getClientOriginalExtension();
+            $filePath = 'admin/' . $name;
+            $file->move(public_path('uploads/admin'), $name);
+            $userAdmin->avatar = $filePath;
+        } else {
+            $filePath =  $userAdmin->avatar;
+        }
+        $userAdmin->avatar = $filePath;
+        $userAdmin->save();
+        $userAdmin->roles()->sync( $request->input( 'role_id', [] ) );
+        return response()->json( [
+            'status' => true,
+            'displayName' => $userAdmin,
+        ] );
     }
 }

@@ -12,11 +12,10 @@ use Gate;
 class RoleController extends Controller {
     public function index( Request $request ) {
         try {
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'show all role',
                 'cat'=>'role',
@@ -53,11 +52,10 @@ class RoleController extends Controller {
 
     public function store( Request $request ) {
         try {
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'add a role',
                 'cat'=>'role',
@@ -94,11 +92,10 @@ class RoleController extends Controller {
     public function edit( Request $request, string $id ) {
         try {
 
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'edit a role',
                 'cat'=>'role',
@@ -129,11 +126,10 @@ class RoleController extends Controller {
 
     public function update( Request $request, string $id ) {
         try {
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'update a role',
                 'cat'=>'role',
@@ -193,8 +189,8 @@ class RoleController extends Controller {
             }
 
             $admin = Auth::guard('admin')->user();
+
             $nows = now()->timestamp;
-            $now = date('d-m-Y, g:i:s A', $nows);
             DB::table('adminlogs')->insert([
                 'admin_id' => $admin->id,
                 'time' => $now,
@@ -217,11 +213,10 @@ class RoleController extends Controller {
 
     public function destroy( Request $request, string $id ) {
         try {
-            $now = date( 'd-m-Y H:i:s' );
-            $stringTime = strtotime( $now );
+            $nows = now()->timestamp;
             DB::table( 'adminlogs' )->insert( [
                 'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $stringTime,
+                'time' =>  $nows,
                 'ip'=> $request->ip(),
                 'action'=>'delete a role',
                 'cat'=>'role',
