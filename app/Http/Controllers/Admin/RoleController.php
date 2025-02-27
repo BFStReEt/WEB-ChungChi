@@ -10,40 +10,51 @@ use Illuminate\Support\Facades\Auth;
 use Gate;
 
 class RoleController extends Controller {
-    public function index( Request $request ) {
+    public function index(Request $request) {
         try {
             $nows = now()->timestamp;
-            DB::table( 'adminlogs' )->insert( [
-                'admin_id' => Auth::guard( 'admin' )->user()->id,
-                'time' =>  $nows,
+            DB::table('adminlogs')->insert([
+                'admin_id' => Auth::guard('admin')->user()->id,
+                'time' => $nows,
                 'ip'=> $request->ip(),
                 'action'=>'show all role',
                 'cat'=>'role',
-            ] );
-            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.manage' ) ) {
-                if ( $request->data == 'undefined' || $request->data == '' ) {
-                    $roles = Role::orderBy( 'id', 'desc' )->get();
-                } else {
-                    $roles = Role::where( 'title', 'like', '%' . $request->data . '%' )
-                    ->orWhere( 'name', 'like', '%' . $request->data . '%' )
-                    ->orderBy( 'id', 'desc' )
-                    ->get();
+            ]);
+
+            if (Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.manage')) {
+                $query = Role::query();
+
+                if ($request->data != 'undefined' && $request->data != '') {
+                    $query->where(function($q) use ($request) {
+                        $q->where('title', 'like', '%' . $request->data . '%')
+                        ->orWhere('name', 'like', '%' . $request->data . '%');
+                    });
                 }
-                return response()->json( [
-                    'status'=>true,
-                    'roles'=>$roles
-                ] );
+
+                $perPage = $request->input('per_page', 10); // Default 10 items per page
+                $roles = $query->orderBy('id', 'desc')->paginate($perPage);
+
+                return response()->json([
+                    'status' => true,
+                    'roles' => $roles->items(),
+                    'pagination' => [
+                        'current_page' => $roles->currentPage(),
+                        'total_pages' => $roles->lastPage(),
+                        'per_page' => $roles->perPage(),
+                        'total' => $roles->total(),
+                    ]
+                ]);
             } else {
-                return response()->json( [
-                    'status'=>false,
+                return response()->json([
+                    'status' => false,
                     'mess' => 'no permission',
-                ] );
+                ]);
             }
-        } catch( \Exception $e ) {
-            return response()->json( [
+        } catch (\Exception $e) {
+            return response()->json([
                 'status' => false,
                 'message' => $e->getMessage()
-            ], 422 );
+            ], 422);
         }
     }
 

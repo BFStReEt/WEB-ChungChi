@@ -57,9 +57,21 @@ class AdminService implements AdminServiceInterface
     public function information(){
         $id = Auth::guard( 'admin' )->user()->id;
         $userAdmin = Admin::where( 'id', $id )->first();
+
+        $userData = [
+            'id' => $userAdmin->id,
+            'username' => $userAdmin->username,
+            'email' => $userAdmin->email,
+            'display_name' => $userAdmin->display_name,
+            'avatar' => $userAdmin->avatar,
+            'depart_id' => $userAdmin->depart_id,
+            'phone' => $userAdmin->phone,
+            'role_id' => $userAdmin->roles->first() ? $userAdmin->roles->first()->id : null
+        ];
+
         return response()->json( [
             'status' => true,
-            'data' => $userAdmin,
+            'data' => $userData,
         ] );
     }
 
