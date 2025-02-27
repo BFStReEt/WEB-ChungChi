@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 client = OpenAI(
-api_key = "25cbcbdf-ecd0-4f96-a170-09ed9d66c9f8",
+api_key = "",
 base_url = "https://api.llama-api.com"
 )
 
