@@ -263,20 +263,38 @@ class AdminService implements AdminServiceInterface
         $userAdmin->phone = $request[ 'phone' ] ? $request[ 'phone' ] : $userAdmin->phone;
         $userAdmin->status = $request[ 'status' ] ? $request[ 'status' ] : $userAdmin->status;
             
-        $filePath = '';
-        $disPath = public_path();
-        if ($request->hasFile('avatar') && $userAdmin->avatar != $request->avatar) {
-            $file = $request->file('avatar');
-            $name = uniqid() . '.' . $file->getClientOriginalExtension();
-            $filePath = 'admin/' . $name;
-            $file->move(public_path('uploads/admin'), $name);
-            $userAdmin->avatar = $filePath;
-        } else {
-            $filePath =  $userAdmin->avatar;
+        $filePath =  $userAdmin->avatar;
+        if (!empty($request->avatar) && is_array($request->avatar)) {
+            $avatarData = $request->avatar[0] ?? null;
+
+            if ($avatarData && str_contains($avatarData, ';base64,')) {
+                $file_chunks = explode(';base64,', $avatarData);
+                $fileType = explode('image/', $file_chunks[0] ?? '');
+
+                if (isset($file_chunks[1], $fileType[1])) {
+                    $base64Img = base64_decode($file_chunks[1]);
+                    $imageType = $fileType[1];
+
+                    $uploadDir = public_path('uploads' . DIRECTORY_SEPARATOR . 'admin');
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0755, true);
+                    }
+
+                    if ($userAdmin->avatar && file_exists(public_path($userAdmin->avatar))) {
+                        unlink(public_path($userAdmin->avatar));
+                    }
+
+                    $fileName = uniqid() . '.' . $imageType;
+                    $filePath = 'uploads/admin/' . $fileName;
+                    file_put_contents($uploadDir . DIRECTORY_SEPARATOR . $fileName, $base64Img);
+                }
+            }
         }
+            
         $userAdmin->avatar = $filePath;
         
         $userAdmin->save();
+        
         if ($request->has('role_id')) {
              $userAdmin->roles()->sync($request->input('role_id'));
         }
