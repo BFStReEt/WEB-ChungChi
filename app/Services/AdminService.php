@@ -164,7 +164,7 @@ class AdminService implements AdminServiceInterface
                 'avatar',
                 'phone',
                 'status',
-                'depart_id',
+                //'depart_id',
             ] );
             $userAdmin = new Admin();
             $userAdmin->username = $request[ 'username' ];
@@ -172,18 +172,35 @@ class AdminService implements AdminServiceInterface
             $userAdmin->email = $request[ 'email' ];
             $userAdmin->display_name = $request[ 'display_name' ];
             //$userAdmin -> avatar = isset( $request[ 'avatar' ] ) ? $request[ 'avatar' ] : null;
-
             $filePath = '';
-            $disPath = public_path();
+            if (!empty($request->avatar) && is_array($request->avatar)) {
+                $avatarData = $request->avatar[0] ?? null;
 
-            if ($request->hasFile('avatar')) {
-                $file = $request->file('avatar');
-                $name = uniqid() . '.' . $file->getClientOriginalExtension();
-                $filePath = 'admin/' . $name;
-                $file->move(public_path('uploads/admin'), $name);
-                $userAdmin->avatar = $filePath;
+                if ($avatarData && str_contains($avatarData, ';base64,')) {
+                    $file_chunks = explode(';base64,', $avatarData);
+                    $fileType = explode('image/', $file_chunks[0] ?? '');
+
+                    if (isset($file_chunks[1], $fileType[1])) {
+                        $base64Img = base64_decode($file_chunks[1]);
+                        $imageType = $fileType[1];
+
+                        $uploadDir = public_path('uploads' . DIRECTORY_SEPARATOR . 'admin');
+                        if (!is_dir($uploadDir)) {
+                            mkdir($uploadDir, 0755, true);
+                        }
+
+                        $fileName = uniqid() . '.' . $imageType;
+                        $filePath = 'uploads/admin/' . $fileName;
+                        file_put_contents($uploadDir . DIRECTORY_SEPARATOR . $fileName, $base64Img);
+                    }
+
+                    $fileName = uniqid() . '.' . $imageType;
+                    $filePath = 'uploads/admin/' . $fileName;
+                    file_put_contents($uploadDir . DIRECTORY_SEPARATOR . $fileName, $base64Img);
+                }
             }
-
+            
+            $userAdmin->avatar = $filePath;
             $userAdmin->skin = '';
             $userAdmin->is_default = 0;
             $userAdmin->lastlogin = 0;
@@ -191,10 +208,12 @@ class AdminService implements AdminServiceInterface
             $userAdmin->menu_order = 0;
             $userAdmin->phone = $request[ 'phone' ];
             $userAdmin->status = $request[ 'status' ];
-            $userAdmin->depart_id = $request[ 'depart_id' ];
-            $userAdmin->roles()->attach( $request->input( 'role_id' ) );
-            
+            //$userAdmin->depart_id = $request[ 'depart_id' ];
+
             $userAdmin->save();
+            if ($request->has('role_id')) {
+                $userAdmin->roles()->sync($request->input('role_id'));
+            }
             
             return response()->json( [
                 'status' => true,
@@ -256,10 +275,11 @@ class AdminService implements AdminServiceInterface
             $filePath =  $userAdmin->avatar;
         }
         $userAdmin->avatar = $filePath;
+        
+        $userAdmin->save();
         if ($request->has('role_id')) {
              $userAdmin->roles()->sync($request->input('role_id'));
         }
-        $userAdmin->save();
         return response()->json( [
             'status' => true,
             'displayName' => $userAdmin,
