@@ -11,24 +11,41 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function show(Request $request){
-    try {
-        $categories = Category::pluck('name');
+        try {
+            $categories = Category::pluck('name');
 
-        $allowedCategories = $categories->filter(function ($category) {
-            $hasPermission = Gate::allows($category . '.manage');
-            return $hasPermission;
-        });
+            $allowedCategories = $categories->filter(function ($category) {
+                $hasPermission = Gate::allows($category . '.manage');
+                return $hasPermission;
+            });
 
-        return response()->json([
-            'status' => true,
-            'categories' => $allowedCategories,
-        ]);
-        
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => false,
-            'message' => $e->getMessage()
-        ], 422);
+            return response()->json([
+                'status' => true,
+                'categories' => $allowedCategories,
+            ]);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 422);
+        }
     }
-}
+
+    public function index(Request $request){
+        try {
+            $parent_categories = Category::whereNull('parent_id')->get();
+
+            return response()->json([
+                'status' => true,
+                'parent_categories' => $parent_categories,
+            ]);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 422);
+        }
+    }
 }

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 // Category
 Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
     //Route::get('/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
-    Route::get('/',[CategoryController::class,'show']);
+    Route::get('/',[CategoryController::class,'index']);
 });
 
 // File
