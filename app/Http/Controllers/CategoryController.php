@@ -14,18 +14,10 @@ class CategoryController extends Controller
     try {
         $categories = Category::pluck('name');
 
-        // Log the categories for debugging
-        \Log::info('Categories:', $categories->toArray());
-
         $allowedCategories = $categories->filter(function ($category) {
             $hasPermission = Gate::allows($category . '.manage');
-            // Log the permission check for each category
-            \Log::info('Checking permission for category: ' . $category, ['hasPermission' => $hasPermission]);
             return $hasPermission;
         });
-
-        // Log the allowed categories for debugging
-        \Log::info('Allowed Categories:', $allowedCategories->toArray());
 
         return response()->json([
             'status' => true,

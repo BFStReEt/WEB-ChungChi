@@ -303,7 +303,6 @@ class AdminController extends Controller {
         }
         $userAdmin->avatar = $filePath;
         $userAdmin->save();
-        $userAdmin->roles()->sync( $request->input( 'role_id', [] ) );
         return response()->json( [
             'status' => true,
             'displayName' => $userAdmin,

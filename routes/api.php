@@ -11,19 +11,19 @@ use App\Http\Controllers\Admin\PermissionController;
 //Admin
 Route::match(['get', 'post'], 'login', [AdminController::class, 'login'])->name('login');
 Route::post('logout', [AdminController::class, 'logout']);
-
+//25cbcbdf-ecd0-4f96-a170-09ed9d66c9f8
 // Admin-access-login
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     // Admin
     Route::resource('/information', AdminController::class);
     Route::get('/admin-information', [AdminController::class, 'information']);
-
     Route::patch('/profile',[AdminController::class,'UpdateProfile']);
 
-    Route::get('/select-name-admin',[App\Http\Controllers\Admin\AdminController::class,'showSelectAdmin']);
-    Route::get('/admin-log',[App\Http\Controllers\Admin\AdminController::class,'log']);
+    //Log
+    Route::get('/select-name-admin',[AdminController::class,'showSelectAdmin']);
+    Route::get('/admin-log',[AdminController::class,'log']);
 
-    Route::delete('/delete-all-admin',[App\Http\Controllers\Admin\AdminController::class,'delete']);
+    Route::delete('/delete-all-admin',[AdminController::class,'delete']);
 
     // Role
     Route::resource('roles', RoleController::class);

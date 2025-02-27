@@ -118,7 +118,7 @@ class AdminService implements AdminServiceInterface
                     'avatar' => $user->avatar,
                     'phone' => $user->phone,
                     'last_login' => date('d-m-Y, h:i:s A', $user->lastlogin),
-                     'roles' => $user->roles->map(function($role){
+                    'roles' => $user->roles->map(function($role){
                         return $role->name;
                     })->implode(', '),
                 ];
@@ -166,7 +166,6 @@ class AdminService implements AdminServiceInterface
                 'status',
                 'depart_id',
             ] );
-            // $this->adminRepository->create( $data );
             $userAdmin = new Admin();
             $userAdmin->username = $request[ 'username' ];
             $userAdmin->password = Hash::make( $request[ 'password' ] );
@@ -193,9 +192,10 @@ class AdminService implements AdminServiceInterface
             $userAdmin->phone = $request[ 'phone' ];
             $userAdmin->status = $request[ 'status' ];
             $userAdmin->depart_id = $request[ 'depart_id' ];
-
-            $userAdmin->save();
             $userAdmin->roles()->attach( $request->input( 'role_id' ) );
+            
+            $userAdmin->save();
+            
             return response()->json( [
                 'status' => true,
                 'userAdmin' => $userAdmin,
@@ -256,8 +256,10 @@ class AdminService implements AdminServiceInterface
             $filePath =  $userAdmin->avatar;
         }
         $userAdmin->avatar = $filePath;
+        if ($request->has('role_id')) {
+             $userAdmin->roles()->sync($request->input('role_id'));
+        }
         $userAdmin->save();
-        $userAdmin->roles()->sync( $request->input( 'role_id', [] ) );
         return response()->json( [
             'status' => true,
             'displayName' => $userAdmin,
