@@ -11,7 +11,6 @@ use App\Http\Controllers\Admin\PermissionController;
 //Admin
 Route::match(['get', 'post'], 'login', [AdminController::class, 'login'])->name('login');
 Route::post('logout', [AdminController::class, 'logout']);
-//25cbcbdf-ecd0-4f96-a170-09ed9d66c9f8
 // Admin-access-login
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     // Admin

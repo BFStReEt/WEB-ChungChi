@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Permission;
 use App\Models\GroupPermission;
+use App\Models\Category;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Gate;
@@ -93,19 +96,46 @@ class PermissionController extends Controller
                 'cat'=>'permission',
             ]);
             if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quyền hạn.add')){
-                Permission::create([
-                    'name'=>$request->input('permissionName'),
-                    'slug'=>$request->input('parentCate').'.'.$request->input('childCate').'.'.$request->input('permissionName'),
+            // Lấy và kiểm tra category cha
+                $parentCategory = Category::find($request->input('parentCate'));
+                if(!$parentCategory) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'Parent category not found'
+                    ], 404);
+                }
 
+                // Khởi tạo slug với tên category cha
+                $slugParts = [$parentCategory->name];
+
+                // Kiểm tra và thêm child category nếu có
+                if($request->input('childCate')) {
+                    $childCategory = Category::find($request->input('childCate'));
+                    if($childCategory) {
+                        $slugParts[] = $childCategory->name;
+                    }
+                }
+
+                // Kiểm tra và thêm year category nếu có
+                if($request->input('yearCate')) {
+                    $yearCategory = Category::find($request->input('yearCate'));
+                    if($yearCategory) {
+                        $slugParts[] = $yearCategory->name;
+                    }
+                }
+
+                // Thêm tên permission vào cuối
+                $slugParts[] = $request->input('permissionName');
+
+                // Tạo permission với slug được ghép từ các phần
+                Permission::create([
+                    'name' => $request->input('permissionName'),
+                    'slug' => implode('.', $slugParts)
                 ]);
+
                 return response()->json([
-                    'status'=>true,
-                    'message'=>'create Permission success'
-                ]);
-            } else {
-                return response()->json([
-                    'status'=>false,
-                    'mess' => 'no permission',
+                    'status' => true,
+                    'message' => 'create Permission success'
                 ]);
             }
         }
