@@ -1,0 +1,664 @@
+
+======
+[2025-02-19 07:39:29:058] LAPTOP HÙNG. ĐỖ MINH 0938703382: Em đi trễ 20p nhé chị
+
+======
+[2025-02-19 08:08:32:759] Minh Hai: Mình có khách hàng cần mua số lượng khá, ưu tiên HP và Dell
+[2025-02-19 08:08:16:975] Minh Hai: Nói bên Bảo bán nhiều laptop giá tốt
+[2025-02-19 08:08:02:515] Minh Hai: Mình được bạn Bảo chuyên nhập hàng cũ cho sđt
+[2025-02-19 08:07:45:603] Minh Hai: Chào Hùng
+
+======
+[2025-02-19 08:26:31:875] LAPTOP HÙNG. ĐỖ MINH 0938703382: Về kho đi báo em
+[2025-02-19 08:26:23:102] Vinh Lenovo DGW: chung lô
+[2025-02-19 08:26:21:326] Vinh Lenovo DGW: (NB) LENOVO ThinkPad E14 Gen 5 i7-1355U/16GD4/512GSSD/14.0WUXGA/FP/IR/WL/BT/3C47/NoOS/LEDKB/2Y/ĐEN 21JK00PFVA
+[2025-02-19 08:26:05:837] Vinh Lenovo DGW: 2 model đều đang chuẩn bị kéo về kho trước, để đủ thru tục rồi nổi xuất
+[2025-02-19 08:25:35:196] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":11190,"id":34840,"type":7}
+[2025-02-19 08:24:47:652] Vinh Lenovo DGW: 21KH00Q1VN (NB) LENOVO ThinkBook 16 G6 IRL i5-13420H/16GD5/512GSSD/16.0WUXGA/Wifi6/BT5.3/4C71/NoOS/LKB/2Y/XÁM
+[2025-02-19 08:24:39:817] Vinh Lenovo DGW: 21KH00Q0VN (NB) LENOVO ThinkBook 16 G6 IRL i5-13420H/16GD5/512GSSD/16.0WUXGA/Wifi6/BT5.3/4C71/W11SL/LKB/2Y/XÁM
+[2025-02-19 08:24:30:292] Vinh Lenovo DGW: :>
+[2025-02-19 08:24:26:728] Vinh Lenovo DGW: sáng nhìn bị quan gà
+[2025-02-19 08:24:22:074] Vinh Lenovo DGW: mía ơi
+[2025-02-19 08:24:19:998] Vinh Lenovo DGW: chưa nổi, dg nằm kho nhập khảu
+[2025-02-19 08:24:07:282] Vinh Lenovo DGW: nhầm với con có win
+[2025-02-19 08:24:00:731] Vinh Lenovo DGW: khoan nhầm
+[2025-02-19 08:23:27:747] LAPTOP HÙNG. ĐỖ MINH 0938703382: Con này ko win giá 15.100 mà
+[2025-02-19 08:22:22:865] Vinh Lenovo DGW: V15 của mình tình hình là bị delay rồi nha
+[2025-02-19 08:22:07:117] Vinh Lenovo DGW: hàng nổi con có win trước đó
+[2025-02-19 08:22:00:750] Vinh Lenovo DGW: giá xuất : 16.203.600 Fll
+[2025-02-19 08:21:51:328] LAPTOP HÙNG. ĐỖ MINH 0938703382: Về chưa anh
+[2025-02-19 08:20:56:763] Vinh Lenovo DGW: xúc 1 ít trước đi
+[2025-02-19 08:20:48:603] Vinh Lenovo DGW: con này hàng có trước nè
+
+======
+[2025-02-19 08:22:19:306] Minh Hai: {"thumb":"","description":"","action":"msginfo.actionlist","childnumber":0,"href":"","title":"Bạn vừa kết bạn với Minh Hai","params":"{\"msg\":{\"vi\":\"Bạn vừa kết bạn với %1$s\",\"en\":\"%1$s just became your friend\",\"my\":\"%1$s just became your friend\"},\"avatarUrl\":[\"https://s160-ava-talk.zadn.vn/5/0/4/e/7/160/8f7f595805ae75f1b207577fbb507c18.jpg\"],\"simpleInfos\":[{\"uid\":2486646433151116799,\"dpn\":\"Minh Hai\",\"avt\":\"https://s160-ava-talk.zadn.vn/5/0/4/e/7/160/8f7f595805ae75f1b207577fbb507c18.jpg\"}],\"highLightsV2\":[{\"uid\":2486646433151116799,\"dpn\":\"Minh Hai\",\"ignoreNickname\":0,\"type\":0,\"ts\":0}],\"totalUpdateMem\":0}","type":""}
+[2025-02-19 08:22:15:398] LAPTOP HÙNG. ĐỖ MINH 0938703382: Để Hùng xem
+[2025-02-19 08:09:44:800] Minh Hai: Hùng xem có model tương đương thì báo giá giúp nhé
+[2025-02-19 08:09:29:889] Minh Hai: Đây là số lượng hàng và cấu hình máy
+[2025-02-19 08:09:15:774] Minh Hai: {"thumb":"https://f21-zpc.zdn.vn/jpg/8967094694374625932/5ba3741590222e7c7733.jpg","description":"","action":"","childnumber":0,"href":"https://f21-zpc.zdn.vn/jpg/8967094694374625932/5ba3741590222e7c7733.jpg","title":"","params":"{\"width\":1515,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f21-zpc.zdn.vn\\/jpg\\/8967094694374625932\\/5ba3741590222e7c7733.jpg\",\"hdSize\":193022,\"height\":642}","type":""}
+[2025-02-19 08:09:05:961] Minh Hai: {"thumb":"https://f11-zpc.zdn.vn/jpg/213881753228138299/9a5b945c716bcf35967a.jpg","description":"","action":"","childnumber":0,"href":"https://f11-zpc.zdn.vn/jpg/213881753228138299/9a5b945c716bcf35967a.jpg","title":"","params":"{\"width\":1561,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f11-zpc.zdn.vn\\/jpg\\/213881753228138299\\/9a5b945c716bcf35967a.jpg\",\"height\":424}","type":""}
+
+======
+[2025-02-19 08:21:29:660] LAPTOP HÙNG. ĐỖ MINH 0938703382: Ko có rồi chị đợi em kiếm
+[2025-02-19 08:09:00:744] C Diễm sếp MDO_DNA_SM_DONGNAM: {"thumb":"https://f18-zpc.zdn.vn/jpg/3785669807725424148/b6b18e416b76d5288c67.jpg","description":"","action":"","childnumber":0,"href":"https://f18-zpc.zdn.vn/jpg/3785669807725424148/b6b18e416b76d5288c67.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f18-zpc.zdn.vn\\/jpg\\/3785669807725424148\\/b6b18e416b76d5288c67.jpg\",\"width\":941,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f18-zpc.zdn.vn\\/jpg\\/3785669807725424148\\/b6b18e416b76d5288c67.jpg\",\"hdSize\":15504,\"height\":103}","type":""}
+[2025-02-19 08:08:58:955] C Diễm sếp MDO_DNA_SM_DONGNAM: HP có dòng tương đương này ko
+[2025-02-19 08:08:47:556] C Diễm sếp MDO_DNA_SM_DONGNAM: em
+
+======
+[2025-02-19 08:49:45:826] LAPTOP HÙNG. ĐỖ MINH 0938703382: 13.3'' chỉ có nhiêu đó
+[2025-02-19 08:48:59:725] TÂM  HQS_Q03_SM_KYTHUATSOVIET: hết rồi hả?
+[2025-02-19 08:47:46:533] LAPTOP HÙNG. ĐỖ MINH 0938703382: đây 13.3''
+[2025-02-19 08:47:40:048] LAPTOP HÙNG. ĐỖ MINH 0938703382: [A7RA8PT]* NB HP ELITEBOOK X360 830 G11/CORE ULTRA 7-155U/16GB RAM/512GB SSD/INTEL GRAPHICS/13.3 INCH WUXGA TOUCH/WEBCAM/3 CELL/WLAN AX+BT/FINGERPRINT/SMCARD/PEN/WIN11 PRO 64 - 03Y    43tr fv ko túi / còn ít
+[2025-02-19 08:47:08:822] LAPTOP HÙNG. ĐỖ MINH 0938703382: [A7LL8PT]* MÁY TÍNH XÁCH TAY (NB) HP EB 630 G11 CORE U5-125U/16G/512GSSD/13.3WUXGA/WL/BT/FP/3C/ALU/W11SL/LEDKB/BẠC - 01Y  20tr9 fv ko túi
+[2025-02-19 08:46:29:759] TÂM  HQS_Q03_SM_KYTHUATSOVIET: dòng 830 hình như là 14" pk fen? có 13.3" ko?
+[2025-02-19 08:46:09:705] TÂM  HQS_Q03_SM_KYTHUATSOVIET: Elitebook 13.3" có cấu hình ào cho tham khảo nha
+[2025-02-19 08:45:57:758] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":47,"id":1033,"type":7}
+[2025-02-19 08:45:44:773] TÂM  HQS_Q03_SM_KYTHUATSOVIET: alo fen
+
+======
+[2025-02-19 08:43:50:470] LAPTOP HÙNG. ĐỖ MINH 0938703382: A74B9PT	Máy tính xách tay HP Probook 440 G11,Core Ultra 5-125H,16GB RAM,512GB SSD,Intel Graphics,14"WUXGA Touch,Webcam,3 Cell,Wlan ax+BT,Fingerprint,Win11 Home 64,Silver,1Y WTY_A74B9PT    21.750 full vat ko túi
+[2025-02-19 08:43:06:143] LAPTOP HÙNG. ĐỖ MINH 0938703382: thì con win home thì lại có cảm ứng
+[2025-02-19 08:42:42:268] Thanh HQS_Q01_SM_UCSVN: Win home có ko
+[2025-02-19 08:42:32:523] LAPTOP HÙNG. ĐỖ MINH 0938703382: chị đang hỏi giá con đó mà
+[2025-02-19 08:42:20:407] Thanh HQS_Q01_SM_UCSVN: Hic
+[2025-02-19 08:42:19:072] Thanh HQS_Q01_SM_UCSVN: Vẫn pro
+[2025-02-19 08:37:12:480] LAPTOP HÙNG. ĐỖ MINH 0938703382: A74BBPT	Máy tính xách tay HP Probook 440 G11,Core Ultra 5-125H,16GB RAM,512GB SSD,Intel Graphics,14"WUXGA,Webcam,3 Cell,Wlan ax+BT,Fingerprint,Win11 Pro 64,Silver,1Y WTY_A74BBPT   25tr5 fv ko túi
+
+======
+[2025-02-19 08:39:30:702] LAPTOP HÙNG. ĐỖ MINH 0938703382: sale này sẽ liên hệ báo giá cho anh nha
+[2025-02-19 08:39:23:211] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://s120.avatar.talk.zdn.vn/5/5/2/2/16/120/b0b5ec3dd2538be3fd8fd89426ac8161.jpg","description":"{\"qrCodeUrl\":\"https:\\/\\/qr-talk.zdn.vn\\/13\\/-1931122350\\/1d4fe928d26b3b35627a.jpg\"}","action":"recommened.user","childnumber":0,"href":"www.zaloapp.com","title":"Mr Tân Ptkh Nguyên Kim","params":"4621315228360025951","type":""}
+[2025-02-19 08:37:17:766] Minh Hai: Khách bên mình cũng yêu cầu là phải hàng chính hãng
+[2025-02-19 08:36:57:716] Minh Hai: Có đứa em giới thiệu, nên biết bên a Hùng phân phối hàng chính hãng
+[2025-02-19 08:36:29:483] Minh Hai: {"thumb":"","description":"","action":"","childnumber":0,"href":"","title":"","params":"{\"item\":{\"zinstantdata_id\":\"templateId=11845\",\"content_time\":1739928989471,\"checksum\":\"bd1f4d7b883ac24f1aacf292135ac4ac\",\"data_type\":2,\"version\":1,\"data_url\":\"https://zinst-stc.zdn.vn/static/3m/11845/20250219/U5HXP2qoS311JLfbSKbIR45vLsDJQt15GYrjQdHlTdHsUNLhTcytLJXZCcHaT5LfKKL3DqnwBKLFGaHPTp1kIMfeI4nPIKPsDaXpLMHpIcX5LKTGD30\"},\"pcItem\":{\"zinstantdata_id\":\"templateId=11845\",\"content_time\":1739928989471,\"checksum\":\"38f631c44b253507c7c21c133e2e24af\",\"data_type\":4,\"version\":1,\"data_url\":\"https://zinst-stc.zdn.vn/static/3m/11845/20250219/U5HXP2qoS311JLfbSKbIR45vLsDJQt15GYrjQdHlTdHsUNLhTcytLJXZCcHaT5LfKKL3DqnwBKLFGaHPTp1kIMfeI4nPIKPsDaXpLMHpIcX5LKTGD30?data=html\"},\"layoutType\":2,\"type\":1,\"customMsg\":{\"msg\":{\"en\":\"[Transfer details]\",\"vi\":\"[Thông tin chuyển khoản]\"},\"highLightsV2\":[]},\"collapse\":0}","type":""}
+[2025-02-19 08:36:29:000] Minh Hai: CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ DƯƠNG THÁI HÀ
+Số 269/36A đường Nguyễn Thị Minh Khai, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+STK: 1016697989
+Tại Vietcombank – CN Bình Dương
+Tel                	: 0274 3 69 61 68   		Mobile: 0967 535 917 
+Mã số thuế   	: 3 7 0 2 2 5 5 8 9 3
+[2025-02-19 08:35:55:587] LAPTOP HÙNG. ĐỖ MINH 0938703382: mình bên nào vậy, bên Hùng là cty Nguyên Kim chuyên phân phối laptop hàng chính Hãng
+
+======
+[2025-02-19 08:39:25:881] Mr Tân Ptkh Nguyên Kim: cám ơn A
+[2025-02-19 08:39:23:189] Mr Tân Ptkh Nguyên Kim: ok A
+[2025-02-19 08:39:12:987] LAPTOP HÙNG. ĐỖ MINH 0938703382: khách mới, xem có gì báo bán nha
+[2025-02-19 08:38:57:297] LAPTOP HÙNG. ĐỖ MINH 0938703382: Mình có khách hàng cần mua số lượng khá, ưu tiên HP và Dell
+[2025-02-19 08:38:51:540] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f21-zpc.zdn.vn/jpg/8967094694374625932/5ba3741590222e7c7733.jpg","description":"","action":"","childnumber":0,"href":"https://f21-zpc.zdn.vn/jpg/8967094694374625932/5ba3741590222e7c7733.jpg","title":"","params":"{\"width\":1515,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f21-zpc.zdn.vn\\/jpg\\/8967094694374625932\\/5ba3741590222e7c7733.jpg\",\"hdSize\":193022,\"height\":642}","type":""}
+[2025-02-19 08:38:49:039] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f11-zpc.zdn.vn/jpg/213881753228138299/9a5b945c716bcf35967a.jpg","description":"","action":"","childnumber":0,"href":"https://f11-zpc.zdn.vn/jpg/213881753228138299/9a5b945c716bcf35967a.jpg","title":"","params":"{\"width\":1561,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f11-zpc.zdn.vn\\/jpg\\/213881753228138299\\/9a5b945c716bcf35967a.jpg\",\"height\":424}","type":""}
+[2025-02-19 08:38:38:564] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://s120.avatar.talk.zdn.vn/5/0/4/e/7/120/8f7f595805ae75f1b207577fbb507c18.jpg","description":"{\"qrCodeUrl\":\"https:\\/\\/qr-talk.zdn.vn\\/7\\/830537793\\/f5961527d864313a6875.jpg\"}","action":"recommened.user","childnumber":0,"href":"www.zaloapp.com","title":"Minh Hai","params":"2486646433151116799","type":""}
+[2025-02-19 08:38:27:299] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"","description":"","action":"","childnumber":0,"href":"","title":"","params":"{\"item\":{\"zinstantdata_id\":\"templateId=11845\",\"content_time\":1739929107298,\"checksum\":\"7796abd2861bcbdec8f615c6232563bd\",\"data_type\":2,\"version\":1,\"data_url\":\"https://zinst-stc.zdn.vn/static/3m/11845/20250219/U5HXP2qoS392OpTcT39MOq5fIsHLBNGpGcjBQN5PUYrsUMbaTJ9IIK8sLLTXT6DeKYrvEKj4MJ9IQ4XYTZ0vJ6bIM59QMKfoDMvdK65pQ6b6QrTEDMq\"},\"pcItem\":{\"zinstantdata_id\":\"templateId=11845\",\"content_time\":1739929107298,\"checksum\":\"bd5267428a87b3440a735f15a03284ce\",\"data_type\":4,\"version\":1,\"data_url\":\"https://zinst-stc.zdn.vn/static/3m/11845/20250219/U5HXP2qoS392OpTcT39MOq5fIsHLBNGpGcjBQN5PUYrsUMbaTJ9IIK8sLLTXT6DeKYrvEKj4MJ9IQ4XYTZ0vJ6bIM59QMKfoDMvdK65pQ6b6QrTEDMq?data=html\"},\"layoutType\":2,\"type\":1,\"customMsg\":{\"msg\":{\"en\":\"[Transfer details]\",\"vi\":\"[Thông tin chuyển khoản]\"},\"highLightsV2\":[]},\"collapse\":0}","type":""}
+[2025-02-19 08:38:27:161] LAPTOP HÙNG. ĐỖ MINH 0938703382: CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ DƯƠNG THÁI HÀ
+Số 269/36A đường Nguyễn Thị Minh Khai, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+STK: 1016697989
+Tại Vietcombank – CN Bình Dương
+Tel                	: 0274 3 69 61 68   		Mobile: 0967 535 917 
+Mã số thuế   	: 3 7 0 2 2 5 5 8 9 3
+
+======
+[2025-02-19 09:11:03:989] LAPTOP HÙNG. ĐỖ MINH 0938703382: đúng mấy dòng part ko có anh
+[2025-02-19 09:10:41:754] A Hùng HQS_Q01_SM_TTC: dao này nguồn hàng NK ít nhỉ ... kể cả PC.
+[2025-02-19 09:10:23:873] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko có rồi anh nha
+[2025-02-19 09:09:05:004] LAPTOP HÙNG. ĐỖ MINH 0938703382: em check
+[2025-02-19 09:08:58:561] A Hùng HQS_Q01_SM_TTC: có hok H
+[2025-02-19 09:08:49:863] A Hùng HQS_Q01_SM_TTC: •	Laptop HP Probook 460 G11 A74BXPT (Intel Core Ultra 5 125H | 16GB | 512GB | Intel Arc | 16 inch WUXGA)
+
+======
+[2025-02-19 09:09:50:574] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko thì lên VNID lấy về
+[2025-02-19 09:09:34:275] LAPTOP HÙNG. ĐỖ MINH 0938703382: vậy kiếm đi fen
+[2025-02-19 09:09:24:748] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":11190,"id":34840,"type":7}
+[2025-02-19 09:09:18:477] TÂM  HQS_Q03_SM_KYTHUATSOVIET: này cũ rồi má, hết hiệu lực rồi, có CHIP mơi dc
+[2025-02-19 09:08:54:382] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":11190,"id":34840,"type":7}
+[2025-02-19 09:08:51:135] LAPTOP HÙNG. ĐỖ MINH 0938703382: kao có luôn nè
+[2025-02-19 09:08:37:299] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://t-f23-zpc.zdn.vn/783521892794238519/8a71c31bda2d64733d3c.jpg","description":"","action":"","childnumber":0,"href":"https://f23-zpc.zdn.vn/783521892794238519/8a71c31bda2d64733d3c.jpg","title":"","params":"{\"width\":1276,\"height\":956,\"hd\":\"https:\\/\\/b-f10-zpc.zdn.vn\\/783521892794238519\\/8a71c31bda2d64733d3c.jpg\",\"is_group_layout\":0,\"group_layout_id\":-1,\"id_in_group\":0,\"total_item_in_group\":0,\"contentId\":\"\"}","type":""}
+[2025-02-19 09:07:57:889] LAPTOP HÙNG. ĐỖ MINH 0938703382: đù
+[2025-02-19 09:07:55:405] TÂM  HQS_Q03_SM_KYTHUATSOVIET: {"catId":11901,"id":45356,"type":7}
+[2025-02-19 09:07:50:179] TÂM  HQS_Q03_SM_KYTHUATSOVIET: bữa giờ đang tìm cái CCCD, ko biết có bị thất lạc ở KS hay Ka nào ko
+[2025-02-19 09:07:16:082] LAPTOP HÙNG. ĐỖ MINH 0938703382: này ngày cuối rồi
+[2025-02-19 09:06:48:361] TÂM  HQS_Q03_SM_KYTHUATSOVIET: đang ký hả?
+[2025-02-19 09:06:37:290] LAPTOP HÙNG. ĐỖ MINH 0938703382: điền thông tin giúp Hùng đi fen
+[2025-02-19 09:06:24:221] LAPTOP HÙNG. ĐỖ MINH 0938703382: https://forms.gle/gk3cSrZYKdoNDVfk7
+[2025-02-19 08:51:49:854] TÂM  HQS_Q03_SM_KYTHUATSOVIET: ok
+[2025-02-19 08:50:04:172] LAPTOP HÙNG. ĐỖ MINH 0938703382: xem thêm bảng giá đí
+[2025-02-19 08:49:56:671] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"","description":"","action":"","childnumber":0,"href":"https://do38.dlfl.me/3c7308b8e9f848a611e9/7851692091043641035","title":"BBG LAPTOP 17.02.2025 NGUYÊN KIM.xlsx","params":"{\"fileSize\":\"17785\", \"checksum\":\"633b88c7a767bb336ef92ecce75a9e5f\", \"checksumSha\":\"null\", \"fileExt\":\"xlsx\", \"fdata\":\"{}\", \"fType\":1}","type":""}
+
+======
+[2025-02-19 09:09:24:095] Nam Laptop: 21ML0077VA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 CORE_ULT5_125H (1.2 Ghz) - 16G Ram  - 512G SSD - Wifi,BT,Finger Print -14_2.2K_AG_300N - No OS - 3 Yrs Premier support
+có kẹt hải quan không anh
+
+======
+[2025-02-19 09:07:06:441] LAPTOP HÙNG. ĐỖ MINH 0938703382: hay em điền luôn cho anh nè
+[2025-02-19 09:07:00:554] LAPTOP HÙNG. ĐỖ MINH 0938703382: anh ơi, điền thông tin giúp em nha
+
+======
+[2025-02-19 09:06:53:757] A Nghĩa HQS_Q01_SM_CCNC: Ok Hùng
+[2025-02-19 09:06:02:091] LAPTOP HÙNG. ĐỖ MINH 0938703382: anh điền thông tin đăng ký giúp em nha
+
+======
+[2025-02-19 09:02:21:429] Loan GIAIPHAPUUVIET: {"thumb":"http://s120.avatar.talk.zdn.vn/9/c/8/9/1300/120/f6210722a618484de677bb22496cdcf1.jpg","description":"Hãy gửi lời chúc tốt đẹp!","action":"show.profile","childnumber":0,"href":"https://res-zalo.zadn.vn/upload/media/2020/2/7/2x_ecardsn_1581058405234_716426.png","title":"19/02 Sinh nhật của Loan GIAIPHAPUUVIET","params":"{\"isMain\":0,\"notifyTxt\":\"Hôm nay (19/02) là sinh nhật của Loan GIAIPHAPUUVIET, hãy gửi một lời chúc!\",\"header\":\"\",\"layoutType\":1,\"previewTxt\":\"Hôm nay (19/02) là sinh nhật của Loan GIAIPHAPUUVIET, hãy gửi một lời chúc!\",\"actions\":[{\"data\":\"{\\\"catId\\\":10051,\\\"stickerList\\\":[{\\\"catId\\\":10604,\\\"id\\\":25640,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":11030,\\\"id\\\":32037,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10173,\\\"id\\\":18769,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10398,\\\"id\\\":23047,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25645,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10051,\\\"id\\\":16778,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25644,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25642,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25643,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25649,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25650,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25651,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25652,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25653,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25655,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25656,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10604,\\\"id\\\":25657,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10233,\\\"id\\\":19788,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10051,\\\"id\\\":16772,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10051,\\\"id\\\":16773,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10136,\\\"id\\\":18115,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10136,\\\"id\\\":18114,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10136,\\\"id\\\":21979,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10136,\\\"id\\\":21981,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10136,\\\"id\\\":21983,\\\"type\\\":7,\\\"autoplay\\\":1},{\\\"catId\\\":10136,\\\"id\\\":22171,\\\"type\\\":7,\\\"autoplay\\\":1}],\\\"id\\\":16778,\\\"type\\\":7,\\\"autoplay\\\":1}\",\"isMain\":0,\"is_tracking\":true,\"id_tracking\":1739930541430,\"name\":\"Gửi Sticker chúc mừng\",\"actionId\":\"action.open.sendsticker\",\"data_popup\":null}]}","type":"1"}
+
+======
+[2025-02-19 08:54:24:776] LAPTOP HÙNG. ĐỖ MINH 0938703382: MÁY TÍNH XÁCH TAY HP PROBOOK 440 G10,CORE I5-1340P,16GB RAM/512GB SSD/INTEL GRAPHICS/14INCH FHD TOUCH/WEBCAM/3 CELL/WLAN AX+BT/FINGERPRINT/WIN11 HOME 64/SILVER_873B2PA* - 01Y  18tr4 fv ko túi
+[2025-02-19 08:54:24:474] Mr Quang Notebook Nguyên Kim: Con 16gb á
+[2025-02-19 08:54:16:684] LAPTOP HÙNG. ĐỖ MINH 0938703382: NB HP PROBOOK 440 G10,CORE I5-1340P/ 8GB RAM/ 512GB SSD/ INTEL GRAPHICS/ 14INCH FHD TOUCH/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11 HOME 64/ SILVER_(873B1PA)* - 01Y   18tr fv ko túi
+[2025-02-19 08:54:14:612] Mr Quang Notebook Nguyên Kim: Có giá cũ sáng t2 à
+[2025-02-19 08:54:05:117] Mr Quang Notebook Nguyên Kim: Anh Đạo cập nhật giá, em chưa lấy giá mới
+[2025-02-19 08:53:49:357] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":11482,"id":38574,"type":7}
+[2025-02-19 08:53:25:069] Mr Quang Notebook Nguyên Kim: Lấy lại giúp em giá con 440 chip P với anh
+
+======
+[2025-02-19 08:53:37:602] LAPTOP HÙNG. ĐỖ MINH 0938703382: gắn thêm ram 8G DDR5
+[2025-02-19 08:53:30:188] LAPTOP HÙNG. ĐỖ MINH 0938703382: [L3450-1335U-08512U]* MÁY TÍNH XÁCH TAY DELL LATITUDE 3450 INTEL CORE I5-1335U (12 MB CACHE, 10 CORES, UP TO 4.60 GHZ TURBO)/ 8GB/ 512SSD/ 14 FHD/ 3 CELLS / UBUNTU/ PRO SUPPORT - 01Y  16tr6 fv ko túi
+[2025-02-19 08:53:02:172] Anh Thư IPL: cho em xin giá nha anh
+[2025-02-19 08:52:56:481] Anh Thư IPL: Laptop Dell Latitude 3450 L (Intel Core i5-1335U | 16GB | 512GB | 14 inch FHD )
+
+======
+[2025-02-19 08:36:29:000] Minh Hai: CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ DƯƠNG THÁI HÀ
+Số 269/36A đường Nguyễn Thị Minh Khai, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+STK: 1016697989
+Tại Vietcombank – CN Bình Dương
+Tel                	: 0274 3 69 61 68   		Mobile: 0967 535 917 
+Mã số thuế   	: 3 7 0 2 2 5 5 8 9 3
+
+======
+[2025-02-19 08:38:27:161] LAPTOP HÙNG. ĐỖ MINH 0938703382: CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ DƯƠNG THÁI HÀ
+Số 269/36A đường Nguyễn Thị Minh Khai, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+STK: 1016697989
+Tại Vietcombank – CN Bình Dương
+Tel                	: 0274 3 69 61 68   		Mobile: 0967 535 917 
+Mã số thuế   	: 3 7 0 2 2 5 5 8 9 3
+
+======
+[2025-02-19 09:32:24:660] C Diễm sếp MDO_DNA_SM_DONGNAM: nó hỏi toàn ko có
+[2025-02-19 09:31:53:298] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko có rồi chị
+[2025-02-19 09:31:35:087] C Diễm sếp MDO_DNA_SM_DONGNAM: này có ko em
+[2025-02-19 09:31:30:438] C Diễm sếp MDO_DNA_SM_DONGNAM: Laptop HP Gaming VICTUS 16 s0138AX R7 7840HS/32GB/512GB/8GB RTX4070/144Hz/Win11 (9Q985PA)
+[2025-02-19 09:31:29:427] C Diễm sếp MDO_DNA_SM_DONGNAM: em
+
+======
+[2025-02-19 09:30:43:505] Nam Laptop: 83DA0020VN	MÁY TÍNH XÁCH TAY (NB) LENOVO IdeaPad Slim 5 14IMH9 U7-155H/32GDR5/1TBSSD/14WUXGA/OLED/IR/WL/BT/3C57/W11SL/LKB/2Y/XÁM(83DA0020VN)
+sl 1 DGW xem giúp em
+[2025-02-19 09:09:24:095] Nam Laptop: 21ML0077VA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 CORE_ULT5_125H (1.2 Ghz) - 16G Ram  - 512G SSD - Wifi,BT,Finger Print -14_2.2K_AG_300N - No OS - 3 Yrs Premier support
+có kẹt hải quan không anh
+
+======
+[2025-02-19 09:30:38:138] LAPTOP HÙNG. ĐỖ MINH 0938703382: yes chị
+[2025-02-19 09:30:32:186] C Bích Lenovo: Có chứ
+[2025-02-19 09:21:08:082] LAPTOP HÙNG. ĐỖ MINH 0938703382: mấy giấy tờ này có đầy đủ chế hả
+[2025-02-19 09:20:59:052] LAPTOP HÙNG. ĐỖ MINH 0938703382: Hàng hóa phải đầy đủ giấy tờ CO-CQ, packinglist, invoice, tờ khai
+
+21F600AAVA	Lenovo ThinkPad T14s Gen 4 21F600AAVA (Intel Core i7-1355U | 16GB | 512GB | Intel Iris Xe | 14 inch WUXGA | NoOS | Đen)
+
+======
+[2025-02-19 09:23:05:508] LAPTOP HÙNG. ĐỖ MINH 0938703382: để đi tố giác tội phạm
+[2025-02-19 09:22:32:175] TÂM  HQS_Q03_SM_KYTHUATSOVIET: kakaka
+[2025-02-19 09:22:30:756] TÂM  HQS_Q03_SM_KYTHUATSOVIET: hình CCCD chíp nhìn đẹ hơn nhiều ha
+[2025-02-19 09:21:17:714] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":12003,"id":46964,"type":7}
+[2025-02-19 09:20:28:599] TÂM  HQS_Q03_SM_KYTHUATSOVIET: clear dữ liệu này đi, nhìn hình giống mới.... Haiz
+[2025-02-19 09:18:42:127] LAPTOP HÙNG. ĐỖ MINH 0938703382: /-strong
+[2025-02-19 09:18:28:583] TÂM  HQS_Q03_SM_KYTHUATSOVIET: ko tính sạc đúng hok?
+[2025-02-19 09:17:59:294] LAPTOP HÙNG. ĐỖ MINH 0938703382: nặng 1.3 -1.4kg nha
+[2025-02-19 09:17:50:871] LAPTOP HÙNG. ĐỖ MINH 0938703382: đăng ký là được
+[2025-02-19 09:17:47:362] LAPTOP HÙNG. ĐỖ MINH 0938703382: thôi kệ đi
+[2025-02-19 09:17:41:593] TÂM  HQS_Q03_SM_KYTHUATSOVIET: đù, lộn luôn, chết mịa, có cần làm lại hok?
+[2025-02-19 09:17:03:464] TÂM  HQS_Q03_SM_KYTHUATSOVIET: con này nặng nhiêu fen?
+[2025-02-19 09:16:44:588] LAPTOP HÙNG. ĐỖ MINH 0938703382: yêu nhau dữ chưa
+[2025-02-19 09:16:39:390] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f15-zpc.zdn.vn/jpg/1120854402128443176/750c1f23e2155c4b0504.jpg","description":"","action":"","childnumber":0,"href":"https://f15-zpc.zdn.vn/jpg/1120854402128443176/750c1f23e2155c4b0504.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f15-zpc.zdn.vn\\/jpg\\/1120854402128443176\\/750c1f23e2155c4b0504.jpg\",\"width\":137,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f15-zpc.zdn.vn\\/jpg\\/1120854402128443176\\/750c1f23e2155c4b0504.jpg\",\"hdSize\":1330,\"height\":40}","type":""}
+[2025-02-19 09:15:33:533] TÂM  HQS_Q03_SM_KYTHUATSOVIET: xong rồi nhan fen
+[2025-02-19 09:12:00:155] LAPTOP HÙNG. ĐỖ MINH 0938703382: win pro mới dùng dc
+[2025-02-19 09:11:53:898] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko nha
+[2025-02-19 09:11:44:350] TÂM  HQS_Q03_SM_KYTHUATSOVIET: con này Win Home có dùng dc tiếng Nhật ko fen?
+
+======
+[2025-02-19 09:18:46:931] Ptkh Mr Sang Nguyên Kim: deal bu hy vong dớt dc
+[2025-02-19 09:18:33:068] LAPTOP HÙNG. ĐỖ MINH 0938703382: đúng em
+[2025-02-19 09:18:07:232] Ptkh Mr Sang Nguyên Kim: xin dc fai ko a
+[2025-02-19 09:18:02:932] Ptkh Mr Sang Nguyên Kim: Hàng hóa phải đầy đủ giấy tờ CO-CQ, packinglist, invoice, tờ khai
+
+21F600AAVA	Lenovo ThinkPad T14s Gen 4 21F600AAVA (Intel Core i7-1355U | 16GB | 512GB | Intel Iris Xe | 14 inch WUXGA | NoOS | Đen)	 26,500,000 ko tui 
+=====
+[21G2003NVA] MÁY TÍNH XÁCH TAY LENOVO THINKPAD P14S GEN 5 INTEL CORE ULTRA 7 155H (4.80 GHZ)/ 32GB RAM/ 512GB SSD/ NVIDIA RTX500 4GB / WIFI,BT/ FINGER PRINT/14.5IN 3K_AG_430N/ NO OS/ 3 YRS PREMIER SU   43.100.000 ko tui
+
+======
+[2025-02-19 09:14:43:482] Trang Nguyễn MTR_GLA_SM_DOTNET: Dạ a mình có mẫu này k ạ
+[2025-02-19 09:14:38:612] Trang Nguyễn MTR_GLA_SM_DOTNET: {"thumb":"","description":"Laptop Dell Inspiron 5440 tại Laptopvip.vn trong tháng 02 2025 bảo hành 12 tháng 1 đổi 1 trong 30 ngày, Laptop Dell Inspiron 5440 hỗ trợ trả góp 0% nhanh chóng và tiện lợi. Tặng bộ quà tặng cực kỳ hấp\u2026","action":"recommened.link","childnumber":0,"href":"https://www.laptopvip.vn/dell-inspiron-5440.html","title":"https://www.laptopvip.vn/dell-inspiron-5440.html","params":"{\"streamUrl\":\"\",\"mediaTitle\":\"Laptop Dell Inspiron 5440 Trả góp 0% - Free Ship | LAPTOPVIP.VN\",\"stream_icon\":\"\",\"src\":\"www.laptopvip.vn\",\"artist\":\"\",\"type\":0}","type":""}
+
+======
+[2025-02-19 09:13:22:232] LAPTOP HÙNG. ĐỖ MINH 0938703382: biết né dòng đó
+[2025-02-19 09:13:16:165] LAPTOP HÙNG. ĐỖ MINH 0938703382: thì nó làm những dòng bên em ko làm
+[2025-02-19 09:12:50:103] A Hùng HQS_Q01_SM_TTC: Hitec cả kho nè
+[2025-02-19 09:12:44:033] A Hùng HQS_Q01_SM_TTC: Máy tính xách tay HP Probook 460 G11 Core U5-125H,16G,512GSSD,16.0WUXGA,WL,BT,FP,3C,ALU,W11SL,LEDKB,BẠC,1Y	 20,100,000
+[2025-02-19 09:12:16:046] A Hùng HQS_Q01_SM_TTC: ẹc....
+[2025-02-19 09:11:46:493] LAPTOP HÙNG. ĐỖ MINH 0938703382: bán part cũ dùm em đi
+[2025-02-19 09:11:41:763] LAPTOP HÙNG. ĐỖ MINH 0938703382: [9H8V8PT]* MÁY TÍNH XÁCH TAY HP PROBOOK 450 G10/CORE I5-1340P/16GB RAM/512GB SSD/INTEL GRAPHICS/15.6 INCH FHD TOUCH/WEBCAM/3 CELL/WLAN AX+BT/FINGERPRINT/WIN11 HOME 64/SILVER - 01Y  18tr5 fv ko túi
+[2025-02-19 09:11:09:662] LAPTOP HÙNG. ĐỖ MINH 0938703382: HP nó nhiều vô số part
+
+======
+[2025-02-19 08:36:29:000] Minh Hai: CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ DƯƠNG THÁI HÀ
+Số 269/36A đường Nguyễn Thị Minh Khai, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+STK: 1016697989
+Tại Vietcombank – CN Bình Dương
+Tel                	: 0274 3 69 61 68   		Mobile: 0967 535 917 
+Mã số thuế   	: 3 7 0 2 2 5 5 8 9 3
+
+======
+[2025-02-19 08:38:27:161] LAPTOP HÙNG. ĐỖ MINH 0938703382: CÔNG TY TNHH THƯƠNG MẠI-DỊCH VỤ DƯƠNG THÁI HÀ
+Số 269/36A đường Nguyễn Thị Minh Khai, P. Phú Hòa, TP. Thủ Dầu Một, Bình Dương
+STK: 1016697989
+Tại Vietcombank – CN Bình Dương
+Tel                	: 0274 3 69 61 68   		Mobile: 0967 535 917 
+Mã số thuế   	: 3 7 0 2 2 5 5 8 9 3
+
+======
+[2025-02-19 10:57:49:465] Ngọc HQS_Q12_VT_TNT: Laptop HP PROBOOK 440 G10/CORE I7-1360P/16GB RAM/512GB SSD/INTEL GRAPHICS/ 14 FHD TOUCH/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11
+e còn mã này ko a
+
+======
+[2025-02-19 10:55:02:052] A Huy Lennovo Comsumer: Để anh cân đối funding
+[2025-02-19 10:54:48:871] A Huy Lennovo Comsumer: Hai dòng này em check giá bên ngoài đang thế nào
+[2025-02-19 10:54:23:917] A Huy Lennovo Comsumer: Máy tính xách tay Lenovo LOQ 15IRX9, i5-13450HX, 12GB RAM, 512GB SSD, RTX3050 6GB, 15.6" FHD, 4C 60Wh, ax+BT, W11H 64, Xám (Luna Grey), 2Y WTY_83DV012LVN
+Máy tính xách tay Lenovo IdeaPad Slim 3 14IRH10, i5-13420H, 16GB, 512GB SSD, Intel UHD Graphics, 14" WUXGA, 3C 60Wh, ac+BT, W11H 64, Xám (Luna Grey), 2Y WTY_83K00008VN
+
+======
+[2025-02-19 10:50:35:650] A Thanh HQS_Q01_SM_LONGBINH: uhm, có thể
+[2025-02-19 10:44:04:308] LAPTOP HÙNG. ĐỖ MINH 0938703382: em nghe có đơn 2c, chắc đi kiếm lòng vòng rồi
+[2025-02-19 10:42:45:530] A Thanh HQS_Q01_SM_LONGBINH: ok e
+[2025-02-19 10:42:26:800] LAPTOP HÙNG. ĐỖ MINH 0938703382: có gì anh báo nha, em đi giựt hàng
+[2025-02-19 10:42:20:054] LAPTOP HÙNG. ĐỖ MINH 0938703382: mịa bà, có thằng sale kia nó làm lệnh giữ hàng trước em
+[2025-02-19 10:13:19:807] LAPTOP HÙNG. ĐỖ MINH 0938703382: ok anh
+[2025-02-19 10:13:05:027] A Thanh HQS_Q01_SM_LONGBINH: giữ a trong sáng nay nha.
+[2025-02-19 10:12:49:669] LAPTOP HÙNG. ĐỖ MINH 0938703382: [21LUS0A000]* MÁY TÍNH XÁCH TAY LENOVO NOTEBOOK THINKPAD X13 GEN 5, INTEL CORE ULTRA 5 125U, 32GB, 512GB SSD, INTEL ARC GRAPHIC, 13.3IN WUXGA IPS, NONTOUCH, 3C 41WH,AX+BT, FP, NO-OS, BLACK, 3Y   29tr3 fv ko túi / còn 1c
+[2025-02-19 10:12:27:221] A Thanh HQS_Q01_SM_LONGBINH: còn ko e
+[2025-02-19 10:12:25:091] A Thanh HQS_Q01_SM_LONGBINH: [21LUS0A000]* MÁY TÍNH XÁCH TAY LENOVO NOTEBOOK THINKPAD X13 GEN 5, INTEL CORE ULTRA 5 125U, 32GB, 512GB SSD, INTEL ARC GRAPHIC, 13.3IN WUXGA IPS, NONTOUCH, 3C 41WH,AX+BT, FP, NO-OS, BLACK, 3Y
+
+======
+[2025-02-19 10:48:01:403] LAPTOP HÙNG. ĐỖ MINH 0938703382: tháo cây 8G ra gắn cây 32G lên luôn 40G
+[2025-02-19 10:47:36:851] LAPTOP HÙNG. ĐỖ MINH 0938703382: 8G on bo + 1 khe gắn cây 8G
+[2025-02-19 10:47:22:290] LAPTOP HÙNG. ĐỖ MINH 0938703382: buzz 3200
+[2025-02-19 10:47:16:125] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f23-zpc.zdn.vn/jpg/8399782627854791064/c2fa17b63e8680d8d997.jpg","description":"","action":"","childnumber":0,"href":"https://f23-zpc.zdn.vn/jpg/8399782627854791064/c2fa17b63e8680d8d997.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f23-zpc.zdn.vn\\/jpg\\/8399782627854791064\\/c2fa17b63e8680d8d997.jpg\",\"width\":768,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f23-zpc.zdn.vn\\/jpg\\/8399782627854791064\\/c2fa17b63e8680d8d997.jpg\",\"hdSize\":15870,\"height\":186}","type":""}
+[2025-02-19 10:15:52:832] C Tâm HQS_Q01_SM_TTC: Xem buss ram dùm c luôn
+[2025-02-19 10:15:36:722] C Tâm HQS_Q01_SM_TTC: Con này nâng ram lên 32gb dc ko H
+
+======
+[2025-02-19 10:46:28:392] LAPTOP HÙNG. ĐỖ MINH 0938703382: 21LU004TVN	MÁY TÍNH XÁCH TAY (NB) LENOVO ThinkPad X13 Gen 5 U7-155H/16GD5/1TBSSD/13.3WUXGA/FP/IR/Wifi-7/BT/4C/W11P/LEDKB/3Y/ĐEN(21LU004TVN)		 37,000,000 full
+[2025-02-19 10:43:26:161] Trang nhập hàng: e chào chính nhân giá nào a, đây là giá nhập DGW
+[2025-02-19 10:43:26:115] Trang nhập hàng: 21LU004TVN (NB) LENOVO ThinkPad X13 Gen 5 U7-155H/16GD5/1TBSSD/13.3WUXGA/FP/IR/Wifi-7/BT/4C/W11P/LEDKB/3Y/ĐEN ---> 1C 34.935.600 Full
+
+======
+[2025-02-19 10:34:23:809] A Đạo LAPTOP: ok
+[2025-02-19 10:32:27:718] LAPTOP HÙNG. ĐỖ MINH 0938703382: anh out acc S1 hoặc duyệt đơn hàng nha giúp em, chị Nhân về rồi
+
+======
+[2025-02-19 10:30:34:795] LAPTOP HÙNG. ĐỖ MINH 0938703382: NB HP PROBOOK 450 G10,CORE I5-1340P/ 8GB RAM/ 512GB SSD/ INTEL GRAPHICS/ 15.6INCH FHD TOUCH/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11 HOME 64/ SILVER_(873J6PA)* - 01Y  17tr6 fv ko túi
+[2025-02-19 10:30:25:714] LAPTOP HÙNG. ĐỖ MINH 0938703382: NB HP PROBOOK 440 G10,CORE I5-1335U,8GB RAM/ 512GB SSD/ INTEL GRAPHICS/ 14INCH FHD/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11 HOME 64/ SILVER_9H8U4PT* - 01Y  17tr6 fv ko túi
+[2025-02-19 10:30:17:463] LAPTOP HÙNG. ĐỖ MINH 0938703382: MÁY TÍNH XÁCH TAY HP PROBOOK 440 G10,CORE I5-1340P,16GB RAM/512GB SSD/INTEL GRAPHICS/14INCH FHD TOUCH/WEBCAM/3 CELL/WLAN AX+BT/FINGERPRINT/WIN11 HOME 64/SILVER_873B2PA* - 01Y  18tr4 fv ko túi
+[2025-02-19 10:30:12:531] LAPTOP HÙNG. ĐỖ MINH 0938703382: NB HP PROBOOK 440 G10,CORE I5-1340P/ 8GB RAM/ 512GB SSD/ INTEL GRAPHICS/ 14INCH FHD TOUCH/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11 HOME 64/ SILVER_(873B1PA)* - 01Y   18tr fv ko túi
+[2025-02-19 10:29:40:095] A. KHA MDO_DNA_SM_VUMINHANH 0907532763: báo a probook đi
+[2025-02-19 10:29:34:061] LAPTOP HÙNG. ĐỖ MINH 0938703382: chứ envy là phân khúc cao hơn
+[2025-02-19 10:29:26:167] LAPTOP HÙNG. ĐỖ MINH 0938703382: Pavilion thì ngang ngang có Probook
+[2025-02-19 10:29:01:547] LAPTOP HÙNG. ĐỖ MINH 0938703382: envy mắc hơn nhiều, mà em cũng còn có i7
+[2025-02-19 10:28:11:933] A. KHA MDO_DNA_SM_VUMINHANH 0907532763: uh
+[2025-02-19 10:27:56:970] LAPTOP HÙNG. ĐỖ MINH 0938703382: Pavilion qua envy
+[2025-02-19 10:27:45:467] A. KHA MDO_DNA_SM_VUMINHANH 0907532763: envy
+[2025-02-19 10:27:44:662] LAPTOP HÙNG. ĐỖ MINH 0938703382: [9H2E4PT]* MÁY TÍNH XÁCH TAY (NB) HP 240 G10 i5-1335U/16G/512GSSD/14.0FHD/WL/BT/3C/W11SL/BẠC - 01Y  15tr5 fv ko túi
+[2025-02-19 10:27:32:773] LAPTOP HÙNG. ĐỖ MINH 0938703382: NB HP 15-FD0235TU,CORE I5-1334U/ 16GB RAM/ 512GB SSD/ INTEL GRAPHICS/ 15.6INCH FHD/ WEBCAM/ 3 CELL/ WLAN AX+BT/ WIN11 HOME 64/ NATURAL SILVER_9Q970PA* - 01Y  15tr2 fv ko túi
+[2025-02-19 10:27:08:418] LAPTOP HÙNG. ĐỖ MINH 0938703382: Pavilion hàng chuỗi siêu thị, bên em ko chơi
+[2025-02-19 10:26:43:185] A. KHA MDO_DNA_SM_VUMINHANH 0907532763: Laptop HP Pavillion cấu hình: I5 13th, Ram 8/16GB, SSD 256/512GB, LCD 14/15.6 Inc
+
+======
+[2025-02-19 10:25:58:155] LAPTOP HÙNG. ĐỖ MINH 0938703382: [71053725]* NB DELL INSPIRON 15 3530/ I3-1305U/ 8GB/ 512GB SSD/ INTEL UHD GRAPHICS/ 15.6 INCH FHD/ 3C 41WH/ AX+BT/ FP/ KYHD/ OFFICEHOME24/ MCAFEE LS/ WIN 11 HOME/ ĐEN (BLACK) - 01Y   12tr2 fv ko túi
+[2025-02-19 10:22:24:504] Ngọc Phượng DOTNET: i3 cũng đc a
+[2025-02-19 10:19:03:068] LAPTOP HÙNG. ĐỖ MINH 0938703382: rẻ nhất đó em ới
+[2025-02-19 10:18:48:098] Ngọc Phượng DOTNET: có con nào rẽ hơn k a
+[2025-02-19 10:07:41:541] LAPTOP HÙNG. ĐỖ MINH 0938703382: nay là dòng này nè
+[2025-02-19 10:07:34:944] LAPTOP HÙNG. ĐỖ MINH 0938703382: [N5I5052W1-SILVER]* MÁY TÍNH XÁCH TAY DELL INSPIRON 15 3520 INTEL CORE I5-1235U/ 15.6 INCH FHD/ 2X8G/ 512GB SSD/ 3 CELL-41WHR/ WIN 11/ OFFICE H&S 2021 - 01Y  13tr7 fv ko túi
+[2025-02-19 10:04:12:805] Ngọc Phượng DOTNET: con này còn hàng k a
+
+======
+[2025-02-19 10:25:35:378] LAPTOP HÙNG. ĐỖ MINH 0938703382: Trí nó báo ram cho anh
+[2025-02-19 10:24:37:221] A Đạt MDO_DNA_SM_CHAUTHANHDAT: GIA NHIEU EM
+[2025-02-19 10:24:24:009] LAPTOP HÙNG. ĐỖ MINH 0938703382: gắn thêm ram 8G DDR5
+[2025-02-19 10:24:18:006] LAPTOP HÙNG. ĐỖ MINH 0938703382: em còn dòng này
+[2025-02-19 10:24:15:323] LAPTOP HÙNG. ĐỖ MINH 0938703382: [L3450-1335U-08512U]* MÁY TÍNH XÁCH TAY DELL LATITUDE 3450 INTEL CORE I5-1335U (12 MB CACHE, 10 CORES, UP TO 4.60 GHZ TURBO)/ 8GB/ 512SSD/ 14 FHD/ 3 CELLS / UBUNTU/ PRO SUPPORT - 01Y  16tr6 fv ko túi
+[2025-02-19 10:17:32:970] A Đạt MDO_DNA_SM_CHAUTHANHDAT: MÁY TÍNH XÁCH TAY DELL LATITUDE 3450
+ INTEL CORE I5-1335U (12 MB CACHE, 10 CORES, UP TO 4.60 GHZ TURBO)/ 16GB/ 512SSD/ 14 ICNH FHD/ 3 CELLS / WIN 11/PRO SUPPORT - 01Y
+
+======
+[2025-02-19 10:22:26:092] LAPTOP HÙNG. ĐỖ MINH 0938703382: Zenbook ko chơi anh
+[2025-02-19 10:20:32:586] A Hùng HQS_Q01_SM_TTC: Laptop Asus Zenbook S 14 UX5406SA Ultra 7
+[2025-02-19 09:57:44:399] LAPTOP HÙNG. ĐỖ MINH 0938703382: Mua thêm bảo hành của FPT từ 1 năm lên 3 năm giá 2.100.000 full vat
+[2025-02-19 09:57:14:903] LAPTOP HÙNG. ĐỖ MINH 0938703382: gắn thêm ram DDR5
+[2025-02-19 09:57:05:329] A Hùng HQS_Q01_SM_TTC: xem Ram bus nhiu de nang cap và mua BHMR 1Y-3Y nhiu nha H
+[2025-02-19 09:57:02:222] LAPTOP HÙNG. ĐỖ MINH 0938703382: cỡ này nha anh
+[2025-02-19 09:56:30:439] LAPTOP HÙNG. ĐỖ MINH 0938703382: MÁY TÍNH XÁCH TAY DELL INSPIRON 14 5440 INTEL(R) CORE(TM) 5 120U, 14.0INCH FHD+, 2X8G, 512GB SSD/ 4 CELL-54WHR/ WIN 11/ OFFICE H&S 2021 - N4I5211W1-ICEBLUE* - 01Y  19tr5 fv ko túi
+[2025-02-19 09:55:59:187] LAPTOP HÙNG. ĐỖ MINH 0938703382: [L3450-1335U-08512U]* MÁY TÍNH XÁCH TAY DELL LATITUDE 3450 INTEL CORE I5-1335U (12 MB CACHE, 10 CORES, UP TO 4.60 GHZ TURBO)/ 8GB/ 512SSD/ 14 FHD/ 3 CELLS / UBUNTU/ PRO SUPPORT - 01Y   16tr6 fv ko túi
+[2025-02-19 09:53:05:742] LAPTOP HÙNG. ĐỖ MINH 0938703382: đợi em kiếm
+[2025-02-19 09:52:47:707] A Hùng HQS_Q01_SM_TTC: có con Dell i5+Ram 16+SSD 512 có cổng TypeC xuất ra màn hình dc hok H
+
+======
+[2025-02-19 10:10:00:394] LAPTOP HÙNG. ĐỖ MINH 0938703382: dự kiến sớm thì tuần sau, trễ thì cuối tháng
+[2025-02-19 10:09:39:667] Mr Quang Notebook Nguyên Kim: E14 i7 tới đâu r anh
+
+======
+[2025-02-19 10:08:50:285] LAPTOP HÙNG. ĐỖ MINH 0938703382: [83GS000RVN] MÁY TÍNH XÁCH TAY LENOVO LOQ 15IAX9 I5-12450HX/16GD5/512GSSD/15.6FH D-144HZ/WL/BT/4C/6G_RTX4050/W11SL/LKB/2Y/XÁM   24tr5 fv có balo
+[2025-02-19 10:05:33:988] Khỏe Lê HQS_Q10_SM_BAOAN: còn hàng hok a
+[2025-02-19 10:05:31:353] Khỏe Lê HQS_Q10_SM_BAOAN: Laptop Gaming Lenovo LOQ 15IAX9 83GS001RVN (i5-12450HX | GeForce RTX™ 3050 6GB | 12GB | 512GB | 15.6' FHD 144Hz | Win 11)
+
+======
+[2025-02-19 09:58:06:013] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":47,"id":1033,"type":7}
+
+======
+[2025-02-19 09:54:37:072] A Lợi GENSYS    loint@gensys.com.vn: Ti a dk nhe
+[2025-02-19 09:47:03:945] LAPTOP HÙNG. ĐỖ MINH 0938703382: anh ơi đăng ký thông tin giúp em nha
+[2025-02-19 09:46:54:543] LAPTOP HÙNG. ĐỖ MINH 0938703382: https://forms.gle/gk3cSrZYKdoNDVfk7
+
+======
+[2025-02-19 09:52:21:484] Phụng FTI: dạ
+[2025-02-19 09:49:17:341] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko có nha em
+[2025-02-19 09:48:40:098] Phụng FTI: có con nào rẽ hơn k a tầm cỡ 22tr fv á
+[2025-02-19 09:48:00:378] LAPTOP HÙNG. ĐỖ MINH 0938703382: này đáp ứng dc nè em
+[2025-02-19 09:47:41:070] LAPTOP HÙNG. ĐỖ MINH 0938703382: [21F600AAVA]* MÁY TÍNH XÁCH TAY LENOVO THINKPAD T14S GEN 4 - 14.0IN WUXGA, CORE™ I7-1355U, 16GB LPDDR5X_NOT UPGRADABLE, 512GB_SSD, NO OS, ĐEN  26tr7 fv ko túi
+[2025-02-19 09:47:24:983] Phụng FTI: số lượng 20 cái
+[2025-02-19 09:46:55:852] Phụng FTI: a có mã nào gióng vầy hk đời 13 ạ
+[2025-02-19 09:46:39:928] Phụng FTI: a ơi lenovo i7, 16G, ssd512 đến 1T
+
+======
+[2025-02-19 09:30:43:505] Nam Laptop: 83DA0020VN	MÁY TÍNH XÁCH TAY (NB) LENOVO IdeaPad Slim 5 14IMH9 U7-155H/32GDR5/1TBSSD/14WUXGA/OLED/IR/WL/BT/3C57/W11SL/LKB/2Y/XÁM(83DA0020VN)
+sl 1 DGW xem giúp em
+[2025-02-19 09:09:24:095] Nam Laptop: 21ML0077VA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 CORE_ULT5_125H (1.2 Ghz) - 16G Ram  - 512G SSD - Wifi,BT,Finger Print -14_2.2K_AG_300N - No OS - 3 Yrs Premier support
+có kẹt hải quan không anh
+
+======
+[2025-02-19 09:20:59:052] LAPTOP HÙNG. ĐỖ MINH 0938703382: Hàng hóa phải đầy đủ giấy tờ CO-CQ, packinglist, invoice, tờ khai
+
+21F600AAVA	Lenovo ThinkPad T14s Gen 4 21F600AAVA (Intel Core i7-1355U | 16GB | 512GB | Intel Iris Xe | 14 inch WUXGA | NoOS | Đen)
+
+======
+[2025-02-19 09:41:32:161] LAPTOP HÙNG. ĐỖ MINH 0938703382: [{"actionType":0,"uidFrom":5989128228338240352,"destId":1571581271457505202,"globalDelMsgId":6331126111718,"uidTo":5989128228338240352,"clientDelMsgId":1739931422562,"type":1}]
+
+======
+[2025-02-19 09:18:02:932] Ptkh Mr Sang Nguyên Kim: Hàng hóa phải đầy đủ giấy tờ CO-CQ, packinglist, invoice, tờ khai
+
+21F600AAVA	Lenovo ThinkPad T14s Gen 4 21F600AAVA (Intel Core i7-1355U | 16GB | 512GB | Intel Iris Xe | 14 inch WUXGA | NoOS | Đen)	 26,500,000 ko tui 
+=====
+[21G2003NVA] MÁY TÍNH XÁCH TAY LENOVO THINKPAD P14S GEN 5 INTEL CORE ULTRA 7 155H (4.80 GHZ)/ 32GB RAM/ 512GB SSD/ NVIDIA RTX500 4GB / WIFI,BT/ FINGER PRINT/14.5IN 3K_AG_430N/ NO OS/ 3 YRS PREMIER SU   43.100.000 ko tui
+
+======
+[2025-02-19 11:22:32:735] Trang nhập hàng: dạ
+[2025-02-19 11:22:12:704] LAPTOP HÙNG. ĐỖ MINH 0938703382: hàng ADG em nhé
+[2025-02-19 11:22:04:397] LAPTOP HÙNG. ĐỖ MINH 0938703382: 21ML007EVA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 T Intel core ULT7 - 155H (4.80 GHz) / 16GB Ram/ 512GB SSD / Wifi,BT,Finger Print/ 14" 2.2K_AG_300N/ NO OS/ 3 Yrs Premier support,P/n 21ML007EVA	 28,980,000 full vat có balo/ nhập 5c  ( Sang Bùi bán 3c, stock 2c )
+
+21ML007GVA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 T Intel core ULT7 - 155H (4.80 GHz) / 2 x 16GB Ram/ 1TB SSD / Wifi,BT,Finger Print/ 14" 2.2K_AG_300N/ NO OS/ 3 Yrs Premier support,P/n 21ML007GVA	 31,416,000  full vat có balo/ nhập 3c   stock kho
+
+======
+[2025-02-19 11:22:12:959] Toàn HQS_Q01_SM_LONGBINH: chơi delay cả tháng luôn chèn ơi
+[2025-02-19 11:19:29:255] Toàn HQS_Q01_SM_LONGBINH: vậy như trong tuần này nó có là đúng rầu.
+[2025-02-19 11:19:08:149] LAPTOP HÙNG. ĐỖ MINH 0938703382: thì HN lúc nào cũng có trước HCM 1 tuần
+[2025-02-19 11:18:08:000] Toàn HQS_Q01_SM_LONGBINH: sao thông tin mong lung vậy ta
+[2025-02-19 11:12:23:386] Toàn HQS_Q01_SM_LONGBINH: vậy sao a thanh báo em đầu HN trong tuần này có ta
+[2025-02-19 11:12:06:929] LAPTOP HÙNG. ĐỖ MINH 0938703382: nếu HN có hàng thì đã xin ứng hàng rồi
+[2025-02-19 11:11:41:877] LAPTOP HÙNG. ĐỖ MINH 0938703382: anh mới hỏi lại check đó
+[2025-02-19 11:11:28:933] Toàn HQS_Q01_SM_LONGBINH: tháng 3 luôn
+[2025-02-19 11:10:15:567] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f26-zpc.zdn.vn/jpg/8957642091884973061/aad367d1a1e11fbf46f0.jpg","description":"","action":"","childnumber":0,"href":"https://f26-zpc.zdn.vn/jpg/8957642091884973061/aad367d1a1e11fbf46f0.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f26-zpc.zdn.vn\\/jpg\\/8957642091884973061\\/aad367d1a1e11fbf46f0.jpg\",\"width\":1099,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f26-zpc.zdn.vn\\/jpg\\/8957642091884973061\\/aad367d1a1e11fbf46f0.jpg\",\"hdSize\":34655,\"height\":844}","type":""}
+[2025-02-19 11:04:19:945] Toàn HQS_Q01_SM_LONGBINH: kkk. khách nó dí muốn điên cái đầu
+[2025-02-19 11:04:00:569] Toàn HQS_Q01_SM_LONGBINH: có thông tin gì mới báo em nha
+
+======
+[2025-02-19 11:21:31:970] C Trâm HQC_PNH_DS_TRONGNGHIA: Máy Tính Laptop
+Máy tính xách tay HP ProBook 440 G10,Core i5-1335U,16GB RAM,512GB SSD,Intel Graphics,14""FHD,Webcam,3
+Cell,Wlan ax+BT,Fingerprint,Win11"	SL 6
+
+======
+[2025-02-19 11:19:54:007] Thành Giao Nhận: Ok gọi dc r
+[2025-02-19 11:18:45:668] LAPTOP HÙNG. ĐỖ MINH 0938703382: gọi người này nhận nha
+[2025-02-19 11:18:37:164] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f9-zpc.zdn.vn/jpg/583130847739058810/c125b6d40ee4b0bae9f5.jpg","description":"","action":"","childnumber":0,"href":"https://f9-zpc.zdn.vn/jpg/583130847739058810/c125b6d40ee4b0bae9f5.jpg","title":"","params":"{\"sendSource\":3,\"rawUrl\":\"https:\\/\\/f9-zpc.zdn.vn\\/jpg\\/583130847739058810\\/c125b6d40ee4b0bae9f5.jpg\",\"width\":1144,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f9-zpc.zdn.vn\\/jpg\\/583130847739058810\\/c125b6d40ee4b0bae9f5.jpg\",\"hdSize\":34267,\"height\":696}","type":""}
+[2025-02-19 11:18:15:232] LAPTOP HÙNG. ĐỖ MINH 0938703382: 0868884561 - Định
+[2025-02-19 11:17:57:678] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"","description":"Cuộc gọi","action":"recommened.calltime","childnumber":0,"href":"","title":"sendBubbleMessage","params":"{\"duration\":18,\"isCaller\":1,\"isEnableCallback\":1,\"calltype\":0}"}
+[2025-02-19 11:13:13:711] Thành Giao Nhận: {"thumb":"","description":"Cuộc gọi","action":"recommened.calltime","childnumber":0,"href":"","title":"sendBubbleMessage","params":"{\"duration\":27,\"isCaller\":0,\"isEnableCallback\":1,\"calltype\":0}"}
+
+======
+[2025-02-19 11:17:53:634] Phương MBA_HNO_CP_BANDANFPT: anh này nhận giúp ạ
+[2025-02-19 11:17:44:328] Phương MBA_HNO_CP_BANDANFPT: {"thumb":"https://s160-ava-talk.zadn.vn/default","description":"{\"phone\":\"0868884561\",\"qrCodeUrl\":\"https:\\/\\/qr-talk.zdn.vn\\/0\\/207783995\\/32179aa4e9ee00b059ff.jpg\"}","action":"recommened.user","childnumber":0,"href":"https://zaloapp.com","title":"Dinhnv","params":"6068504249481340490","type":""}
+[2025-02-19 11:17:44:182] Phương MBA_HNO_CP_BANDANFPT: 0868884561 - Định
+[2025-02-19 11:17:25:744] Phương MBA_HNO_CP_BANDANFPT: anh báo gọi lại nha anh
+[2025-02-19 11:14:37:613] Phương MBA_HNO_CP_BANDANFPT: đợi chút e call nha
+[2025-02-19 11:14:25:087] LAPTOP HÙNG. ĐỖ MINH 0938703382: giao nhận bên anh giao tới đứng dưới tòa nhà, gọi đt hổng thấy bắt máy
+[2025-02-19 11:14:08:930] LAPTOP HÙNG. ĐỖ MINH 0938703382: Địa chỉ giao hàng: FPT semidocductor hcm, Toà nhà scs chip sáng, d1, khu công nghệ cao TP.HCM. Mr.Mai- 0906773728
+[2025-02-19 11:13:54:495] LAPTOP HÙNG. ĐỖ MINH 0938703382: alo em
+
+======
+[2025-02-19 11:09:47:351] LAPTOP HÙNG. ĐỖ MINH 0938703382: [{"actionType":0,"uidFrom":1571581271457505202,"destId":4543222263484970609,"globalDelMsgId":6331541926585,"uidTo":4543222263484970609,"clientDelMsgId":1739937974251,"type":1}]
+[2025-02-19 11:09:42:283] Vinh Lenovo DGW: nó chỉ về trước mình 1 tuần
+[2025-02-19 11:09:35:468] Vinh Lenovo DGW: xin ứng
+[2025-02-19 11:09:31:746] Vinh Lenovo DGW: chuẩn, nếu có anh đã báo
+[2025-02-19 11:07:57:445] LAPTOP HÙNG. ĐỖ MINH 0938703382: để em báo khách, EU dí lắm rồi, tình hình là nghi bị hủy đơn đó
+[2025-02-19 11:07:22:599] LAPTOP HÙNG. ĐỖ MINH 0938703382: giờ HN cũng ko có đúng ko
+[2025-02-19 11:07:06:066] Vinh Lenovo DGW: HN chỉ nhanh hơn 1 tuần mà
+[2025-02-19 11:06:54:186] Vinh Lenovo DGW: có đâu?
+[2025-02-19 11:06:34:734] LAPTOP HÙNG. ĐỖ MINH 0938703382: chán thiệt
+[2025-02-19 11:06:21:711] LAPTOP HÙNG. ĐỖ MINH 0938703382: trong khi hà Nội thì có hàng
+[2025-02-19 11:06:15:741] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f17-zpc.zdn.vn/jpg/2885938139748129912/ae957c5a8c6a32346b7b.jpg","description":"","action":"","childnumber":0,"href":"https://f17-zpc.zdn.vn/jpg/2885938139748129912/ae957c5a8c6a32346b7b.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f17-zpc.zdn.vn\\/jpg\\/2885938139748129912\\/ae957c5a8c6a32346b7b.jpg\",\"width\":471,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f17-zpc.zdn.vn\\/jpg\\/2885938139748129912\\/ae957c5a8c6a32346b7b.jpg\",\"hdSize\":6438,\"height\":206}","type":""}
+[2025-02-19 11:06:11:320] Vinh Lenovo DGW: đg dự kiến cuối T2 cập cảng, khả năng rớt vào T3
+[2025-02-19 11:05:51:574] LAPTOP HÙNG. ĐỖ MINH 0938703382: là delay khi nào anh
+
+======
+[2025-02-19 11:04:30:775] Thanh HQS_Q01_SM_UCSVN: {"thumb":"","description":"Cuộc gọi","action":"recommened.calltime","childnumber":0,"href":"","title":"sendBubbleMessage","params":"{\"duration\":49,\"isCaller\":0,\"isEnableCallback\":1,\"calltype\":0}"}
+
+======
+[2025-02-19 11:04:27:302] LAPTOP HÙNG. ĐỖ MINH 0938703382: em có dòng khác
+[2025-02-19 11:04:23:738] LAPTOP HÙNG. ĐỖ MINH 0938703382: [9H2E4PT]* MÁY TÍNH XÁCH TAY (NB) HP 240 G10 i5-1335U/16G/512GSSD/14.0FHD/WL/BT/3C/W11SL/BẠC - 01Y   15tr5 fv ko túi
+[2025-02-19 11:04:04:860] LAPTOP HÙNG. ĐỖ MINH 0938703382: này hết lâu rồi anh
+[2025-02-19 11:03:54:691] A Vỹ MTR_PYE_VT_PHUCTHANH: Lap HP 240 G9- I5- 1235U- Ram 8GB- SSD 512GB- Win 11---còn mã này ko
+[2025-02-19 11:03:54:474] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko có gấp dc
+[2025-02-19 11:03:51:041] LAPTOP HÙNG. ĐỖ MINH 0938703382: xin rồi anh ơi, cái này xin của Hãng
+[2025-02-19 11:03:38:380] A Vỹ MTR_PYE_VT_PHUCTHANH: làm gấp CO_CQ cho a nha
+
+======
+[2025-02-19 11:03:38:871] LAPTOP HÙNG. ĐỖ MINH 0938703382: tại anh thấy quen quen
+[2025-02-19 11:03:23:883] A Thanh Lenovo PSD: éo phải của a =))
+[2025-02-19 11:02:46:259] LAPTOP HÙNG. ĐỖ MINH 0938703382: cảm ơn anh
+[2025-02-19 11:02:33:660] A Thanh Lenovo PSD: mai hàng về rùi kìa
+[2025-02-19 11:02:23:502] A Thanh Lenovo PSD: {"thumb":"https://f16-zpc.zdn.vn/jpg/3253039321738320176/53b6655e876e3930607f.jpg","description":"","action":"","childnumber":0,"href":"https://f16-zpc.zdn.vn/jpg/3253039321738320176/53b6655e876e3930607f.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f16-zpc.zdn.vn\\/jpg\\/3253039321738320176\\/53b6655e876e3930607f.jpg\",\"width\":951,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f16-zpc.zdn.vn\\/jpg\\/3253039321738320176\\/53b6655e876e3930607f.jpg\",\"hdSize\":18526,\"height\":88}","type":""}
+[2025-02-19 11:02:21:240] A Thanh Lenovo PSD: =))
+
+======
+[2025-02-19 11:03:15:033] LAPTOP HÙNG. ĐỖ MINH 0938703382: [9H8V2PT]* MÁY TÍNH XÁCH TAY HP PROBOOK 440 G10/CORE I7-1360P/16GB RAM/512GB SSD/INTEL GRAPHICS/14 FHD TOUCH/WEBCAM/3 CELL/WLAN AX+BT/FINGERPRINT/WIN11 HOME 64/SILVER - 01Y  23tr2 fv ko túi
+[2025-02-19 10:57:49:465] Ngọc HQS_Q12_VT_TNT: Laptop HP PROBOOK 440 G10/CORE I7-1360P/16GB RAM/512GB SSD/INTEL GRAPHICS/ 14 FHD TOUCH/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11
+e còn mã này ko a
+
+======
+[2025-02-19 10:54:23:917] A Huy Lennovo Comsumer: Máy tính xách tay Lenovo LOQ 15IRX9, i5-13450HX, 12GB RAM, 512GB SSD, RTX3050 6GB, 15.6" FHD, 4C 60Wh, ax+BT, W11H 64, Xám (Luna Grey), 2Y WTY_83DV012LVN
+Máy tính xách tay Lenovo IdeaPad Slim 3 14IRH10, i5-13420H, 16GB, 512GB SSD, Intel UHD Graphics, 14" WUXGA, 3C 60Wh, ac+BT, W11H 64, Xám (Luna Grey), 2Y WTY_83K00008VN
+
+======
+[2025-02-19 10:17:32:970] A Đạt MDO_DNA_SM_CHAUTHANHDAT: MÁY TÍNH XÁCH TAY DELL LATITUDE 3450
+ INTEL CORE I5-1335U (12 MB CACHE, 10 CORES, UP TO 4.60 GHZ TURBO)/ 16GB/ 512SSD/ 14 ICNH FHD/ 3 CELLS / WIN 11/PRO SUPPORT - 01Y
+
+======
+[2025-02-19 11:47:46:539] Trang nhập hàng: mới duyệt rồi, để e gửi đơn
+[2025-02-19 11:41:38:519] Trang nhập hàng: Sếp chưa duyệt nha a
+[2025-02-19 11:28:31:954] Trang nhập hàng: đúng rồi, con 7GVA á
+[2025-02-19 11:28:30:374] LAPTOP HÙNG. ĐỖ MINH 0938703382: quất luôn đi
+[2025-02-19 11:28:27:120] LAPTOP HÙNG. ĐỖ MINH 0938703382: ok
+[2025-02-19 11:28:23:761] Trang nhập hàng: dạ
+[2025-02-19 11:28:22:180] Trang nhập hàng: kho e thấy đâu có đâu, stock đại luôn cho đỡ lẻ
+[2025-02-19 11:28:20:412] LAPTOP HÙNG. ĐỖ MINH 0938703382: ý em là lấy chiếc kia luôn 5c hả
+[2025-02-19 11:27:58:232] LAPTOP HÙNG. ĐỖ MINH 0938703382: chứ lấy nhiều về tồn kho
+[2025-02-19 11:27:52:308] LAPTOP HÙNG. ĐỖ MINH 0938703382: dòng nào khó bán anh lấy ít hơn
+[2025-02-19 11:27:28:608] Trang nhập hàng: sao a để lẻ quá
+[2025-02-19 11:27:22:971] Trang nhập hàng: stock 10c luôn dc k a
+[2025-02-19 11:22:04:397] LAPTOP HÙNG. ĐỖ MINH 0938703382: 21ML007EVA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 T Intel core ULT7 - 155H (4.80 GHz) / 16GB Ram/ 512GB SSD / Wifi,BT,Finger Print/ 14" 2.2K_AG_300N/ NO OS/ 3 Yrs Premier support,P/n 21ML007EVA	 28,980,000 full vat có balo/ nhập 5c  ( Sang Bùi bán 3c, stock 2c )
+
+21ML007GVA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 T Intel core ULT7 - 155H (4.80 GHz) / 2 x 16GB Ram/ 1TB SSD / Wifi,BT,Finger Print/ 14" 2.2K_AG_300N/ NO OS/ 3 Yrs Premier support,P/n 21ML007GVA	 31,416,000  full vat có balo/ nhập 3c   stock kho
+
+======
+[2025-02-19 11:46:40:960] Mr Thiên Ptkh Nguyên Kim: Để em hỏi anh Lưu
+[2025-02-19 11:45:08:051] LAPTOP HÙNG. ĐỖ MINH 0938703382: chắc nhất là lấy số Seri check
+[2025-02-19 11:42:17:193] Mr Thiên Ptkh Nguyên Kim: Khách hỏi em á anh
+[2025-02-19 11:42:13:051] Mr Thiên Ptkh Nguyên Kim: {"thumb":"https://f6-zpc.zdn.vn/jpg/2799200425249103/0a103b616652d80c8143.jpg","description":"","action":"","childnumber":0,"href":"https://f6-zpc.zdn.vn/jpg/2799200425249103/0a103b616652d80c8143.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f6-zpc.zdn.vn\\/jpg\\/2799200425249103\\/0a103b616652d80c8143.jpg\",\"width\":345,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f6-zpc.zdn.vn\\/jpg\\/2799200425249103\\/0a103b616652d80c8143.jpg\",\"hdSize\":2806,\"height\":84}","type":""}
+
+======
+[2025-02-19 11:45:51:664] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f21-zpc.zdn.vn/jpg/8426262011874883224/31a90b6525569b08c247.jpg","description":"","action":"","childnumber":0,"href":"https://f21-zpc.zdn.vn/jpg/8426262011874883224/31a90b6525569b08c247.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f21-zpc.zdn.vn\\/jpg\\/8426262011874883224\\/31a90b6525569b08c247.jpg\",\"id_in_group\":0,\"is_group_layout\":1,\"width\":559,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f21-zpc.zdn.vn\\/jpg\\/8426262011874883224\\/31a90b6525569b08c247.jpg\",\"hdSize\":101546,\"group_layout_id\":1739940350828,\"height\":638,\"total_item_in_group\":2}","type":""}
+[2025-02-19 11:45:51:563] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f29-zpc.zdn.vn/jpg/7026863171311428279/eed4f918d72b6975303a.jpg","description":"","action":"","childnumber":0,"href":"https://f29-zpc.zdn.vn/jpg/7026863171311428279/eed4f918d72b6975303a.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f29-zpc.zdn.vn\\/jpg\\/7026863171311428279\\/eed4f918d72b6975303a.jpg\",\"id_in_group\":1,\"is_group_layout\":1,\"width\":559,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f29-zpc.zdn.vn\\/jpg\\/7026863171311428279\\/eed4f918d72b6975303a.jpg\",\"hdSize\":87315,\"group_layout_id\":1739940350828,\"height\":596,\"total_item_in_group\":2}","type":""}
+[2025-02-19 11:34:50:396] Thanh HQS_Q01_SM_UCSVN: có chứ
+[2025-02-19 11:34:45:553] LAPTOP HÙNG. ĐỖ MINH 0938703382: khỏi túi đúng ko chị
+[2025-02-19 11:33:30:776] Thanh HQS_Q01_SM_UCSVN: ok nha
+[2025-02-19 11:33:02:510] LAPTOP HÙNG. ĐỖ MINH 0938703382: xong hết giao Quận 5
+[2025-02-19 11:31:34:361] LAPTOP HÙNG. ĐỖ MINH 0938703382: đưa cho Mận cài
+[2025-02-19 11:31:23:146] Thanh HQS_Q01_SM_UCSVN: nha nha
+[2025-02-19 11:31:21:094] Thanh HQS_Q01_SM_UCSVN: sẽ có đơn sl
+[2025-02-19 11:31:19:491] LAPTOP HÙNG. ĐỖ MINH 0938703382: ok chị
+[2025-02-19 11:31:16:570] Thanh HQS_Q01_SM_UCSVN: yên tâm
+[2025-02-19 11:31:12:472] Thanh HQS_Q01_SM_UCSVN: gắn ram, cài image nha
+[2025-02-19 11:31:01:162] Thanh HQS_Q01_SM_UCSVN: kkk
+[2025-02-19 11:31:00:303] Thanh HQS_Q01_SM_UCSVN: xuất cho 1c nha
+[2025-02-19 11:30:55:895] Thanh HQS_Q01_SM_UCSVN: NBHP_440G10_9H8U4PT   MÁY TÍNH XÁCH TAY HP PROBOOK 440 G10,CORE I5-1335U,8GB RAM/ 512GB SSD/ INTEL GRAPHICS/ 14INCH FHD/ WEBCAM/ 3 CELL/ WLAN AX+BT/ FINGERPRINT/ WIN11 HOME 64/ SILVER_9H8U4PT* - 01Y  17tr3 fv ko túi
+[2025-02-19 11:30:47:478] LAPTOP HÙNG. ĐỖ MINH 0938703382: dạ
+[2025-02-19 11:30:22:778] Thanh HQS_Q01_SM_UCSVN: em ơi
+
+======
+[2025-02-19 11:44:33:784] LAPTOP HÙNG. ĐỖ MINH 0938703382: 1c
+[2025-02-19 11:44:31:282] LAPTOP HÙNG. ĐỖ MINH 0938703382: uh
+[2025-02-19 11:43:24:486] Mận KTDV: 1 máy thôi ahr a
+[2025-02-19 11:38:36:679] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f6-zpc.zdn.vn/jpg/6897039803395413054/3fcd6dd024e39abdc3f2.jpg","description":"","action":"","childnumber":0,"href":"https://f6-zpc.zdn.vn/jpg/6897039803395413054/3fcd6dd024e39abdc3f2.jpg","title":"","params":"{\"width\":564,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f6-zpc.zdn.vn\\/jpg\\/6897039803395413054\\/3fcd6dd024e39abdc3f2.jpg\",\"hdSize\":104973,\"height\":633}","type":""}
+
+======
+[2025-02-19 11:44:27:026] LAPTOP HÙNG. ĐỖ MINH 0938703382: chị Thanh UCS thanh toán công nợ chưa
+
+======
+[2025-02-19 11:44:03:676] LAPTOP HÙNG. ĐỖ MINH 0938703382: ok chị nha
+[2025-02-19 11:43:57:306] Quyên Quyên Nguyên Kim Computer: HQS_Q01_SM_UCSVN: khách này đơn hôm nay chị duyệt đơn sau nếu có mail giúp chị nha bé Hùng ơi
+[2025-02-19 11:43:56:718] LAPTOP HÙNG. ĐỖ MINH 0938703382: em nghe
+[2025-02-19 11:43:27:670] Quyên Quyên Nguyên Kim Computer: Bé Hùng ơi
+
+======
+[2025-02-19 11:40:37:298] LAPTOP HÙNG. ĐỖ MINH 0938703382: part này ko có anh
+[2025-02-19 11:40:22:573] A Thắng HQS_Q07_TB_THANHHA: DELL 	 Inspiron 3520 	i5-1235U, 8GB, 512GB SSD, 15.6" FHD, UMA, Win11, Office HS 21, Bạc, P112F007)	N3520-i5U085W11SLU
+em có part này ko
+[2025-02-19 11:39:28:441] LAPTOP HÙNG. ĐỖ MINH 0938703382: xem nha anh
+[2025-02-19 11:39:11:535] LAPTOP HÙNG. ĐỖ MINH 0938703382: [71043887]* MÁY TÍNH XÁCH TAY DELL INSPIRON 15 3530/ I5-1334U/ 8GB/ 512GB SSD/ INTEL IRIS XE GRAPHICS/ 15.6 INCH FHD/ 3C 41WH/ AX+BT/ FP/ OFFICEHS21/ MCAFEE LS/ WIN 11 HOME/ ĐEN(BLACK) - 01Y  14tr6 fv ko túi
+[2025-02-19 11:39:02:241] LAPTOP HÙNG. ĐỖ MINH 0938703382: [N5I5052W1-SILVER]* MÁY TÍNH XÁCH TAY DELL INSPIRON 15 3520 INTEL CORE I5-1235U/ 15.6 INCH FHD/ 2X8G/ 512GB SSD/ 3 CELL-41WHR/ WIN 11/ OFFICE H&S 2021 - 01Y  13tr7 fv ko túi
+[2025-02-19 11:37:25:720] LAPTOP HÙNG. ĐỖ MINH 0938703382: đợi em
+[2025-02-19 11:37:18:986] A Thắng HQS_Q07_TB_THANHHA: Alo
+[2025-02-19 11:34:19:688] A Thắng HQS_Q07_TB_THANHHA: laptop Dell I5, SSD512, 15” cho anh xin cấu hình và giá
+
+======
+[2025-02-19 11:37:34:890] Sĩ Phúc Linh Kiện Nguyên Kim: ok a
+[2025-02-19 11:37:13:919] LAPTOP HÙNG. ĐỖ MINH 0938703382: xuất cây ram 8G gắn vào
+[2025-02-19 11:37:05:666] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f6-zpc.zdn.vn/jpg/6897039803395413054/3fcd6dd024e39abdc3f2.jpg","description":"","action":"","childnumber":0,"href":"https://f6-zpc.zdn.vn/jpg/6897039803395413054/3fcd6dd024e39abdc3f2.jpg","title":"X250219149-N","params":"{\"rawUrl\":\"https:\\/\\/f6-zpc.zdn.vn\\/jpg\\/6897039803395413054\\/3fcd6dd024e39abdc3f2.jpg\",\"width\":564,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f6-zpc.zdn.vn\\/jpg\\/6897039803395413054\\/3fcd6dd024e39abdc3f2.jpg\",\"hdSize\":104973,\"height\":633}","type":""}
+
+======
+[2025-02-19 11:34:13:925] Trần Hồng Nhi HQS_Q04_SM_THAKRALONE 0934886300: A Hùng có model này ko ạ
+[2025-02-19 11:34:07:376] Trần Hồng Nhi HQS_Q04_SM_THAKRALONE 0934886300: Dell Latitude 5450 Ultra 5-125U, 16GB, 512 GB
+Máy tính xách tay Dell Latitude 5450 Ultra 5-125U,16GB 
+DDR5, 512GB SSD, 14.0" FHD, Camera, Intel Graphics, 3C 54Wh, ax+BT, Win11Pro, Blacklist Key, 3Y WTY
+
+======
+[2025-02-19 11:31:11:795] Thanh Vii Nguyên Kim: Dạ vâng anh
+[2025-02-19 11:28:57:644] LAPTOP HÙNG. ĐỖ MINH 0938703382: E16 thì hiện tại ko có em
+[2025-02-19 11:25:38:512] Thanh Vii Nguyên Kim: có mã nào E16 sắp về làng ko
+[2025-02-19 11:25:28:620] Thanh Vii Nguyên Kim: a ơiii
+[2025-02-19 11:25:26:588] Thanh Vii Nguyên Kim: ThinkPad E16 Gen 1 21JN00GKVA CPU i5-13420H| Ram 16GD4| SSD 512GB| 16.0WUXGA
+
+======
+[2025-02-19 11:30:44:238] LAPTOP HÙNG. ĐỖ MINH 0938703382: này đúng ko
+[2025-02-19 11:30:41:927] LAPTOP HÙNG. ĐỖ MINH 0938703382: 21JK00PFVA	(NB) LENOVO ThinkPad E14 Gen 5 i7-1355U/16GD4/512GSSD/14.0WUXGA/FP/IR/WL/BT/3C47/NoOS/LEDKB/2Y/ĐEN   20.950.000 fv ko túi / dự kiến cuối tháng 2 về hàng
+[2025-02-19 11:30:17:230] Mr Quang Notebook Nguyên Kim: khách tm
+[2025-02-19 11:30:11:774] Mr Quang Notebook Nguyên Kim: 20950
+[2025-02-19 11:30:00:660] LAPTOP HÙNG. ĐỖ MINH 0938703382: bán giá nhiêu
+[2025-02-19 11:29:42:436] Mr Quang Notebook Nguyên Kim: E14 i7 em 1c nha, nào về hú em với
+
+======
+[2025-02-19 11:27:32:682] LAPTOP HÙNG. ĐỖ MINH 0938703382: DGW giao 50 cái chưa Phước
+[2025-02-19 11:27:25:255] LAPTOP HÙNG. ĐỖ MINH 0938703382: MW2L3ZA/A    ĐẦU SẠC (ADAPTER) APPLE 96W USB-C POWER ADAPTER(MW2L3ZA/A)
+
+======
+[2025-02-19 11:27:05:686] LAPTOP HÙNG. ĐỖ MINH 0938703382: cái này bên  DGW giao 50 cái chưa Khôi
+[2025-02-19 11:26:29:427] LAPTOP HÙNG. ĐỖ MINH 0938703382: MW2L3ZA/A    ĐẦU SẠC (ADAPTER) APPLE 96W USB-C POWER ADAPTER(MW2L3ZA/A)   1,680,000FV
+
+======
+[2025-02-19 11:24:57:109] Toàn HQS_Q01_SM_LONGBINH: a thanh cứ dấu dấu diếm diếm em hok biết đường nào nc với EU
+[2025-02-19 11:24:40:073] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":12017,"id":47236,"type":7}
+[2025-02-19 11:24:06:380] Toàn HQS_Q01_SM_LONGBINH: nhận kèo bừa chừ đuối
+
+======
+[2025-02-19 11:21:31:970] C Trâm HQC_PNH_DS_TRONGNGHIA: Máy Tính Laptop
+Máy tính xách tay HP ProBook 440 G10,Core i5-1335U,16GB RAM,512GB SSD,Intel Graphics,14""FHD,Webcam,3
+Cell,Wlan ax+BT,Fingerprint,Win11"	SL 6
+
+======
+[2025-02-19 12:08:30:153] Đạt TTC: voi e can lap them cay ram 8gb silicon
+[2025-02-19 12:08:06:454] Đạt TTC: cho e gia con nay voi nha
+[2025-02-19 12:07:59:953] Đạt TTC: [P1403CVA-I5SE08-50W]* MÁY TÍNH XÁCH TAY ASUS 14.0IN FHD IPS/ I5-13500H/ DDR5 8GB/ 512GB/ 50WHRS/ WIN11 HOME/ 2Y ONSITE
+
+======
+[2025-02-19 12:06:18:875] LAPTOP HÙNG. ĐỖ MINH 0938703382: kkk
+[2025-02-19 12:06:17:931] LAPTOP HÙNG. ĐỖ MINH 0938703382: có báo, em đợi nổi kho, mà ko biết nằm kho nào để kiểm tra
+[2025-02-19 12:05:37:380] C Phượng Mua Hàng: {"catId":12002,"id":46954,"type":7}
+[2025-02-19 12:05:20:221] C Phượng Mua Hàng: NAM PM KO BÁO XUẤT A
+[2025-02-19 12:05:08:923] C Phượng Mua Hàng: UA HÀNG VÊ BUA H
+[2025-02-19 12:04:57:274] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":11190,"id":34840,"type":7}
+[2025-02-19 12:04:55:709] LAPTOP HÙNG. ĐỖ MINH 0938703382: làm em ko biết đợi bữa giờ
+[2025-02-19 12:04:36:420] C Phượng Mua Hàng: {"catId":12002,"id":46953,"type":7}
+[2025-02-19 12:04:29:912] LAPTOP HÙNG. ĐỖ MINH 0938703382: em xuất rồi
+[2025-02-19 12:04:28:028] LAPTOP HÙNG. ĐỖ MINH 0938703382: rồi chị
+[2025-02-19 12:04:26:641] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f22-zpc.zdn.vn/jpg/3094101469354818849/2f4f87f467c7d99980d6.jpg","description":"","action":"","childnumber":0,"href":"https://f22-zpc.zdn.vn/jpg/3094101469354818849/2f4f87f467c7d99980d6.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f22-zpc.zdn.vn\\/jpg\\/3094101469354818849\\/2f4f87f467c7d99980d6.jpg\",\"width\":566,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f22-zpc.zdn.vn\\/jpg\\/3094101469354818849\\/2f4f87f467c7d99980d6.jpg\",\"hdSize\":80965,\"height\":607}","type":""}
+[2025-02-19 12:04:22:058] C Phượng Mua Hàng: ONG THẤY CHUA
+[2025-02-19 11:58:02:888] LAPTOP HÙNG. ĐỖ MINH 0938703382: kkkk
+[2025-02-19 11:58:01:816] LAPTOP HÙNG. ĐỖ MINH 0938703382: chuyên laptop mà giờ đi bán phụ kiện, khác chuyên môn chưa quen nha chị
+[2025-02-19 11:57:19:390] C Phượng Mua Hàng: {"catId":12002,"id":46954,"type":7}
+[2025-02-19 11:56:56:570] LAPTOP HÙNG. ĐỖ MINH 0938703382: để em xuất luôn
+[2025-02-19 11:56:06:464] LAPTOP HÙNG. ĐỖ MINH 0938703382: em tưởng hàng về sẽ nằm trong kho laptop
+[2025-02-19 11:56:01:014] C Phượng Mua Hàng: TROI
+[2025-02-19 11:55:51:298] LAPTOP HÙNG. ĐỖ MINH 0938703382: em có thấy nằm ở kho nào đâu
+[2025-02-19 11:55:44:285] C Phượng Mua Hàng: NGHÊ THIET
+
+======
+[2025-02-19 12:05:42:230] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f17-zpc.zdn.vn/jpg/5146118503035669893/06cc702794142a4a7305.jpg","description":"","action":"","childnumber":0,"href":"https://f17-zpc.zdn.vn/jpg/5146118503035669893/06cc702794142a4a7305.jpg","title":"tí duyệt giúp em cái này nữa nha chế, hàng dự án đặt về, có phần cọc bên mình nha","params":"{\"rawUrl\":\"https:\\/\\/f17-zpc.zdn.vn\\/jpg\\/5146118503035669893\\/06cc702794142a4a7305.jpg\",\"width\":566,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f17-zpc.zdn.vn\\/jpg\\/5146118503035669893\\/06cc702794142a4a7305.jpg\",\"hdSize\":80965,\"height\":607}","type":""}
+
+======
+[2025-02-19 12:04:06:471] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f29-zpc.zdn.vn/jpg/4632858127110547402/4e2275f699c5279b7ed4.jpg","description":"","action":"","childnumber":0,"href":"https://f29-zpc.zdn.vn/jpg/4632858127110547402/4e2275f699c5279b7ed4.jpg","title":"","params":"{\"width\":566,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f29-zpc.zdn.vn\\/jpg\\/4632858127110547402\\/4e2275f699c5279b7ed4.jpg\",\"hdSize\":94944,\"height\":607}","type":""}
+[2025-02-19 11:52:46:582] Hân KT Công nợ: roi nha anh
+
+======
+[2025-02-19 12:03:20:186] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"thumb":"https://f29-zpc.zdn.vn/jpg/4632858127110547402/4e2275f699c5279b7ed4.jpg","description":"","action":"","childnumber":0,"href":"https://f29-zpc.zdn.vn/jpg/4632858127110547402/4e2275f699c5279b7ed4.jpg","title":"","params":"{\"rawUrl\":\"https:\\/\\/f29-zpc.zdn.vn\\/jpg\\/4632858127110547402\\/4e2275f699c5279b7ed4.jpg\",\"width\":566,\"convertible\":\"jxl\",\"hd\":\"https:\\/\\/f29-zpc.zdn.vn\\/jpg\\/4632858127110547402\\/4e2275f699c5279b7ed4.jpg\",\"hdSize\":94944,\"height\":607}","type":""}
+
+======
+[2025-02-19 11:53:08:187] Phước Phạm: Giao hồi tuần trước lun r má
+[2025-02-19 11:52:57:116] LAPTOP HÙNG. ĐỖ MINH 0938703382: mía
+[2025-02-19 11:52:45:687] Phước Phạm: Cái mã này nó giao lâu r mà
+[2025-02-19 11:52:35:341] Phước Phạm: Ủa
+[2025-02-19 11:51:42:667] Phước Phạm: Chưa
+[2025-02-19 11:51:38:432] LAPTOP HÙNG. ĐỖ MINH 0938703382: qua giờ chưa có luôn ah
+[2025-02-19 11:51:26:272] Phước Phạm: Chưa
+[2025-02-19 11:51:11:757] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"catId":47,"id":1033,"type":7}
+
+======
+[2025-02-19 11:53:07:705] Vinh Lenovo DGW: nổi chung
+[2025-02-19 11:53:05:766] Vinh Lenovo DGW: 21MA004AVA	(NB) LENOVO ThinkPad E16 Gen 2 U7-155H/16GD5/512GSSD/14.0WUXGA/FP/IR/WL/BT/3C47/NoOS/LEDKB/2Y/BLACK
+[2025-02-19 11:52:44:168] LAPTOP HÙNG. ĐỖ MINH 0938703382: X1 thì còn nè, từ từ lấy
+[2025-02-19 11:51:55:326] Vinh Lenovo DGW: dự kiến tối nổi kho nha
+[2025-02-19 11:51:45:019] Vinh Lenovo DGW: 21KCS3J400	(NB) LENOVO ThinkPad X1 Carbon Gen 12 U7-165U/32GDR5X/512GSSD/14WUXGAT/FP/IR/Wifi6/BT/3C57/NoOS/LKB/3Y/ĐEN
+
+======
+[2025-02-19 11:52:51:574] LAPTOP HÙNG. ĐỖ MINH 0938703382: {"globalMsgId":6331702685491,"destId":6907885249492469664,"srcId":0,"deleteMsg":0,"cliMsgId":1739940722330}
+[2025-02-19 11:52:02:751] LAPTOP HÙNG. ĐỖ MINH 0938703382: anh hỏi kho anh chưa thấy 50 cái adapter
+
+======
+[2025-02-19 11:51:00:985] LAPTOP HÙNG. ĐỖ MINH 0938703382: ko có rồi em
+[2025-02-19 11:34:07:376] Trần Hồng Nhi HQS_Q04_SM_THAKRALONE 0934886300: Dell Latitude 5450 Ultra 5-125U, 16GB, 512 GB
+Máy tính xách tay Dell Latitude 5450 Ultra 5-125U,16GB 
+DDR5, 512GB SSD, 14.0" FHD, Camera, Intel Graphics, 3C 54Wh, ax+BT, Win11Pro, Blacklist Key, 3Y WTY
+
+======
+[2025-02-19 11:22:04:397] LAPTOP HÙNG. ĐỖ MINH 0938703382: 21ML007EVA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 T Intel core ULT7 - 155H (4.80 GHz) / 16GB Ram/ 512GB SSD / Wifi,BT,Finger Print/ 14" 2.2K_AG_300N/ NO OS/ 3 Yrs Premier support,P/n 21ML007EVA	 28,980,000 full vat có balo/ nhập 5c  ( Sang Bùi bán 3c, stock 2c )
+
+21ML007GVA	Máy tính xách tay Lenovo ThinkPad T14 Gen 5 T Intel core ULT7 - 155H (4.80 GHz) / 2 x 16GB Ram/ 1TB SSD / Wifi,BT,Finger Print/ 14" 2.2K_AG_300N/ NO OS/ 3 Yrs Premier support,P/n 21ML007GVA	 31,416,000  full vat có balo/ nhập 3c   stock kho
+
+======
+[2025-02-19 11:40:22:573] A Thắng HQS_Q07_TB_THANHHA: DELL 	 Inspiron 3520 	i5-1235U, 8GB, 512GB SSD, 15.6" FHD, UMA, Win11, Office HS 21, Bạc, P112F007)	N3520-i5U085W11SLU
+em có part này ko
+
+======
+[2025-02-19 11:21:31:970] C Trâm HQC_PNH_DS_TRONGNGHIA: Máy Tính Laptop
+Máy tính xách tay HP ProBook 440 G10,Core i5-1335U,16GB RAM,512GB SSD,Intel Graphics,14""FHD,Webcam,3
+Cell,Wlan ax+BT,Fingerprint,Win11"	SL 6

@@ -153,7 +153,11 @@ class RoleController extends Controller {
                     'title'=>$request->input( 'title' ),
                     'description'=>$request->input( 'description' )
                 ] );
-                $role->permissions()->sync( $request->input( 'permission_id', [] ) );
+                if ($request->has('permission_id')) {
+                    $role->permissions()->sync($request->input('permission_id'));
+                }
+                //$role->permissions()->sync( $request->input( 'permission_id', [] ) );
+
                 return response()->json( [
                     'status'=>true,
                     'message'=>'update Role success'

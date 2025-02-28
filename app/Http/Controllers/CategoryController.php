@@ -10,25 +10,23 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    public function show(Request $request){
+    public function show()
+    {
         try {
-            $categories = Category::pluck('name');
-
-            $allowedCategories = $categories->filter(function ($category) {
-                $hasPermission = Gate::allows($category . '.manage');
-                return $hasPermission;
-            });
+            $categories = Category::where('parent_id', null)
+                ->with('children')
+                ->orderBy('id', 'asc')
+                ->get();
 
             return response()->json([
                 'status' => true,
-                'categories' => $allowedCategories,
+                'categories' => $categories
             ]);
-            
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
-                'message' => $e->getMessage()
-            ], 422);
+                'error' => $e->getMessage()
+            ], 500);
         }
     }
 
