@@ -81,8 +81,8 @@ class CategoryController extends Controller
             }
 
             $files = $category->files()
-                ->select('id', 'name', 'mime_type', 'path', 'created_at', 'updated_at')
-                ->get();
+            ->select('id', 'name', 'mime_type', 'path', 'created_at', 'updated_at')
+            ->paginate(10); 
 
             $baseSlug = implode('.', $slugParts);
             
@@ -95,12 +95,118 @@ class CategoryController extends Controller
                         'full_path' => implode('/', array_column($breadcrumbs, 'name')),
                         'breadcrumbs' => $breadcrumbs
                     ],
-                    'files' => $files,
-                    'permissions' => [
-                        'can_upload' => Gate::allows($baseSlug . '.upload'),
-                        'can_delete' => Gate::allows($baseSlug . '.delete'),
-                        'can_download' => Gate::allows($baseSlug . '.download')
-                    ]
+                    'files' => $files->items(),
+                    'pagination' => [
+                        'current_page' => $files->currentPage(),
+                        'total_pages' => $files->lastPage(),
+                        'per_page' => $files->perPage(),
+                        'total' => $files->total(),
+                    ],
+                    // 'permissions' => [
+                    //     'can_upload' => Gate::allows($baseSlug . '.upload'),
+                    //     'can_delete' => Gate::allows($baseSlug . '.delete'),
+                    //     'can_download' => Gate::allows($baseSlug . '.download')
+                    // ]
+                ]
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    public function uploadFile(Request $request, $categoryId)
+    {
+        try {
+            $category = Category::with('parent')->findOrFail($categoryId);
+            
+            // Build folder path and permission slug
+            $slugParts = [];
+            $folderParts = [];
+            $currentCategory = $category;
+            
+            while ($currentCategory) {
+                array_unshift($slugParts, $currentCategory->name);
+                array_unshift($folderParts, $currentCategory->name);
+                $currentCategory = $currentCategory->parent;
+            }
+            
+            // Remove last part for permission check
+            if (count($slugParts) > 1) {
+                array_pop($slugParts);
+            }
+            
+            // Check upload permission
+            $permissionSlug = implode('.', $slugParts) . '.upload';
+            if (!Gate::allows($permissionSlug)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'No permission to upload files in this directory'
+                ], 403);
+            }
+
+            // Build storage path
+            $storagePath = implode('/', $folderParts);
+
+            $request->validate([
+                'files' => 'required|array',
+                'files.*' => 'required|file|max:10240',
+            ]);
+
+            $uploadedFiles = [];
+            $errors = [];
+
+            foreach($request->file('files') as $file) {
+                try {
+                    $originalName = $file->getClientOriginalName();
+                    $extension = $file->getClientOriginalExtension();
+                    $mimeType = $file->getMimeType();
+                    
+                    $fileName = Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) . 
+                            '_' . time() . '_' . Str::random(8) . 
+                            '.' . $extension;
+
+                    // Store file using category path structure
+                    $path = $file->storeAs(
+                        'uploads/' . $storagePath, 
+                        $fileName, 
+                        'public'
+                    );
+
+                    $fileRecord = new File();
+                    $fileRecord->category_id = $category->id;
+                    $fileRecord->name = $originalName;
+                    $fileRecord->path = $path;
+                    $fileRecord->mime_type = $mimeType;
+                    $fileRecord->save();
+
+                    $uploadedFiles[] = [
+                        'id' => $fileRecord->id,
+                        'name' => $fileRecord->name,
+                        'mime_type' => $fileRecord->mime_type,
+                        'path' => Storage::url($fileRecord->path),
+                        'created_at' => $fileRecord->created_at,
+                        'updated_at' => $fileRecord->updated_at
+                    ];
+
+                } catch (\Exception $e) {
+                    $errors[] = [
+                        'name' => $originalName ?? 'Unknown file',
+                        'error' => $e->getMessage()
+                    ];
+                }
+            }
+
+            return response()->json([
+                'status' => true,
+                'message' => count($uploadedFiles) . ' files uploaded successfully' . 
+                            (count($errors) > 0 ? ' with ' . count($errors) . ' errors' : ''),
+                'data' => [
+                    'uploaded_files' => $uploadedFiles,
+                    'errors' => $errors
                 ]
             ]);
 

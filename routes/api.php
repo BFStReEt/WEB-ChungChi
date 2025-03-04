@@ -41,10 +41,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
 });
 
 Route::get('categories/{categoryId}/files', [CategoryController::class, 'showFiles']);
-
-Route::group(['middleware' => 'admin','middleware' => 'cate', 'prefix' => 'files'], function () {
-    
-});
+Route::post('categories/{categoryId}/upload', [CategoryController::class, 'uploadFile']);
 
 // File
 Route::group(['middleware' => 'admin', 'prefix' => 'file'], function () {
