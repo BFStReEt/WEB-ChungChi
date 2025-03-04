@@ -49,7 +49,6 @@ class CategoryController extends Controller
         }
     }
 
-
     public function showFiles($categoryId)
     {
         try {
@@ -208,6 +207,180 @@ class CategoryController extends Controller
                             (count($errors) > 0 ? ' with ' . count($errors) . ' errors' : ''),
                 'data' => [
                     'uploaded_files' => $uploadedFiles,
+                    'errors' => $errors
+                ]
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+    public function downloadFile($fileId)
+    {
+        try {
+            $file = File::with(['category.parent'])->findOrFail($fileId);
+            $category = $file->category;
+
+            $slugParts = [];
+            $currentCategory = $category;
+            
+            while ($currentCategory) {
+                array_unshift($slugParts, $currentCategory->name);
+                $currentCategory = $currentCategory->parent;
+            }
+
+            if (count($slugParts) > 1) {
+                array_pop($slugParts);
+            }
+            $permissionSlug = implode('.', $slugParts) . '.download';
+            if (!Gate::allows($permissionSlug)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'No permission to download this file'
+                ], 403);
+            }
+
+            if (!Storage::disk('public')->exists($file->path)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'File not found'
+                ], 404);
+            }
+
+            $path = Storage::disk('public')->path($file->path);
+            
+            return response()->download(
+                $path, 
+                $file->name, 
+                ['Content-Type' => $file->mime_type]
+            );
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+    public function deleteFile($fileId)
+    {
+        try {
+            $file = File::with(['category.parent'])->findOrFail($fileId);
+            $category = $file->category;
+
+            $slugParts = [];
+            $currentCategory = $category;
+            
+            while ($currentCategory) {
+                array_unshift($slugParts, $currentCategory->name);
+                $currentCategory = $currentCategory->parent;
+            }
+
+            if (count($slugParts) > 1) {
+                array_pop($slugParts);
+            }
+
+            $permissionSlug = implode('.', $slugParts) . '.del';
+            if (!Gate::allows($permissionSlug)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'No permission to delete this file'
+                ], 403);
+            }
+
+            if (Storage::disk('public')->exists($file->path)) {
+                Storage::disk('public')->delete($file->path);
+            }
+
+            $file->delete();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'File deleted successfully'
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function deleteMultipleFiles(Request $request)
+    {
+        try {
+            $request->validate([
+                'ids' => 'required|array',
+                'ids.*' => 'required|integer|exists:files,id'
+            ]);
+
+            $fileIds = $request->ids;
+            $files = File::with(['category.parent'])
+                        ->whereIn('id', $fileIds)
+                        ->get();
+            
+            if ($files->isEmpty()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Không tìm thấy file nào để xóa'
+                ], 404);
+            }
+
+            $successCount = 0;
+            $errors = [];
+
+            foreach ($files as $file) {
+                try {
+                    $category = $file->category;
+
+                    $slugParts = [];
+                    $currentCategory = $category;
+                    
+                    while ($currentCategory) {
+                        array_unshift($slugParts, $currentCategory->name);
+                        $currentCategory = $currentCategory->parent;
+                    }
+
+                    if (count($slugParts) > 1) {
+                        array_pop($slugParts);
+                    }
+
+                    $permissionSlug = implode('.', $slugParts) . '.del';
+                    if (!Gate::allows($permissionSlug)) {
+                        $errors[] = [
+                            'id' => $file->id,
+                            'name' => $file->name,
+                            'error' => 'Không có quyền xóa file này'
+                        ];
+                        continue;
+                    }
+
+                    if (Storage::disk('public')->exists($file->path)) {
+                        Storage::disk('public')->delete($file->path);
+                    }
+
+                    $file->delete();
+                    $successCount++;
+
+                } catch (\Exception $e) {
+                    $errors[] = [
+                        'id' => $file->id,
+                        'name' => $file->name ?? 'Unknown file',
+                        'error' => $e->getMessage()
+                    ];
+                }
+            }
+
+            return response()->json([
+                'status' => true,
+                'message' => "Đã xóa thành công {$successCount} file" . 
+                            (count($errors) > 0 ? " và có " . count($errors) . " file lỗi" : ''),
+                'data' => [
+                    'success_count' => $successCount,
                     'errors' => $errors
                 ]
             ]);

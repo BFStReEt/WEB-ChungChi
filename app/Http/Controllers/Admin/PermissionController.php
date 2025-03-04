@@ -26,8 +26,8 @@ class PermissionController extends Controller
             ]);
             
             if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quyền hạn.manage')) {
-                $excludedKeys = ['manage', 'add', 'update', 'edit', 'upload', 'import', 'del'];
-                
+                //$excludedKeys = ['manage', 'add', 'update', 'edit', 'upload', 'import', 'del'];
+                $excludedKeys = [];
                 $permissions = Permission::all()->groupBy(function ($permission) {
                     return explode('.', $permission->slug)[0];
                 })->map(function ($group) {

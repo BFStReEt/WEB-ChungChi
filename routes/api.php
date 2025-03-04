@@ -40,12 +40,11 @@ Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
     Route::get('/',[CategoryController::class,'show']);
 });
 
-Route::get('categories/{categoryId}/files', [CategoryController::class, 'showFiles']);
-Route::post('categories/{categoryId}/upload', [CategoryController::class, 'uploadFile']);
-
 // File
-Route::group(['middleware' => 'admin', 'prefix' => 'file'], function () {
-    Route::post('/import/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [FilesController::class, 'import']);
-    Route::post('/delete/{id}', [FilesController::class, 'delete']);
-    Route::get('/download/{id}', [FilesController::class, 'download']);
-});
+Route::get('categories/{categoryId}/files', [CategoryController::class, 'showFiles']);
+
+Route::post('categories/{categoryId}/upload', [CategoryController::class, 'uploadFile']);
+Route::get('files/{fileId}/download', [CategoryController::class, 'downloadFile']);
+
+Route::delete('files/{fileId}', [CategoryController::class, 'deleteFile']);
+Route::post('files/delete-multiple', [CategoryController::class, 'deleteMultipleFiles']);
