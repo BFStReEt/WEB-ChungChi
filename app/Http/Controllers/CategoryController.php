@@ -121,9 +121,15 @@ class CategoryController extends Controller
     public function uploadFile(Request $request, $categoryId)
     {
         try {
-            $category = Category::with('parent')->findOrFail($categoryId);
+            $category = Category::with(['parent', 'children'])->findOrFail($categoryId);
             
-            // Build folder path and permission slug
+            if ($category->children->count() > 0) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Cannot upload in parent category.'
+                ], 403);
+            }
+
             $slugParts = [];
             $folderParts = [];
             $currentCategory = $category;
@@ -134,12 +140,10 @@ class CategoryController extends Controller
                 $currentCategory = $currentCategory->parent;
             }
             
-            // Remove last part for permission check
             if (count($slugParts) > 1) {
                 array_pop($slugParts);
             }
             
-            // Check upload permission
             $permissionSlug = implode('.', $slugParts) . '.upload';
             if (!Gate::allows($permissionSlug)) {
                 return response()->json([
@@ -148,7 +152,6 @@ class CategoryController extends Controller
                 ], 403);
             }
 
-            // Build storage path
             $storagePath = implode('/', $folderParts);
 
             $request->validate([
@@ -169,7 +172,6 @@ class CategoryController extends Controller
                             '_' . time() . '_' . Str::random(8) . 
                             '.' . $extension;
 
-                    // Store file using category path structure
                     $path = $file->storeAs(
                         'uploads/' . $storagePath, 
                         $fileName, 
