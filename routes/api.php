@@ -40,8 +40,14 @@ Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
     Route::get('/',[CategoryController::class,'show']);
 });
 
+Route::get('categories/{categoryId}/files', [CategoryController::class, 'showFiles']);
+
+Route::group(['middleware' => 'admin','middleware' => 'cate', 'prefix' => 'files'], function () {
+    
+});
+
 // File
-Route::group(['middleware' => 'auth:sanctum', 'prefix' => 'file'], function () {
+Route::group(['middleware' => 'admin', 'prefix' => 'file'], function () {
     Route::post('/import/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [FilesController::class, 'import']);
     Route::post('/delete/{id}', [FilesController::class, 'delete']);
     Route::get('/download/{id}', [FilesController::class, 'download']);

@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
 use App\Models\Role;
+use App\Models\File;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 use Gate;
 
 class RoleController extends Controller {
@@ -32,7 +37,7 @@ class RoleController extends Controller {
                 }
 
                 $perPage = $request->input('per_page', 10); // Default 10 items per page
-                $roles = $query->orderBy('id', 'desc')->paginate($perPage);
+                $roles = $query->orderBy('id', 'asc')->paginate($perPage);
 
                 return response()->json([
                     'status' => true,
@@ -178,7 +183,7 @@ class RoleController extends Controller {
 
     public function delete(Request $request)
     {
-        if (!Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.delete')) {
+        if (!Gate::allows('THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del')) {
             return response()->json([
                 'status' => false,
                 'message' => 'no permission',
@@ -188,27 +193,19 @@ class RoleController extends Controller {
         try {
             $request->validate([
                 'ids' => 'required|array',
-                'ids*' => 'exists:roles,id',
+                'ids.*' => 'exists:roles,id',
             ]);
 
             $ids = $request->input('ids');
-
-            if (is_array($ids)) {
-                $ids = implode(",", $ids);
-            }
-
-            $idsArray = explode(",", $ids);
-
-            foreach ($idsArray as $id) {
-                Role::whereIn('id', $idsArray)->delete();
-            }
+            
+            Role::whereIn('id', $ids)->delete();
 
             $admin = Auth::guard('admin')->user();
-
             $nows = now()->timestamp;
+            
             DB::table('adminlogs')->insert([
                 'admin_id' => $admin->id,
-                'time' => $now,
+                'time' => $nows,  
                 'ip' => $request->ip() ?? null,
                 'action' => 'delete business group',
                 'cat' => $admin->display_name,
@@ -221,7 +218,7 @@ class RoleController extends Controller {
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
-                'message' => 'Lỗi khi xóa dữ liệu'
+                'message' => $e->getMessage() 
             ], 500);
         }
     }
@@ -236,7 +233,7 @@ class RoleController extends Controller {
                 'action'=>'delete a role',
                 'cat'=>'role',
             ] );
-            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.delete' ) ) {
+            if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý nhóm admin.del' ) ) {
                 $role = Role::find( $id );
                 $role->delete();
                 return response()->json( [

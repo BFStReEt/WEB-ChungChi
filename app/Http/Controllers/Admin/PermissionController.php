@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Gate;
 class PermissionController extends Controller
 {
-    public function index(Request $request){
-        try{
+    public function index(Request $request) {
+        try {
             $nows = now()->timestamp;
             DB::table('adminlogs')->insert([
                 'admin_id' => Auth::guard('admin')->user()->id,
@@ -24,26 +24,43 @@ class PermissionController extends Controller
                 'action'=>'show all permission',
                 'cat'=>'permission',
             ]);
-            if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quyền hạn.manage')){
-                $permissions=Permission::all()->groupBy(function ($permission){
-                    return explode('.',$permission->slug)[0];
+            
+            if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quyền hạn.manage')) {
+                $excludedKeys = ['manage', 'add', 'update', 'edit', 'upload', 'import', 'del'];
+                
+                $permissions = Permission::all()->groupBy(function ($permission) {
+                    return explode('.', $permission->slug)[0];
                 })->map(function ($group) {
                     return $group->groupBy(function ($permission) {
-                        return explode('.', $permission->slug)[1];
+                        $slugParts = explode('.', $permission->slug);
+                        return count($slugParts) > 2 ? $slugParts[1] : $slugParts[1];
                     });
                 });
+
+                $filteredPermissions = $permissions->map(function ($group) use ($excludedKeys) {
+                    foreach ($excludedKeys as $key) {
+                        if ($group->has($key)) {
+                            $keyPermissions = $group->get($key);
+                            if ($keyPermissions->count() === 1 && 
+                                count(explode('.', $keyPermissions->first()->slug)) === 2) {
+                                $group->forget($key);
+                            }
+                        }
+                    }
+                    
+                    return $group->isEmpty() ? null : $group;
+                })->filter(); 
                 return response()->json([
-                    'status'=>true,
-                    'permissions'=>$permissions
+                    'status' => true,
+                    'permissions' => $filteredPermissions
                 ]);
             } else {
                 return response()->json([
-                    'status'=>false,
+                    'status' => false,
                     'mess' => 'no permission',
                 ]);
             }
-        }
-        catch(\Exception $e){
+        } catch(\Exception $e) {
             return response()->json([
                 'status' => false,
                 'message' => $e->getMessage()
@@ -52,34 +69,32 @@ class PermissionController extends Controller
     }
 
     public function showPermission(){
-        $permissions=Permission::all()->groupBy(function ($permission){
+        $permissions = Permission::all()->groupBy(function ($permission){
             return explode('.',$permission->slug)[0];
         })->map(function ($group) {
             return $group->groupBy(function ($permission) {
                 return explode('.', $permission->slug)[1];
             });
         });
-        $groupPermission=[];
-        foreach($permissions as $key=> $permission){
-            $childPermission=[];
-            foreach($permission as $key1=> $per){
-                $childPermission[]=[
-                    'keyChild'=>$key1,
-                    'ChildPermission'=>$per
 
+        $groupPermission = [];
+        foreach($permissions as $key => $permission){
+            $childPermission = [];
+            foreach($permission as $key1 => $per){
+                if ($key1 === 'manage' && count($permission) > 1) {
+                    continue;
+                }
+                $childPermission[] = [
+                    'keyChild' => $key1,
+                    'ChildPermission' => $per
                 ];
             }
-            $groupPermission[]=[
-                'keyGroup'=>$key,
-                'groupPermission'=>$childPermission
+            $groupPermission[] = [
+                'keyGroup' => $key,
+                'groupPermission' => $childPermission
             ];
-
         }
-        return  $groupPermission;
-        return response()->json([
-            'status'=>true,
-            'permissions'=>$permissions
-        ]);
+        return $groupPermission;
     }
 
     public function create(){
@@ -96,7 +111,6 @@ class PermissionController extends Controller
                 'cat'=>'permission',
             ]);
             if(Gate::allows('THÔNG TIN QUẢN TRỊ.Quyền hạn.add')){
-            // Lấy và kiểm tra category cha
                 $parentCategory = Category::find($request->input('parentCate'));
                 if(!$parentCategory) {
                     return response()->json([
@@ -105,10 +119,8 @@ class PermissionController extends Controller
                     ], 404);
                 }
 
-                // Khởi tạo slug với tên category cha
                 $slugParts = [$parentCategory->name];
 
-                // Kiểm tra và thêm child category nếu có
                 if($request->input('childCate')) {
                     $childCategory = Category::find($request->input('childCate'));
                     if($childCategory) {
@@ -116,7 +128,6 @@ class PermissionController extends Controller
                     }
                 }
 
-                // Kiểm tra và thêm year category nếu có
                 if($request->input('yearCate')) {
                     $yearCategory = Category::find($request->input('yearCate'));
                     if($yearCategory) {
@@ -124,10 +135,8 @@ class PermissionController extends Controller
                     }
                 }
 
-                // Thêm tên permission vào cuối
                 $slugParts[] = $request->input('permissionName');
 
-                // Tạo permission với slug được ghép từ các phần
                 Permission::create([
                     'name' => $request->input('permissionName'),
                     'slug' => implode('.', $slugParts)

@@ -317,7 +317,7 @@ class AdminService implements AdminServiceInterface
     }
 
     public function destroy( $id ){
-        if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.destroy' ) ) {
+        if ( Gate::allows( 'THÔNG TIN QUẢN TRỊ.Quản lý tài khoản admin.del') ) {
             Admin::where( 'id', $id )->delete();
             return response()->json( [
                 'status' => true
