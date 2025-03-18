@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Models\File;
 use App\Models\Category;
 
@@ -80,7 +81,7 @@ class CategoryController extends Controller
             }
 
             $files = $category->files()
-            ->select('id', 'name', 'mime_type', 'path', 'created_at', 'updated_at')
+            ->select('id', 'name', 'mime_type', 'path','author', 'created_at', 'updated_at')
             ->paginate(10); 
 
             $baseSlug = implode('.', $slugParts);
@@ -121,7 +122,7 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::with(['parent', 'children'])->findOrFail($categoryId);
-            
+            $displayname = Auth::guard( 'admin' )->user()->display_name;
             if ($category->children->count() > 0) {
                 return response()->json([
                     'status' => false,
@@ -182,6 +183,7 @@ class CategoryController extends Controller
                     $fileRecord->name = $originalName;
                     $fileRecord->path = $path;
                     $fileRecord->mime_type = $mimeType;
+                    $fileRecord->author = $displayname;
                     $fileRecord->save();
 
                     $uploadedFiles[] = [
@@ -189,6 +191,7 @@ class CategoryController extends Controller
                         'name' => $fileRecord->name,
                         'mime_type' => $fileRecord->mime_type,
                         'path' => Storage::url($fileRecord->path),
+                        'author' => $fileRecord->author,
                         'created_at' => $fileRecord->created_at,
                         'updated_at' => $fileRecord->updated_at
                     ];
@@ -310,15 +313,23 @@ class CategoryController extends Controller
         }
     }
 
-    public function deleteMultipleFiles(Request $request)
-    {
+    public function deleteMultipleFiles(Request $request){
         try {
             $request->validate([
-                'ids' => 'required|array',
-                'ids.*' => 'required|integer|exists:files,id'
+                'ids' => 'required'
             ]);
 
-            $fileIds = $request->ids;
+            $fileIds = is_array($request->ids) 
+                ? $request->ids 
+                : array_map('intval', explode(',', $request->ids));
+
+            if (empty($fileIds)) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Danh sách ID không hợp lệ'
+                ], 400);
+            }
+
             $files = File::with(['category.parent'])
                         ->whereIn('id', $fileIds)
                         ->get();
