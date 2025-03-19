@@ -2,3 +2,9 @@
 
 composer require laravel/passport
 composer require alireaza/laravel-form-data
+
+
+git remote -v
+git remote set-url origin git@github.com:BFStReEt/WEB-ChungChi.git
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+Get-Content ~/.ssh/id_rsa.pub | clip

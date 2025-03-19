@@ -152,6 +152,88 @@ class FilesController extends Controller
         ]);
     }
 
+    public function importFiles(Request $request, $categoryId)
+    {
+        $category = Category::findOrFail($categoryId);
+        $subCategory = $request->input('sub_category_id') ? Category::find($request->input('sub_category_id')) : null;
+        $yearSlug = $request->input('year_slug');
+        $files = $request->file('files');
+
+        if ($subCategory) {
+            $hasYearCategory = Category::where('parent_id', $subCategory->id)->exists();
+            if ($hasYearCategory && !$yearSlug) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Không thể import vào danh mục con vì danh mục này có danh mục năm. Vui lòng chỉ định danh mục năm.',
+                ], 400);
+            }
+        }
+
+        $destinationPath = public_path($category->name);
+        if ($subCategory) {
+            $destinationPath .= '/' . $subCategory->name;
+        }
+        if ($yearSlug) {
+            $destinationPath .= '/' . $yearSlug;
+        }
+
+        $importedFiles = [];
+        $existingFiles = [];
+
+        foreach ($files as $file) {
+            $fileName = $file->getClientOriginalName();
+
+            // Tách "Mã hiệu" và "Tên file"
+            $fileParts = explode('-', $fileName, 2); // Tách tại dấu '-' đầu tiên
+            $code = isset($fileParts[0]) ? trim($fileParts[0]) : ''; // Mã hiệu
+            $name = isset($fileParts[1]) ? trim($fileParts[1]) : $fileName; // Tên file
+
+            $filePath = $destinationPath . '/' . $fileName;
+
+            if (FileSystem::exists($filePath)) {
+                $existingFiles[] = [
+                    'code' => $code,
+                    'name' => $name,
+                    'path' => $filePath,
+                ];
+                continue;
+            }
+
+            if (!FileSystem::exists($destinationPath)) {
+                FileSystem::makeDirectory($destinationPath, 0755, true);
+            }
+
+            $file->move($destinationPath, $fileName);
+
+            // Lưu thông tin file vào cơ sở dữ liệu
+            $fileRecord = File::create([
+                'name' => $name,
+                'code' => $code,
+                'mime_type' => $file->getClientMimeType(),
+                'path' => $category->name .
+                    ($subCategory ? '/' . $subCategory->name : '') .
+                    ($yearSlug ? '/' . $yearSlug : '') .
+                    '/' . $fileName,
+                'category_id' => $categoryId,
+            ]);
+
+            $importedFiles[] = $fileRecord;
+        }
+
+        if ($existingFiles) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Một số file đã tồn tại.',
+                'existing_files' => $existingFiles,
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Import thành công.',
+            'imported_files' => $importedFiles,
+        ]);
+    }
     public function download($id)
     {
         $file = File::find($id);

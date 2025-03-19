@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\File;
 use App\Models\Category;
+use Carbon\Carbon;
 
 class CategoryController extends Controller
 {
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     {
         try {
             $categories = Category::where('parent_id', null)
-                ->with('childrenRecursive')  
+                ->with('childrenRecursive')
                 ->orderBy('id', 'asc')
                 ->get();
 
@@ -41,7 +42,7 @@ class CategoryController extends Controller
                 'status' => true,
                 'parent_categories' => $parent_categories,
             ]);
-            
+
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
@@ -50,15 +51,14 @@ class CategoryController extends Controller
         }
     }
 
-    public function showFiles($categoryId)
+    public function showFiles(Request $request, $categoryId)
     {
         try {
             $category = Category::with(['parent', 'files'])->findOrFail($categoryId);
-            
             $slugParts = [];
             $breadcrumbs = [];
             $currentCategory = $category;
-            
+
             while ($currentCategory) {
                 array_unshift($slugParts, $currentCategory->name);
                 array_unshift($breadcrumbs, [
@@ -71,7 +71,7 @@ class CategoryController extends Controller
             if (count($slugParts) > 1) {
                 array_pop($slugParts);
             }
-            
+
             $permissionSlug = implode('.', $slugParts) . '.manage';
             if (!Gate::allows($permissionSlug)) {
                 return response()->json([
@@ -80,12 +80,66 @@ class CategoryController extends Controller
                 ], 403);
             }
 
-            $files = $category->files()
-            ->select('id', 'name', 'mime_type', 'path','author', 'created_at', 'updated_at')
-            ->paginate(10); 
+            $query = $category->files()
+                ->select('id', 'name', 'mime_type', 'path', 'author', 'code', 'effective_date', 'revision_number', 'created_at', 'updated_at')
+                ->orderBy('id', 'desc');
+
+            $data = $request->input('data');
+            $startTime = $request->input('start_time');
+            $endTime = $request->input('end_time');
+
+            if ($data) {
+                $query->where(function ($q) use ($data) {
+                    $q->where('name', 'LIKE', "%{$data}%")
+                        ->orWhere('code', 'LIKE', "%{$data}%")
+                        ->orWhere('author', 'LIKE', "%{$data}%");
+                });
+            }
+
+            if ($startTime && $endTime) {
+                try {
+                    $start = Carbon::createFromTimestamp((int)$startTime)
+                        ->setTimezone('Asia/Ho_Chi_Minh')
+                        ->startOfDay();
+                    $end = Carbon::createFromTimestamp((int)$endTime)
+                        ->setTimezone('Asia/Ho_Chi_Minh')
+                        ->endOfDay();
+                    $query->whereBetween('created_at', [$start, $end]);
+                } catch (\Exception $e) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'Invalid date format'
+                    ], 400);
+                }
+            } elseif ($startTime) {
+                try {
+                    $start = Carbon::createFromTimestamp((int)$startTime)
+                        ->setTimezone('Asia/Ho_Chi_Minh')
+                        ->startOfDay();
+                    $query->whereDate('created_at', '>=', $start);
+                } catch (\Exception $e) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'Invalid start date'
+                    ], 400);
+                }
+            } elseif ($endTime) {
+                try {
+                    $end = Carbon::createFromTimestamp((int)$endTime)
+                        ->setTimezone('Asia/Ho_Chi_Minh')
+                        ->endOfDay();
+                    $query->whereDate('created_at', '<=', $end);
+                } catch (\Exception $e) {
+                    return response()->json([
+                        'status' => false,
+                        'message' => 'Invalid end date'
+                    ], 400);
+                }
+            }
+
+            $files = $query->paginate(10);
 
             $baseSlug = implode('.', $slugParts);
-            
             return response()->json([
                 'status' => true,
                 'data' => [
@@ -102,14 +156,8 @@ class CategoryController extends Controller
                         'per_page' => $files->perPage(),
                         'total' => $files->total(),
                     ],
-                    // 'permissions' => [
-                    //     'can_upload' => Gate::allows($baseSlug . '.upload'),
-                    //     'can_delete' => Gate::allows($baseSlug . '.delete'),
-                    //     'can_download' => Gate::allows($baseSlug . '.download')
-                    // ]
                 ]
             ]);
-
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
@@ -117,12 +165,13 @@ class CategoryController extends Controller
             ], 500);
         }
     }
-    
+
     public function uploadFile(Request $request, $categoryId)
     {
         try {
             $category = Category::with(['parent', 'children'])->findOrFail($categoryId);
-            $displayname = Auth::guard( 'admin' )->user()->display_name;
+            $username = Auth::guard('admin')->user()->username;
+
             if ($category->children->count() > 0) {
                 return response()->json([
                     'status' => false,
@@ -133,17 +182,16 @@ class CategoryController extends Controller
             $slugParts = [];
             $folderParts = [];
             $currentCategory = $category;
-            
             while ($currentCategory) {
                 array_unshift($slugParts, $currentCategory->name);
                 array_unshift($folderParts, $currentCategory->name);
                 $currentCategory = $currentCategory->parent;
             }
-            
+
             if (count($slugParts) > 1) {
                 array_pop($slugParts);
             }
-            
+
             $permissionSlug = implode('.', $slugParts) . '.upload';
             if (!Gate::allows($permissionSlug)) {
                 return response()->json([
@@ -153,49 +201,53 @@ class CategoryController extends Controller
             }
 
             $storagePath = implode('/', $folderParts);
-
             $request->validate([
                 'files' => 'required|array',
-                'files.*' => 'required|file|max:10240',
+                'files.*' => 'required|file',
             ]);
 
             $uploadedFiles = [];
             $errors = [];
 
-            foreach($request->file('files') as $file) {
+            foreach ($request->file('files') as $file) {
                 try {
                     $originalName = $file->getClientOriginalName();
                     $extension = $file->getClientOriginalExtension();
                     $mimeType = $file->getMimeType();
-                    
-                    $fileName = Str::slug(pathinfo($originalName, PATHINFO_FILENAME)) . 
-                            '_' . time() . '_' . Str::random(8) . 
-                            '.' . $extension;
+
+                    $nameParts = explode('-', $originalName, 3);
+                    $code = isset($nameParts[0], $nameParts[1]) ? trim($nameParts[0] . '-' . $nameParts[1]) : '';
+                    $name = isset($nameParts[2]) ? trim($nameParts[2]) : $originalName;
+
+                    $fileName = Str::slug(pathinfo($name, PATHINFO_FILENAME)) .
+                        '_' . time() . '_' . Str::random(8) .
+                        '.' . $extension;
 
                     $path = $file->storeAs(
-                        'uploads/' . $storagePath, 
-                        $fileName, 
+                        'uploads/' . $storagePath,
+                        $fileName,
                         'public'
                     );
 
                     $fileRecord = new File();
                     $fileRecord->category_id = $category->id;
-                    $fileRecord->name = $originalName;
+                    $fileRecord->name = $name;
+                    $fileRecord->code = $code;
                     $fileRecord->path = $path;
                     $fileRecord->mime_type = $mimeType;
-                    $fileRecord->author = $displayname;
+                    $fileRecord->author = $username;
                     $fileRecord->save();
 
                     $uploadedFiles[] = [
                         'id' => $fileRecord->id,
                         'name' => $fileRecord->name,
+                        'code' => $fileRecord->code,
                         'mime_type' => $fileRecord->mime_type,
                         'path' => Storage::url($fileRecord->path),
                         'author' => $fileRecord->author,
                         'created_at' => $fileRecord->created_at,
                         'updated_at' => $fileRecord->updated_at
                     ];
-
                 } catch (\Exception $e) {
                     $errors[] = [
                         'name' => $originalName ?? 'Unknown file',
@@ -206,14 +258,13 @@ class CategoryController extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => count($uploadedFiles) . ' files uploaded successfully' . 
-                            (count($errors) > 0 ? ' with ' . count($errors) . ' errors' : ''),
+                'message' => count($uploadedFiles) . ' files uploaded successfully' .
+                    (count($errors) > 0 ? ' with ' . count($errors) . ' errors' : ''),
                 'data' => [
                     'uploaded_files' => $uploadedFiles,
                     'errors' => $errors
                 ]
             ]);
-
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
@@ -221,6 +272,7 @@ class CategoryController extends Controller
             ], 500);
         }
     }
+
     public function downloadFile($fileId)
     {
         try {
@@ -229,7 +281,7 @@ class CategoryController extends Controller
 
             $slugParts = [];
             $currentCategory = $category;
-            
+
             while ($currentCategory) {
                 array_unshift($slugParts, $currentCategory->name);
                 $currentCategory = $currentCategory->parent;
@@ -254,10 +306,10 @@ class CategoryController extends Controller
             }
 
             $path = Storage::disk('public')->path($file->path);
-            
+
             return response()->download(
-                $path, 
-                $file->name, 
+                $path,
+                $file->name,
                 ['Content-Type' => $file->mime_type]
             );
 
@@ -276,7 +328,7 @@ class CategoryController extends Controller
 
             $slugParts = [];
             $currentCategory = $category;
-            
+
             while ($currentCategory) {
                 array_unshift($slugParts, $currentCategory->name);
                 $currentCategory = $currentCategory->parent;
@@ -319,8 +371,8 @@ class CategoryController extends Controller
                 'ids' => 'required'
             ]);
 
-            $fileIds = is_array($request->ids) 
-                ? $request->ids 
+            $fileIds = is_array($request->ids)
+                ? $request->ids
                 : array_map('intval', explode(',', $request->ids));
 
             if (empty($fileIds)) {
@@ -333,7 +385,7 @@ class CategoryController extends Controller
             $files = File::with(['category.parent'])
                         ->whereIn('id', $fileIds)
                         ->get();
-            
+
             if ($files->isEmpty()) {
                 return response()->json([
                     'status' => false,
@@ -350,7 +402,7 @@ class CategoryController extends Controller
 
                     $slugParts = [];
                     $currentCategory = $category;
-                    
+
                     while ($currentCategory) {
                         array_unshift($slugParts, $currentCategory->name);
                         $currentCategory = $currentCategory->parent;
@@ -388,7 +440,7 @@ class CategoryController extends Controller
 
             return response()->json([
                 'status' => true,
-                'message' => "Đã xóa thành công {$successCount} file" . 
+                'message' => "Đã xóa thành công {$successCount} file" .
                             (count($errors) > 0 ? " và có " . count($errors) . " file lỗi" : ''),
                 'data' => [
                     'success_count' => $successCount,
@@ -396,6 +448,53 @@ class CategoryController extends Controller
                 ]
             ]);
 
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function editFile($fileId){
+        try {
+            $file = File::findOrFail($fileId);
+
+            return response()->json([
+                'status' => true,
+                'data' => $file
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function updateFile(Request $request,$fileId)
+    {
+        $request->validate([
+            //'name' => 'required|string|max:255',
+            //'code' => 'nullable|string|max:255',
+            'effective_date' => 'string',
+            'revision_number' => 'string',
+        ]);
+
+        try {
+            $file = File::findOrFail($fileId);
+
+            //$file->name = $request->input('name');
+            //$file->code = $request->input('code');
+            $file->effective_date = $request->input('effective_date');
+            $file->revision_number = $request->input('revision_number');
+            $file->save();
+
+            return response()->json([
+                'status' => true,
+                'message' => 'File updated successfully',
+                'data' => $file
+            ]);
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,

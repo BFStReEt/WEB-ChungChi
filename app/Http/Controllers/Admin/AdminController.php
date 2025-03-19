@@ -289,7 +289,7 @@ class AdminController extends Controller {
         $userAdmin->display_name = $request[ 'display_name' ] ? $request[ 'display_name' ] : $userAdmin->display_name;
         $userAdmin->phone = $request[ 'phone' ] ? $request[ 'phone' ] : $userAdmin->phone;
         $userAdmin->status = $request[ 'status' ] ? $request[ 'status' ] : $userAdmin->status;
-            
+
         $filePath = '';
         $disPath = public_path();
         if ($request->hasFile('avatar') && $userAdmin->avatar != $request->avatar) {
@@ -308,4 +308,46 @@ class AdminController extends Controller {
             'displayName' => $userAdmin,
         ] );
     }
+
+    public function deleteMutilLog(Request $request){
+        if (!Gate::allows('THÔNG TIN QUẢN TRỊ.Lịch sử hoạt động.del')) {
+            return response()->json([
+                'status' => false,
+                'message' => 'no permission',
+            ], 403);
+        }
+
+        try {
+            $request->validate([
+                'ids' => 'required|array',
+                'ids.*' => 'exists:roles,id',
+            ]);
+
+            $ids = $request->input('ids');
+
+            Role::whereIn('id', $ids)->delete();
+
+            $admin = Auth::guard('admin')->user();
+            $nows = now()->timestamp;
+
+            DB::table('adminlogs')->insert([
+                'admin_id' => $admin->id,
+                'time' => $nows,
+                'ip' => $request->ip() ?? null,
+                'action' => 'delete log',
+                'cat' => $admin->display_name,
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'message' => 'success'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
 }

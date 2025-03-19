@@ -21,6 +21,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     //Log
     Route::get('/select-name-admin',[AdminController::class,'showSelectAdmin']);
     Route::get('/admin-log',[AdminController::class,'log']);
+    Route::delete('/delete-logadmin',[AdminController::class,'deleteLog']);
 
     Route::delete('/delete-all-admin',[AdminController::class,'delete']);
 
@@ -36,7 +37,6 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
 
 // Category
 Route::group(['middleware' => 'admin', 'prefix' => 'categories'], function () {
-    //Route::get('/{categorySlug}/{subCategorySlug?}/{yearSlug?}', [CategoryController::class, 'show']);
     Route::get('/',[CategoryController::class,'show']);
 });
 
@@ -48,3 +48,5 @@ Route::get('files/{fileId}/download', [CategoryController::class, 'downloadFile'
 
 Route::delete('files/{fileId}', [CategoryController::class, 'deleteFile']);
 Route::post('files/delete-multiple', [CategoryController::class, 'deleteMultipleFiles']);
+Route::get('files/{id}/edit', [CategoryController::class, 'editFile']);
+Route::patch('files/update/{id}', [CategoryController::class, 'updateFile']);
