@@ -204,6 +204,7 @@ class CategoryController extends Controller
             $request->validate([
                 'files' => 'required|array',
                 'files.*' => 'required|file',
+                'google_id' => 'required|string',
             ]);
 
             $uploadedFiles = [];
@@ -236,6 +237,7 @@ class CategoryController extends Controller
                     $fileRecord->path = $path;
                     $fileRecord->mime_type = $mimeType;
                     $fileRecord->author = $username;
+                    $fileRecord->google_id = $google_id;
                     $fileRecord->save();
 
                     $uploadedFiles[] = [
@@ -245,6 +247,7 @@ class CategoryController extends Controller
                         'mime_type' => $fileRecord->mime_type,
                         'path' => Storage::url($fileRecord->path),
                         'author' => $fileRecord->author,
+                        'google_id' => $fileRecord->google_id,
                         'created_at' => $fileRecord->created_at,
                         'updated_at' => $fileRecord->updated_at
                     ];

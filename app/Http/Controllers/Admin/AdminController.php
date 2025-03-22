@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Adminlog;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -310,33 +311,22 @@ class AdminController extends Controller {
     }
 
     public function deleteMutilLog(Request $request){
-        if (!Gate::allows('THÔNG TIN QUẢN TRỊ.Lịch sử hoạt động.del')) {
-            return response()->json([
-                'status' => false,
-                'message' => 'no permission',
-            ], 403);
-        }
-
         try {
             $request->validate([
                 'ids' => 'required|array',
-                'ids.*' => 'exists:roles,id',
+                'ids.*' => 'exists:adminlogs,id',
             ]);
 
             $ids = $request->input('ids');
+            if (is_array($ids)) {
+                $ids = implode(",", $ids);
+            }
 
-            Role::whereIn('id', $ids)->delete();
+            $idsArray = explode(",", $ids);
 
-            $admin = Auth::guard('admin')->user();
-            $nows = now()->timestamp;
+            $theories = Adminlog::whereIn('id', $idsArray)->get();
 
-            DB::table('adminlogs')->insert([
-                'admin_id' => $admin->id,
-                'time' => $nows,
-                'ip' => $request->ip() ?? null,
-                'action' => 'delete log',
-                'cat' => $admin->display_name,
-            ]);
+            Adminlog::whereIn('id', $idsArray)->delete();
 
             return response()->json([
                 'status' => true,
@@ -345,7 +335,7 @@ class AdminController extends Controller {
         } catch (\Exception $e) {
             return response()->json([
                 'status' => false,
-                'message' => $e->getMessage()
+                'message' => 'Lỗi khi xóa dữ liệu: ' . $e->getMessage()
             ], 500);
         }
     }

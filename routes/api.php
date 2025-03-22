@@ -21,9 +21,9 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     //Log
     Route::get('/select-name-admin',[AdminController::class,'showSelectAdmin']);
     Route::get('/admin-log',[AdminController::class,'log']);
-    Route::delete('/delete-logadmin',[AdminController::class,'deleteLog']);
 
     Route::delete('/delete-all-admin',[AdminController::class,'delete']);
+    Route::delete('/delete-multiplelog-admin',[AdminController::class,'deleteMutilLog']);
 
     // Role
     Route::resource('roles', RoleController::class);
